@@ -222,7 +222,7 @@
                 <ul class="tab_box">
                     <li class="tabBox_active">
                         <div>
-                            <p>Taking an all-in-focus image, a potential imperfect dispairty map, and some controlling parameters as input, BokehMe can produce artifact-free and highly controllable bokeh effects by combining a classical renderer and a neural renderer.</p>
+                            <p> Overview of the neural video depth stabilizer. Our framework consists of a depth predictor and a stabilization network. The depth predictor can be any single-image depth model which produces initial flickering disparity maps. Then, the stabilization network refines the flickering disparity maps into temporally consistent ones. The stabilization network functions in a sliding window manner: the frame to be predicted fetches information from adjacent frames for stabilization. During inference, our NVDS framework can be directly adapted to any off-the-shelf depth predictors in a plug-and-play manner. We also devise bidirectional inference to further improve consistency.</p>
                             <!-- <div style="text-align: center;"><a href="img/framework.png" target="_blank"><img src="img/framework.png" alt="Framework" width="60%"></a></div> -->
                             <div style="text-align: center;"><img src="img/pipeline_0307.png" alt="Framework" width="100%"></div>
                         </div>

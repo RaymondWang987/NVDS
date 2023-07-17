@@ -14,7 +14,7 @@
 [Guosheng Lin](https://guosheng.github.io/)<sup>3</sup>
 
 
-- Institutes: <sup>1</sup>Huazhong University of Science and Technology,<sup>2</sup>Adobe Research,<sup>3</sup>S-Lab, Nanyang Technological University
+- Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</sup>Adobe Research, <sup>3</sup>Nanyang Technological University
 
 ### [Arxiv]() | [Supp-Video]() | Supp | Demo-Video | Project Page | VDW Dataset (Coming Soon)
 

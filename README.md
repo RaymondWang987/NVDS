@@ -16,7 +16,7 @@
 
 - Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</sup>Adobe Research, <sup>3</sup>Nanyang Technological University
 
-### [Arxiv]() | [Supp-Video]() | Supp | Demo-Video | Project Page | VDW Dataset (Coming Soon)
+### [Arxiv]() | [Supp-Video](https://youtu.be/vRYJb-T4Sxw) | Supp | Demo-Video | Project Page | VDW Dataset (Coming Soon)
 
 ## 😎 Highlights
 **NVDS is the first plug-and-play stabilizer** that can remove flickers from any single-image depth model without extra effort. Besides, we also introduce a large-scale dataset, **Video Depth

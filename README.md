@@ -14,7 +14,7 @@
 [Guosheng Lin](https://guosheng.github.io/)<sup>3</sup>
 
 
-- Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</sup>Adobe Research, <sup>3</sup>S-Lab, Nanyang Technological University
+- Institutes: <sup>1</sup>Huazhong University of Science and Technology,<sup>2</sup>Adobe Research,<sup>3</sup>S-Lab, Nanyang Technological University
 
 ### [Arxiv]() | [Supp-Video]() | Supp | Demo-Video | Project Page | VDW Dataset (Coming Soon)
 
@@ -26,7 +26,7 @@ in the Wild (VDW)**, which consists of 14,203 videos with over two million frame
 + [2023.07.16] Our work is accepted by ICCV2023.
 + [2023.07.18] The [Arxiv]() version of our NVDS paper is released.
 + [TODO] We will build our project page with video demos and the official website of VDW dataset.
-+ [TODO] We will gradually release our NVDS model and VDW dataset for future works in the community. Stay tuned!
++ [TODO] We will gradually release NVDS model and VDW dataset for the community. Stay tuned!
 
 ##  🌼 Abstract
 Video depth estimation aims to infer temporally consistent depth. Some methods achieve temporal consistency by finetuning a single-image depth model during test time using geometry and re-projection constraints, which is inefficient and not robust. An alternative approach is to learn how to enforce temporal consistency from data, but this requires well-designed models and sufficient video depth data. To address these challenges, we propose a plug-and-play framework called Neural Video Depth Stabilizer (NVDS) that stabilizes inconsistent depth estimations and can be applied to different single-image depth models without extra effort. We also introduce a large-scale dataset, Video Depth in the Wild (VDW), which consists of 14,203 videos with over two million frames, making it the largest natural-scene video depth dataset to our knowledge. We evaluate our method on the VDW dataset as well as two public benchmarks and demonstrate significant improvements in consistency, accuracy, and efficiency compared to previous approaches. Our work serves as a solid baseline and provides a data foundation for learning-based video depth models. We will release our dataset and code for future research.

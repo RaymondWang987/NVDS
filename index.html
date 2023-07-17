@@ -222,21 +222,21 @@
                 <ul class="tab_box">
                     <li class="tabBox_active">
                         <div>
-                            <p> Overview of the neural video depth stabilizer. Our framework consists of a depth predictor and a stabilization network. The depth predictor can be any single-image depth model which produces initial flickering disparity maps. Then, the stabilization network refines the flickering disparity maps into temporally consistent ones. The stabilization network functions in a sliding window manner: the frame to be predicted fetches information from adjacent frames for stabilization. During inference, our NVDS framework can be directly adapted to any off-the-shelf depth predictors in a plug-and-play manner. We also devise bidirectional inference to further improve consistency.</p>
+                            <p>Overview of the neural video depth stabilizer. Our framework consists of a depth predictor and a stabilization network. The depth predictor can be any single-image depth model which produces initial flickering disparity maps. Then, the stabilization network refines the flickering disparity maps into temporally consistent ones. The stabilization network functions in a sliding window manner: the frame to be predicted fetches information from adjacent frames for stabilization. During inference, our NVDS framework can be directly adapted to any off-the-shelf depth predictors in a plug-and-play manner. We also devise bidirectional inference to further improve consistency.</p>
                             <!-- <div style="text-align: center;"><a href="img/framework.png" target="_blank"><img src="img/framework.png" alt="Framework" width="60%"></a></div> -->
                             <div style="text-align: center;"><img src="img/pipeline_0307.png" alt="Framework" width="100%"></div>
                         </div>
                     </li>
                     <li>
                         <div>
-                            <p>The classical renderer is implemented by a scattering-based method. To determine the areas rendered incorrectly by this method, we conduct an analysis on the error between scattering-based rendering and real rendering on a virtual lens system and derive an error map which identifies these areas.</p>
+                            <p>Visual comparisons. DeepV2D and Robust-CVD  show obvious artifacts in those videos. We draw the scanline slice over time; fewer zigzagging pattern means better consistency. Compared with the other video depth methods, our NVDS is more robust on natural scenes and achieves better spatial accuracy and temporal consistency.</p>
                             <!-- <div style="text-align: center;"><a href="img/error_analysis.png" target="_blank"><img src="img/error_analysis.png" alt="Error Analysis" width="100%"></a></div> -->
                             <div style="text-align: center;"><img src="img/qiepian.png" alt="Error Analysis" width="100%"></div>
                         </div>
                     </li>
                     <li>
                         <div>
-                            <p>The neural renderer aims to handle the areas rendered incorrectly by the classical renderer and overcome the limitations of the blur range. To this end, we first use ARNet to adaptively resize the input and produce a low-resolution error map and a low-resolution bokeh image. Then, the bokeh image is iteratively upsampled by IUNet without losing quality, while the error map is bilinearly upsampled, which enables a smooth fusion of the rendered results from the two renderers.</p>
+                            <p>Comparisons with the state-of-the-art approaches. We report the total time of processing eight 640 × 480 frames by different methods on one NVIDIA RTX A6000 GPU. Best performance is in boldface. Second best is underlined.</p>
                             <!-- <div style="text-align: center;"><a href="img/neural_renderer.png" target="_blank"><img src="img/neural_renderer.png" alt="Neural Renderer" width="100%"></a></div> -->
                             <div style="text-align: center;"><img src="img/tab1.png" alt="Neural Renderer" width="100%"></div>
                         </div>
@@ -257,7 +257,7 @@
             </div>
 
             <div class="paper-text">
-                <p>We release the BLB dataset rendered by Blender 2.93. The dataset contains 10 scenes, each consisting of an all-in-focus image, a disparity map, a stack of bokeh images with 5 blur amounts and 10 refocused disparities, and a parameter file. We additionally provide 15 corrupted disparity maps (through gaussian blur, dilation, erosion) for each scene. All 3D Blender models come from <a href="https://cloud.blender.org/p/gallery" target="_blank">https://cloud.blender.org/p/gallery</a>. Our BLB dataset can be downloaded from <a href="https://drive.google.com/drive/folders/1URpab6AXQsNTqcBcighF73w5pFlvM0Ej?usp=sharing" target="_blank"><u>Google Drive</u></a> or <a href="https://pan.baidu.com/s/1U0XlFM_84-vVgnXGYz0ncQ?pwd=re8q" target="_blank"><u>Baidu Netdisk</u></a>.
+                <p>Current video depth datasets are limited in both diversity and volume. To compensate for the data shortage and boost the performance of learning-based video depth models, we elaborate a large-scale natural- scene dataset, Video Depth in the Wild (VDW). We collect stereo videos from four data sources: movies, animations, documentaries, and web videos. To our best knowledge, our VDW dataset is currently the largest video depth dataset with the most diverse video scenes. We will build the official website to release VDW dataset for the community. We will update the website and links when we are ready. Stay tuned!</p>.
             </div>
             <div style="text-align: center;"><img src="img/gt_supp1.png" alt="Error Analysis" width="100%"></div>
             <!-- <table width="95%" align="center">
@@ -292,7 +292,7 @@
             <div class="paper-text">
                 <textarea class="form-control placeholder" readonly="" style="height: 155px; resize: none;">@inproceedings{Wang2023NVDS,
   title = {Neural Video Depth Stabilizer},
-  author = {Yiran, Wang and Min, Shi and Jiaqi, Li and Zihao, Huang and Zhiguo, Cao and Jianming, Zhang and Ke, Xian and Guosheng, Lin},
+  author = {Yiran, Wang and Min, Shi and Jiaqi, Li and Zihao, Huang and <br> Zhiguo, Cao and Jianming, Zhang and Ke, Xian and Guosheng, Lin},
   booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
   year = {2023}
 }</textarea>

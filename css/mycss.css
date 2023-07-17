@@ -1,0 +1,195 @@
+/*.paper-title {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 3.6rem;
+}*/
+
+.paper-author {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.8rem;
+}
+
+.paper-institution {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.8rem;
+}
+
+.paper-conference {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.4rem;
+}
+
+.paper-text {
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: justify; 
+}
+
+
+.paper-icon svg {
+    transition: all 0.3s;
+}
+
+.paper-icon :hover {
+    /*cursor: pointer;*/
+    /*fill: yellow;*/
+    width: 65px;
+    height: 65px;
+    transition: all 0.3s;
+}
+
+
+.tab_contents ul {
+    /*text-align: center;*/
+    padding: 0px;
+    list-style: none;
+    /*display: flex;*/
+}
+
+.tab_contents {
+    /*width: 700px;*/
+    text-align: justify; 
+}
+
+.tab_contents .tab_nav {
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+
+.tab_contents .tab_nav li {
+    text-align: center;
+    padding: 10px 30px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+    color: #607291;
+    cursor: pointer;
+    /*display: flex;*/
+    overflow: hidden;
+}
+
+
+#method .tab_contents .tab_nav li {
+    width: 250px;
+    background: #f7f8f9;
+
+}
+
+#result .tab_contents .tab_nav li {
+    width: 200px;
+    background: white;
+
+}
+
+.tab_contents .tab_nav li h5 {
+    /*font-weight: bold;*/
+    font-size: 18px;
+    margin: 0px;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.tab_contents .tab_nav li:hover h5 {
+    opacity: 1;
+}
+
+#method .tab_contents .tabNav_active {
+    background: white !important;
+}
+
+#result .tab_contents .tabNav_active {
+    background: #f7f8f9 !important;
+}
+
+.tab_contents .tabNav_active h5 {
+    opacity: 1 !important;
+}
+
+.tab_contents .tab_box {
+    /*border-radius: 15px;*/
+    padding: 30px 20px 0px;
+    /*margin: 0px 10px;*/
+    margin: 0px;
+    /*background: white;*/
+}
+
+#method .tab_contents .tab_box {
+    background: white;
+}
+
+#result .tab_contents .tab_box {
+    background: #f7f8f9;
+}
+
+.tab_contents .tab_box li {
+    display: none;
+}
+
+.tab_contents .tabBox_active {
+    display: block !important;
+}
+
+
+#paper-method ul li.on {
+    border-top:2px solid Saddlebrown; border-bottom:2px solid #FFF;
+}
+
+#paper-method div {
+    height:100px;width:250px; line-height:24px;border-top:none;  padding:1px; border:1px solid #336699;padding:10px;
+}.hide{display: none;}*/
+
+
+
+image-comparison, image-comparison * {
+    box-sizing: border-box;
+}
+
+image-comparison {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+    cursor: ew-resize;
+    --current-position: 50%; /* Default starting split */
+    overflow: hidden;
+}
+
+image-comparison::before, image-comparison::after {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-repeat: none;
+    background-size: cover;
+}
+
+image-comparison::before {
+    background-image: var(--image1);
+    left: 0;
+}
+
+image-comparison::after {
+    background-image: var(--image2);
+    right: 0;
+
+    /* Change clip-path polygon dimensions with mouse position */
+    clip-path: polygon(var(--current-position) 0%, 100% 0, 100% 100%, var(--current-position) 100%);
+}
+
+
+.select-scene {
+    opacity: 0.4;
+    transition: opacity 0.3s;
+}
+
+.select-scene:hover {
+    cursor: pointer;
+    opacity: 1 !important;
+    transition: opacity 0.3s;
+}

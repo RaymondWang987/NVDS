@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<!--
+    Moon by GetTemplates.co
+    URL: https://gettemplates.co
+-->
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BokehMe</title>
+    <meta name="description" content="Core HTML Project">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="shortcut icon" href="./img/favicon.ico">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" href="vendor/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="vendor/lightcase/lightcase.css">
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="css/mycss.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Work+Sans:300,400,700" rel="stylesheet"> -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <!-- <link href="https://file.myfontastic.com/7vRKgqrN3iFEnLHuqYhYuL/icons.css" rel="stylesheet"> -->
+
+    <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script> -->
+
+    <!-- pjw fontawesome.com -->
+    <!-- <script src="https://kit.fontawesome.com/4db0969a88.js" crossorigin="anonymous"></script> -->
+
+</head>
+
+<body data-spy="scroll" data-target="#navbar-nav-header" class="static-layout">
+    <div class="boxed-page">
+        <nav id="gtco-header-navbar" class="navbar navbar-expand-lg py-4">
+    <div class="container">
+        <!-- <a class="navbar-brand d-flex align-items-center" href="/">
+            <span class="lnr lnr-moon"></span>
+        </a> -->
+        <div style="transform: translateY(-5px);"><img src="img/bokehme_logo.png" alt="Brand" width="120"></div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="lnr lnr-menu"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar-nav-header">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                &nbsp;
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/JuewenPeng/BokehMe" target="_blank">GitHub</a>
+                </li>
+                &nbsp;
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/JuewenPeng/BokehMe/blob/main/pdf/BokehMe.pdf" target="_blank">Paper</a>
+                </li>
+                &nbsp;
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/JuewenPeng/BokehMe/blob/main/pdf/BokehMe-supp.pdf" target="_blank">Supp</a>
+                </li>
+                &nbsp;
+                <li class="nav-item">
+                    <a class="nav-link" href="#dataset">Dataset</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>  
+
+
+<section id="title" class="bg-white" style="padding-top: 80px;">
+  <div class="container text-center" style="padding-left: 20px; padding-right: 20px;">
+    <!-- <div class="paper-title">BokehMe: When Neural Rendering Meets<br>Classical Rendering</div> -->
+    <h2 style="margin-top: 10px;"><b>BokehMe: When Neural Rendering Meets<br>Classical Rendering</b></h2>
+    <br>
+    <div class="paper-author">
+        <a href="https://scholar.google.com/citations?hl=en&user=fYC6lCUAAAAJ" target="_blank">Juewen Peng</a><sup>1</sup>,&nbsp;
+        <a href="http://english.aia.hust.edu.cn/info/1085/1528.htm" target="_blank">Zhiguo Cao</a><sup>1</sup>,&nbsp;
+        <a href="https://scholar.google.com/citations?hl=en&user=tUeWQ5AAAAAJ" target="_blank">Xianrui Luo</a><sup>1</sup>,&nbsp;
+        <a href="http://faculty.hust.edu.cn/LUHAO/en/index.htm" target="_blank">Hao Lu</a><sup>1</sup>,&nbsp;
+        <a href="https://sites.google.com/site/kexian1991/" target="_blank">Ke Xian</a><sup>1&thinsp;*</sup>,&nbsp;
+        <a href="https://jimmie33.github.io/" target="_blank">Jianming Zhang</a><sup>2</sup>
+    </div>
+    <br>
+    <div class="paper-institution">
+        <sup>1</sup>Huazhong University of Science and Technology<br>
+        <sup>2</sup>Adobe Research
+    </div>
+    <br>
+    <div class="paper-conference">CVPR 2022 (Oral Presentation)</div>
+    <!-- <br> -->
+    <div class="paper-teaser" style="padding-top: 15px;"><img src="img/teaser.jpg" alt="Teaser Image"></div>
+    <br>
+    <br>
+    <br>
+  </div>
+</section>
+
+
+<section id="gtco-counter" class="overlay bg-fixed">
+    <div class="container">
+        <div class="section-content">
+            <div class="row" style="min-height: 115px">
+                <!-- Counter Item -->
+                <div class="col-md-3 col-sm-6 counter-item">
+                    <a class="paper-icon nav-link" href="https://github.com/JuewenPeng/BokehMe" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="white" class="bi bi-github" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                    </a>
+                    <h5 style="margin-top: 10px; height: 20px;">GitHub</h5>
+                </div>
+                <!-- End of Counter Item -->
+                <!-- Counter Item -->
+                <div class="col-md-3 col-sm-6 counter-item">
+                    <a class="paper-icon nav-link" href="https://github.com/JuewenPeng/BokehMe/blob/main/pdf/BokehMe.pdf" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="white" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                            <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                            <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+                        </svg>
+                    </a>
+                    <h5 style="margin-top: 10px; height: 20px;">Paper</h5>
+                </div>
+                <!-- End of Counter Item -->
+                <!-- Counter Item -->
+                <div class="col-md-3 col-sm-6 counter-item">
+                    <a class="paper-icon nav-link" href="https://github.com/JuewenPeng/BokehMe/blob/main/pdf/BokehMe-supp.pdf" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="white" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+                            <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
+                            <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
+                        </svg>
+                    </a>
+                    <h5 style="margin-top: 10px; height: 20px;">Supplementary<br>Material</h5>
+                </div>
+                <!-- End of Counter Item -->
+                <!-- Counter Item -->
+                <div class="col-md-3 col-sm-6 counter-item">
+                    <a class="paper-icon nav-link" href="#dataset">
+                        <svg t="1648022423359" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2247" width="60" height="60" fill="white">
+                            <path d="M512 0c-215.79776 0-448 65.06496-448 207.99488l0 608.01024c0 142.88896 232.20224 207.99488 448 207.99488 215.77728 0 448-65.1264 448-207.99488l0-608.01024c0-142.9504-232.26368-207.99488-448-207.99488zM896 816.00512c0 79.48288-171.9296 143.99488-384 143.99488-212.09088 0-384-64.512-384-143.99488l0-119.54176c66.10944 68.13696 225.60768 103.54688 384 103.54688s317.89056-35.4304 384-103.54688l0 119.54176zM896 624.00512l-0.12288 0c0 0.32768 0.12288 0.67584 0.12288 0.98304 0 79.01184-171.9296 143.01184-384 143.01184s-384-64-384-143.01184c0-0.32768 0.12288-0.67584 0.12288-0.98304l-0.12288 0 0-119.56224c66.10944 68.13696 225.60768 103.54688 384 103.54688s317.89056-35.4304 384-103.54688l0 119.56224zM896 432.00512l-0.12288 0c0 0.32768 0.12288 0.67584 0.12288 0.98304 0 79.01184-171.9296 143.01184-384 143.01184s-384-64-384-143.01184c0-0.32768 0.12288-0.67584 0.12288-0.98304l-0.12288 0 0-109.95712c83.8656 63.8976 237.60896 93.94176 384 93.94176s300.1344-30.04416 384-93.94176l0 109.95712zM512 352.01024c-212.09088 0-384-64.512-384-143.99488 0-79.54432 171.90912-143.99488 384-143.99488 212.0704 0 384 64.45056 384 143.99488 0 79.48288-171.9296 143.99488-384 143.99488zM768 832c0-17.67424 14.336-32.01024 32.01024-32.01024s32.01024 14.336 32.01024 32.01024c0 17.67424-14.336 32.01024-32.01024 32.01024s-32.01024-14.336-32.01024-32.01024zM768 640c0-17.67424 14.336-32.01024 32.01024-32.01024s32.01024 14.336 32.01024 32.01024c0 17.67424-14.336 32.01024-32.01024 32.01024s-32.01024-14.336-32.01024-32.01024zM768 448c0-17.67424 14.336-32.01024 32.01024-32.01024s32.01024 14.336 32.01024 32.01024c0 17.67424-14.336 32.01024-32.01024 32.01024s-32.01024-14.336-32.01024-32.01024z" p-id="2248"></path>
+                        </svg>
+                    </a>
+                    <h5 style="margin-top: 10px; height: 20px;">Dataset</h5>
+                </div>
+                <!-- End of Counter Item -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End of Counter Section --> 
+
+
+<section id="video" class="bg-white">
+    <div class="container" style="padding-left: 20px; padding-right: 20px;">
+        <div class="section-content">
+            <div class="title-warp">
+                <h2 class="section-title">Video</h2>
+            </div>
+            <div class="body">
+                <div style="position: relative; padding-top: 55%; text-align: center;">
+                    <iframe style="position: absolute; top: 2.5%; left: 2.5%; width: 95%; height: 100%;" src="https://www.youtube.com/embed/e-zr_wCxNc8" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+                </div>
+                <!-- <video width="100%" controls>
+                    <source src="img/video.mp4"  type="video/mp4">
+                </video> -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="abstract" class="bg-grey">
+    <div class="container" style="padding-left: 20px; padding-right: 20px;">
+        <div class="section-content">
+            <div class="title-warp">
+                <h2 class="section-title">Abstract</h2>
+            </div>
+            <div class="paper-text">
+                <p>
+                    We propose BokehMe, a hybrid bokeh rendering framework that marries a neural renderer with a classical physically motivated renderer. Given a single image and a potentially imperfect disparity map, BokehMe generates high-resolution photo-realistic bokeh effects with adjustable blur size, focal plane, and aperture shape. To this end, we analyze the errors from the classical scattering-based method and derive a formulation to calculate an error map. Based on this formulation, we implement the classical renderer by a scattering-based method and propose a two-stage neural renderer to fix the erroneous areas from the classical renderer. The neural renderer employs a dynamic multi-scale scheme to efficiently handle arbitrary blur sizes, and it is trained to handle imperfect disparity input. Experiments show that our method compares favorably against previous methods on both synthetic image data and real image data with predicted disparity. A user study is further conducted to validate the advantage of our method.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="method" class="bg-white">
+    <div class="container" style="padding-left: 20px; padding-right: 20px;">
+        <div class="section-content">
+            <div class="title-warp">
+                <h2 class="section-title">Method</h2>
+            </div>
+
+            <div class="tab_contents">
+                <ul class="tab_nav">
+                    <li class="tabNav_active">
+                        <h5>Framework</h5>
+                    </li>
+                    <li>
+                        <h5>Classical Renderer</h5>
+                    </li>
+                    <li>
+                        <h5>Neural Renderer</h5>
+                    </li>
+                </ul>
+                <ul class="tab_box">
+                    <li class="tabBox_active">
+                        <div>
+                            <p>Taking an all-in-focus image, a potential imperfect dispairty map, and some controlling parameters as input, BokehMe can produce artifact-free and highly controllable bokeh effects by combining a classical renderer and a neural renderer.</p>
+                            <br>
+                            <!-- <div style="text-align: center;"><a href="img/framework.png" target="_blank"><img src="img/framework.png" alt="Framework" width="60%"></a></div> -->
+                            <div style="text-align: center;"><img src="img/framework.jpg" alt="Framework" width="70%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>The classical renderer is implemented by a scattering-based method. To determine the areas rendered incorrectly by this method, we conduct an analysis on the error between scattering-based rendering and real rendering on a virtual lens system and derive an error map which identifies these areas.</p>
+                            <br>
+                            <!-- <div style="text-align: center;"><a href="img/error_analysis.png" target="_blank"><img src="img/error_analysis.png" alt="Error Analysis" width="100%"></a></div> -->
+                            <div style="text-align: center;"><img src="img/error_analysis.jpg" alt="Error Analysis" width="100%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <p>The neural renderer aims to handle the areas rendered incorrectly by the classical renderer and overcome the limitations of the blur range. To this end, we first use ARNet to adaptively resize the input and produce a low-resolution error map and a low-resolution bokeh image. Then, the bokeh image is iteratively upsampled by IUNet without losing quality, while the error map is bilinearly upsampled, which enables a smooth fusion of the rendered results from the two renderers.</p>
+                            <br>
+                            <!-- <div style="text-align: center;"><a href="img/neural_renderer.png" target="_blank"><img src="img/neural_renderer.png" alt="Neural Renderer" width="100%"></a></div> -->
+                            <div style="text-align: center;"><img src="img/neural_renderer.jpg" alt="Neural Renderer" width="100%"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="result" class="bg-grey">
+    <div class="container" style="padding-left: 20px; padding-right: 20px;">
+        <div class="section-content">
+            <div class="title-warp">
+                <h2 class="section-title">Visualization</h2>
+            </div>
+
+            <div class="tab_contents">
+                <ul class="tab_nav">
+                    <li class="tabNav_active">
+                        <h5>BLB</h5>
+                    </li>
+                    <li>
+                        <h5>EBB400</h5>
+                    </li>
+                    <li>
+                        <h5>IPB</h5>
+                    </li>
+                    <li>
+                        <h5>Animation</h5>
+                    </li>
+                </ul>
+                <ul class="tab_box">
+                    <li class="tabBox_active">
+                        <div style="text-align: center;">
+                            <p>Results on the BLB dataset which is rendered by Blender 2.93.</p>
+                            <table width="100%" style="margin-top: 20px; margin-bottom: 5px;">
+                                <tr>
+                                    <td class="select-scene" id="select-scene-blb-277" onclick="selectSceneBLB(277)" style="padding-left: 0px; opacity: 1;"><img src="img/BLB/data/277/image.jpg" alt="BLB image 1"></td>
+                                    <td class="select-scene" id="select-scene-blb-280" onclick="selectSceneBLB(280)"><img src="img/BLB/data/280/image.jpg" alt="BLB image 2"></td>
+                                    <td class="select-scene" id="select-scene-blb-281" onclick="selectSceneBLB(281)"><img src="img/BLB/data/281/image.jpg" alt="BLB image 3"></td>
+                                    <td class="select-scene" id="select-scene-blb-283" onclick="selectSceneBLB(283)"><img src="img/BLB/data/283/image.jpg" alt="BLB image 4"></td>
+                                    <td class="select-scene" id="select-scene-blb-293" onclick="selectSceneBLB(293)" style="padding-right: 0px;"><img src="img/BLB/data/293/image.jpg" alt="BLB image 5"></td>
+                                </tr>
+                            </table>
+
+                            <image-comparison id="compare-method-blb" style="--image1: url('../img/BLB/data/277/image.jpg'); --image2: url('../img/BLB/ours/277/bokeh_04_05.jpg'); margin-bottom: 5px;">
+                                <img id="base-method-blb" src="img/BLB/data/277/image.jpg">
+                            </image-comparison>
+                            
+
+                            <table width="100%">
+                                <tr>
+                                    <td align="left">
+                                        <select style="width: 130px;" id="select-method-blb-left" onchange="selectMethodBLB('left')">
+                                            <option value="image" selected="selected">All-in-Focus</option>
+                                            <option value="disparity">Disparity</option>
+                                            <option value="gt">Ground Truth</option>
+                                            <option value="ours">Ours</option>
+                                            <option value="vdslr">VDSLR</option>
+                                            <option value="sterefo">SteReFo</option>
+                                            <option value="rvr">RVR</option>
+                                            <option value="rvr-weightnorm">RVR <sup>&dagger;</sup></option>
+                                            <option value="deeplens">DeepLens</option>
+                                            <option value="deepfocus">DeepFocus</option>
+                                            <option value="deepfocus-adapt">DeepFocus <sup>&dagger;</sup></option>
+                                        </select>
+                                    </td>
+                                    <td align="center">
+                                        <input id="select-K" type="range" min="0" max="4" value="4" style="width: 150px;" onchange="selectK()">&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input id="select-df" type="range" min="0" max="9" value="5" style="width: 150px;" onchange="selectDf()">
+                                    </td>
+                                    <td align="right">
+                                        <select style="width: 130px;" id="select-method-blb-right" onchange="selectMethodBLB('right')">
+                                            <option value="image">All-in-Focus</option>
+                                            <option value="disparity">Disparity</option>
+                                            <option value="gt">Ground Truth</option>
+                                            <option value="ours" selected="selected">Ours</option>
+                                            <option value="vdslr">VDSLR</option>
+                                            <option value="sterefo">SteReFo</option>
+                                            <option value="rvr">RVR</option>
+                                            <option value="rvr-weightnorm">RVR <sup>&dagger;</sup></option>
+                                            <option value="deeplens">DeepLens</option>
+                                            <option value="deepfocus">DeepFocus</option>
+                                            <option value="deepfocus-adapt">DeepFocus <sup>&dagger;</sup></option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <label style="width: 130px; margin-left: 5px;">Left Image</label>
+                                    </td>
+                                    <td align="center">
+                                        <label style="width: 150px;">Blur Amount</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <label style="width: 150px;">Refocused Disparity</label>
+                                    </td>
+                                    <td align="right">
+                                        <label style="width: 130px; margin-right: 5px;">Right Image</label>
+                                    </td>
+                                </tr>
+                            </table>
+                    </li>
+
+
+                    <li>
+                        <div style="text-align: center;">
+                            <p>Results on the EBB400 dataset where the images come from <a href="https://arxiv.org/abs/2006.05698" target="_blank">EBB!</a> and the disparity inputs are predicted by <a href="https://arxiv.org/abs/1907.01341v3" target="_blank">MiDaS</a>.</p>
+
+                            <table width="100%" style="margin-top: 20px; margin-bottom: 5px;">
+                                <tr>
+                                    <td class="select-scene" id="select-scene-ebb-218" onclick="selectSceneEBB(218)" style="padding-left: 0px; opacity: 1;"><img src="img/EBB400/image/218.jpg" alt="EBB image 1"></td>
+                                    <td class="select-scene" id="select-scene-ebb-239" onclick="selectSceneEBB(239)"><img src="img/EBB400/image/239.jpg" alt="EBB image 2"></td>
+                                    <td class="select-scene" id="select-scene-ebb-864" onclick="selectSceneEBB(864)"><img src="img/EBB400/image/864.jpg" alt="EBB image 3"></td>
+                                    <td class="select-scene" id="select-scene-ebb-1205" onclick="selectSceneEBB(1205)"><img src="img/EBB400/image/1205.jpg" alt="EBB image 4"></td>
+                                    <td class="select-scene" id="select-scene-ebb-3095" onclick="selectSceneEBB(3095)"><img src="img/EBB400/image/3095.jpg" alt="EBB image 5"></td>
+                                    <td class="select-scene" id="select-scene-ebb-4692" onclick="selectSceneEBB(4692)" style="padding-right: 0px;"><img src="img/EBB400/image/4692.jpg" alt="image 6"></td>
+                                </tr>
+                            </table>
+
+                            <image-comparison id="compare-method-ebb" style="--image1: url('../img/EBB400/image/218.jpg'); --image2: url('../img/EBB400/ours/218.jpg'); margin-bottom: 5px;">
+                                <img id="base-method-ebb" src="img/EBB400/image/218.jpg">
+                            </image-comparison>
+                            
+
+                            <table width="100%">
+                                <tr>
+                                    <td align="left">
+                                        <select style="width: 130px;" id="select-method-ebb-left" onchange="selectMethodEBB('left')">
+                                            <option value="image" selected="selected">All-in-Focus</option>
+                                            <option value="disparity">Disparity</option>
+                                            <option value="gt">Ground Truth</option>
+                                            <option value="ours">Ours</option>
+                                            <option value="vdslr">VDSLR</option>
+                                            <option value="sterefo">SteReFo</option>
+                                            <option value="rvr">RVR</option>
+                                            <option value="rvr-weightnorm">RVR <sup>&dagger;</sup></option>
+                                            <option value="deeplens">DeepLens</option>
+                                            <option value="deepfocus">DeepFocus</option>
+                                            <option value="deepfocus-adapt">DeepFocus <sup>&dagger;</sup></option>
+                                        </select>
+                                    </td>
+                                    <td align="right">
+                                        <select style="width: 130px;" id="select-method-ebb-right" onchange="selectMethodEBB('right')">
+                                            <option value="image">All-in-Focus</option>
+                                            <option value="disparity">Disparity</option>
+                                            <option value="gt">Ground Truth</option>
+                                            <option value="ours" selected="selected">Ours</option>
+                                            <option value="vdslr">VDSLR</option>
+                                            <option value="sterefo">SteReFo</option>
+                                            <option value="rvr">RVR</option>
+                                            <option value="rvr-weightnorm">RVR <sup>&dagger;</sup></option>
+                                            <option value="deeplens">DeepLens</option>
+                                            <option value="deepfocus">DeepFocus</option>
+                                            <option value="deepfocus-adapt">DeepFocus <sup>&dagger;</sup></option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="left">
+                                        <label style="width: 130px; margin-left: 5px;">Left Image</label>
+                                    </td>
+                                    <td align="right">
+                                        <label style="width: 130px; margin-right: 5px;">Right Image</label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+
+
+                    <li>
+                        <div style="text-align: center;">
+                            <p>Results on the IPB dataset which is captured by iPhone 12 Portrait mode.</p>
+
+                            <table width="90%" style="margin-top: 20px;" align="center">
+                                <tr>
+                                    <td width="12.6%">
+                                        <div class="select-scene" id="select-scene-ipb-0001" onclick="selectSceneIPB('0001')" style="padding: 2px; opacity: 1;"><img src="img/IPB/image/IMG_0001.jpg" alt="IPB image 1"></div>
+                                        <div class="select-scene" id="select-scene-ipb-0002" onclick="selectSceneIPB('0002')" style="padding: 2px;"><img src="img/IPB/image/IMG_0002.jpg" alt="IPB image 2"></div>
+                                        <div class="select-scene" id="select-scene-ipb-0392" onclick="selectSceneIPB('0392')" style="padding: 2px;"><img src="img/IPB/image/IMG_0392.jpg" alt="IPB image 3"></div>
+                                        <div class="select-scene" id="select-scene-ipb-0460" onclick="selectSceneIPB('0460')" style="padding: 2px;"><img src="img/IPB/image/IMG_0460.jpg" alt="IPB image 4"></div>
+                                    </td>
+                                    <td width="50%" style="padding: 8px 5px 1px;">
+                                        <image-comparison id="compare-method-ipb" style="--image1: url('../img/IPB/image/IMG_0001.jpg'); --image2: url('../img/IPB/ours/IMG_0001.jpg');">
+                                            <img id="base-method-ipb" src="img/IPB/image/IMG_0001.jpg">
+                                        </image-comparison>
+                                    </td>
+                                    <td width="12.6%">
+                                        <div class="select-scene" id="select-scene-ipb-1426" onclick="selectSceneIPB('1426')" style="padding: 2px;"><img src="img/IPB/image/IMG_1426.jpg" alt="IPB image 5"></div>
+                                        <div class="select-scene" id="select-scene-ipb-1569" onclick="selectSceneIPB('1569')" style="padding: 2px;"><img src="img/IPB/image/IMG_1569.jpg" alt="IPB image 6"></div>
+                                        <div class="select-scene" id="select-scene-ipb-1624" onclick="selectSceneIPB('1624')" style="padding: 2px;"><img src="img/IPB/image/IMG_1624.jpg" alt="IPB image 7"></div>
+                                        <div class="select-scene" id="select-scene-ipb-7288" onclick="selectSceneIPB('7288')" style="padding: 2px;"><img src="img/IPB/image/IMG_7288.jpg" alt="IPB image 8"></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <table width="100%">
+                                            <tr>
+                                                <td align="left" style="padding-left: 5px;">
+                                                    <select style="width: 130px;" id="select-method-ipb-left" onchange="selectMethodIPB('left')">
+                                                        <option value="image" selected="selected">All-in-Focus</option>
+                                                        <option value="disparity">Disparity</option>
+                                                        <option value="iphone">iPhone 12</option>
+                                                        <option value="ours">Ours</option>
+                                                        <option value="vdslr">VDSLR</option>
+                                                        <option value="sterefo">SteReFo</option>
+                                                        <option value="rvr">RVR</option>
+                                                        <option value="rvr-weightnorm">RVR <sup>&dagger;</sup></option>
+                                                        <option value="deeplens">DeepLens</option>
+                                                        <option value="deepfocus">DeepFocus</option>
+                                                        <option value="deepfocus-adapt">DeepFocus <sup>&dagger;</sup></option>
+                                                    </select>
+                                                </td>
+                                                <td align="right" style="padding-right: 5px;">
+                                                    <select style="width: 130px;" id="select-method-ipb-right" onchange="selectMethodIPB('right')">
+                                                        <option value="image">All-in-Focus</option>
+                                                        <option value="disparity">Disparity</option>
+                                                        <option value="iphone">iPhone 12</option>
+                                                        <option value="ours" selected="selected">Ours</option>
+                                                        <option value="vdslr">VDSLR</option>
+                                                        <option value="sterefo">SteReFo</option>
+                                                        <option value="rvr">RVR</option>
+                                                        <option value="rvr-weightnorm">RVR <sup>&dagger;</sup></option>
+                                                        <option value="deeplens">DeepLens</option>
+                                                        <option value="deepfocus">DeepFocus</option>
+                                                        <option value="deepfocus-adapt">DeepFocus <sup>&dagger;</sup></option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left">
+                                                    <label style="width: 130px; margin-left: 10px;">Left Image</label>
+                                                </td>
+                                                <td align="right">
+                                                    <label style="width: 130px; margin-right: 10px;">Right Image</label>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </table>
+
+                            <!-- <table width="100%" style="margin-top: 20px; margin-bottom: 1px;">
+                                <tr>
+                                    <td class="select-scene" id="select-scene-ipb-0001" onclick="selectSceneIPB('0001')" style="padding-left: 0px; opacity: 1;"><img src="img/IPB/image/IMG_0001.jpg" alt="image 1" style="width: 100%;"></td>
+                                    <td class="select-scene" id="select-scene-ipb-0002" onclick="selectSceneIPB('0002')"><img src="img/IPB/image/IMG_0002.jpg" alt="image 2" style="width: 100%;"></td>
+                                    <td class="select-scene" id="select-scene-ipb-0392" onclick="selectSceneIPB('0392')"><img src="img/IPB/image/IMG_0392.jpg" alt="image 3" style="width: 100%;"></td>
+                                    <td class="select-scene" id="select-scene-ipb-0460" onclick="selectSceneIPB('0460')"><img src="img/IPB/image/IMG_0460.jpg" alt="image 4" style="width: 100%;"></td>
+                                    <td class="select-scene" id="select-scene-ipb-1426" onclick="selectSceneIPB('1426')"><img src="img/IPB/image/IMG_1426.jpg" alt="image 5" style="width: 100%;"></td>
+                                    <td class="select-scene" id="select-scene-ipb-1569" onclick="selectSceneIPB('1569')"><img src="img/IPB/image/IMG_1569.jpg" alt="image 6" style="width: 100%;"></td>
+                                    <td class="select-scene" id="select-scene-ipb-1600" onclick="selectSceneIPB('1600')"><img src="img/IPB/image/IMG_1600.jpg" alt="image 7" style="width: 100%;"></td>
+                                    <td class="select-scene" id="select-scene-ipb-1624" onclick="selectSceneIPB('1624')"><img src="img/IPB/image/IMG_1624.jpg" alt="image 8" style="width: 100%;"></td>
+                                    <td class="select-scene" id="select-scene-ipb-7288" onclick="selectSceneIPB('7288')" style="padding-right: 0px;"><img src="img/IPB/image/IMG_7288.jpg" alt="image 9" style="width: 100%;"></td>
+                                </tr>
+                            </table>
+
+                            <table width="100%">
+                                <tr>
+                                    <td style="padding-left: 0px; display: inline-block;">
+                                        <span>
+                                            <img id="focal" src="img/IPB/focal/IMG_0001.jpg" style="width: 100%;">
+                                        </span>
+                                    </td>
+
+                                    <td width="50%" style="padding-right: 0px;">
+                                        <image-comparison id="compare-method-ipb" style="--image1: url('../img/IPB/image/IMG_0001.jpg'); --image2: url('../img/IPB/ours/IMG_0001.jpg');">
+                                            <img id="base-method-ipb" src="img/IPB/image/IMG_0001.jpg" style="width: 100%;">
+                                        </image-comparison>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>
+                                        <label>Focal Point</label>
+                                    </td>
+                                    <td>
+                                        <table width="100%">
+                                            <tr>
+                                                <td align="left">
+                                                    <select style="width: 130px;" id="select-method-ipb-left" onchange="selectMethodIPB('left')">
+                                                        <option value="image" selected="selected">All-in-Focus</option>
+                                                        <option value="disparity">Disparity</option>
+                                                        <option value="gt">Ground Truth</option>
+                                                        <option value="ours">Ours</option>
+                                                        <option value="vdslr">VDSLR</option>
+                                                        <option value="sterefo">SteReFo</option>
+                                                        <option value="rvr">RVR</option>
+                                                        <option value="rvr-weightnorm">RVR <sup>&dagger;</sup></option>
+                                                        <option value="deeplens">DeepLens</option>
+                                                        <option value="deepfocus">DeepFocus</option>
+                                                        <option value="deepfocus-adapt">DeepFocus <sup>&dagger;</sup></option>
+                                                    </select>
+                                                </td>
+                                                <td align="right">
+                                                    <select style="width: 130px;" id="select-method-ipb-right" onchange="selectMethodIPB('right')">
+                                                        <option value="image">All-in-Focus</option>
+                                                        <option value="disparity">Disparity</option>
+                                                        <option value="gt">Ground Truth</option>
+                                                        <option value="ours" selected="selected">Ours</option>
+                                                        <option value="vdslr">VDSLR</option>
+                                                        <option value="sterefo">SteReFo</option>
+                                                        <option value="rvr">RVR</option>
+                                                        <option value="rvr-weightnorm">RVR <sup>&dagger;</sup></option>
+                                                        <option value="deeplens">DeepLens</option>
+                                                        <option value="deepfocus">DeepFocus</option>
+                                                        <option value="deepfocus-adapt">DeepFocus <sup>&dagger;</sup></option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left">
+                                                    <label style="width: 130px; margin-left: 5px;">Left Image</label>
+                                                </td>
+                                                <td align="right">
+                                                    <label style="width: 130px; margin-right: 5px;">Right Image</label>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table> -->
+                        </div>
+                    </li>
+
+                    <li>
+                        <div style="text-align: center;">
+                            <p>Animations on real-world images with different controlling parameters.</p>
+                            
+                            <!-- w_i = 97/w_i/sum(1/w_i) % -->
+                            
+                            <h5 style="padding-top: 5px; padding-bottom: 5px;">Blur Amount</h5>
+                            <div style="text-align: center;">
+                                <img src="img/animations/K/47.jpg" alt="Image K_1" width="32.34912109375%">
+                                <img src="img/animations/K/60.jpg" alt="Image K_2" width="32.34912109375%">
+                                <img src="img/animations/K/56.jpg" alt="Image K_3" width="32.3017578125%">
+                            </div>
+                            <div style="text-align: center; margin-top: 5px;">
+                                <img src="img/animations/K/47.gif" alt="Animation K_1" width="32.34912109375%">
+                                <img src="img/animations/K/60.gif" alt="Animation K_2" width="32.34912109375%">
+                                <img src="img/animations/K/56.gif" alt="Animation K_3" width="32.3017578125%">
+                            </div>
+                            <br>
+
+                            <h5 style="padding-top: 5px; padding-bottom: 5px;">Refocused Disparity</h5>
+                            <div style="text-align: center;">
+                                <img src="img/animations/df/49.jpg" alt="Image df_1" width="33.63659973833511%">
+                                <img src="img/animations/df/75.jpg" alt="Image df_2" width="31.798262677303498%">
+                                <img src="img/animations/df/40.jpg" alt="Image df_3" width="31.565137584361395%">
+                            </div>
+                            <div style="text-align: center; margin-top: 5px;">
+                                <img src="img/animations/df/49.gif" alt="Animation df_1" width="33.63659973833511%">
+                                <img src="img/animations/df/75.gif" alt="Animation df_2" width="31.798262677303498%">
+                                <img src="img/animations/df/40.gif" alt="Animation df_3" width="31.565137584361395%">
+                            </div>
+                            <br>
+
+                            <h5 style="padding-top: 5px; padding-bottom: 5px;">Gamma Value</h5>
+                            <div style="text-align: center;">
+                                <img src="img/animations/gamma/77.jpg" alt="Image gamma_1" width="33.020230778896035%">
+                                <img src="img/animations/gamma/74.jpg" alt="Image gamma_2" width="32.9233972575503%">
+                                <img src="img/animations/gamma/76.jpg" alt="Image gamma_3" width="31.05637196355367%">
+                            </div>
+                            <div style="text-align: center; margin-top: 5px;">
+                                <img src="img/animations/gamma/77.gif" alt="Animation gamma_1" width="33.020230778896035%">
+                                <img src="img/animations/gamma/74.gif" alt="Animation gamma_2" width="32.9233972575503%">
+                                <img src="img/animations/gamma/76.gif" alt="Animation gamma_3" width="31.05637196355367%">
+                            </div>
+                            <br>
+
+                            <h5 style="padding-top: 5px; padding-bottom: 5px;">Aperture Shape</h5>
+                            <div style="text-align: center;">
+                                <img src="img/animations/aperture/62.jpg" alt="Image aperture_1" width="32.5822906641001%">
+                                <img src="img/animations/aperture/35.jpg" alt="Image aperture_2" width="32.5822906641001%">
+                                <img src="img/animations/aperture/82.jpg" alt="Image aperture_3" width="31.83541867179981%">
+                            </div>
+                            <div style="text-align: center; margin-top: 5px;">
+                                <img src="img/animations/aperture/62.gif" alt="Animation aperture_1" width="32.5822906641001%">
+                                <img src="img/animations/aperture/35.gif" alt="Animation aperture_2" width="32.5822906641001%">
+                                <img src="img/animations/aperture/82.gif" alt="Animation aperture_3" width="31.83541867179981%">
+                            </div>
+
+                            <!-- w_i = 96/w_i/sum(1/w_i) % -->
+
+                            <!-- <h5 style="padding-top: 5px; padding-bottom: 5px;">Blur Amount</h5>
+                            <div style="text-align: center;">
+                                <img src="img/animations/K/47.jpg" alt="Image K_1" width="23.62111221563884%">
+                                <img src="img/animations/K/60.jpg" alt="Image K_2" width="23.62111221563884%">
+                                <img src="img/animations/K/56.jpg" alt="Image K_3" width="23.58652786393219%">
+                                <img src="img/animations/K/37.jpg" alt="Image K_4" width="25.171247704790133%">
+                            </div>
+                            <div style="text-align: center; margin-top: 5px;">
+                                <img src="img/animations/K/47.gif" alt="Animation K_1" width="23.62111221563884%">
+                                <img src="img/animations/K/60.gif" alt="Animation K_2" width="23.62111221563884%">
+                                <img src="img/animations/K/56.gif" alt="Animation K_3" width="23.58652786393219%">
+                                <img src="img/animations/K/37.gif" alt="Animation K_4" width="25.171247704790133%">
+                            </div>
+                            <br> -->
+
+                            <!-- <h5 style="padding-top: 5px; padding-bottom: 5px;">Refocused Disparity</h5>
+                            <div style="text-align: center;">
+                                <img src="img/animations/df/49.jpg" alt="Image df_1" width="25.11655675521914%">
+                                <img src="img/animations/df/75.jpg" alt="Image df_2" width="23.569789330410927%">
+                                <img src="img/animations/df/50.jpg" alt="Image df_3" width="23.569789330410927%">
+                                <img src="img/animations/df/40.jpg" alt="Image df_4" width="23.569789330410927%">
+                            </div>
+                            <div style="text-align: center; margin-top: 5px;">
+                                <img src="img/animations/df/49.gif" alt="Animation df_1" width="25.11655675521914%">
+                                <img src="img/animations/df/75.gif" alt="Animation df_2" width="23.569789330410927%">
+                                <img src="img/animations/df/50.gif" alt="Animation df_3" width="23.569789330410927%">
+                                <img src="img/animations/df/40.gif" alt="Animation df_4" width="23.569789330410927%">
+                            </div>
+                            <br> -->
+
+                            <!-- <h5 style="padding-top: 5px; padding-bottom: 5px;">Gamma Value</h5>
+                            <div style="text-align: center;">
+                                <img src="img/animations/gamma/68.jpg" alt="Image gamma_1" width="24.38037631362628%">
+                                <img src="img/animations/gamma/74.jpg" alt="Image gamma_2" width="24.30887960889424%">
+                                <img src="img/animations/gamma/76.jpg" alt="Image gamma_3" width="22.93036776385321%">
+                                <img src="img/animations/gamma/77.jpg" alt="Image gamma_4" width="24.38037631362628%">
+                            </div>
+                            <div style="text-align: center; margin-top: 5px;">
+                                <img src="img/animations/gamma/68.gif" alt="Animation gamma_1" width="24.38037631362628%">
+                                <img src="img/animations/gamma/74.gif" alt="Animation gamma_2" width="24.30887960889424%">
+                                <img src="img/animations/gamma/76.gif" alt="Animation gamma_3" width="22.93036776385321%">
+                                <img src="img/animations/gamma/77.gif" alt="Animation gamma_4" width="24.38037631362628%">
+                            </div>
+                            <br> -->
+
+                            <!-- <h5 style="padding-top: 5px; padding-bottom: 5px;">Aperture Shape</h5>
+                            <div style="text-align: center;">
+                                <img src="img/animations/aperture/64.jpg" alt="Image aperture_1" width="24.138328530259372%">
+                                <img src="img/animations/aperture/35.jpg" alt="Image aperture_2" width="24.138328530259372%">
+                                <img src="img/animations/aperture/62.jpg" alt="Image aperture_3" width="24.138328530259372%">
+                                <img src="img/animations/aperture/82.jpg" alt="Image aperture_4" width="23.585014409221905%">
+                            </div>
+                            <div style="text-align: center; margin-top: 5px;">
+                                <img src="img/animations/aperture/64.gif" alt="Animation aperture_1" width="24.138328530259372%">
+                                <img src="img/animations/aperture/35.gif" alt="Animation aperture_2" width="24.138328530259372%">
+                                <img src="img/animations/aperture/62.gif" alt="Animation aperture_3" width="24.138328530259372%">
+                                <img src="img/animations/aperture/82.gif" alt="Animation aperture_4" width="23.585014409221905%">
+                            </div> -->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="dataset" class="bg-white">
+    <div class="container" style="padding-left: 20px; padding-right: 20px;">
+        <div class="section-content">
+            <div class="title-warp">
+                <h2 class="section-title">Dataset</h2>
+            </div>
+
+            <div class="paper-text">
+                <p>We release the BLB dataset rendered by Blender 2.93. The dataset contains 10 scenes, each consisting of an all-in-focus image, a disparity map, a stack of bokeh images with 5 blur amounts and 10 refocused disparities, and a parameter file. We additionally provide 15 corrupted disparity maps (through gaussian blur, dilation, erosion) for each scene. All 3D Blender models come from <a href="https://cloud.blender.org/p/gallery" target="_blank">https://cloud.blender.org/p/gallery</a>. Our BLB dataset can be downloaded from <a href="https://drive.google.com/drive/folders/1URpab6AXQsNTqcBcighF73w5pFlvM0Ej?usp=sharing" target="_blank"><u>Google Drive</u></a> or <a href="https://pan.baidu.com/s/1U0XlFM_84-vVgnXGYz0ncQ?pwd=re8q" target="_blank"><u>Baidu Netdisk</u></a>.
+            </div>
+            <br>
+            <table width="95%" align="center">
+                <tr>
+                    <td><img src="img/BLB/data/277/image.jpg" alt="BLB image 1"></td>
+                    <td><img src="img/BLB/data/278/image.jpg" alt="BLB image 2"></td>
+                    <td><img src="img/BLB/data/279/image.jpg" alt="BLB image 3"></td>
+                    <td><img src="img/BLB/data/280/image.jpg" alt="BLB image 4"></td>
+                    <td><img src="img/BLB/data/281/image.jpg" alt="BLB image 5"></td>
+                </tr>
+                <tr>
+                    <td><img src="img/BLB/data/283/image.jpg" alt="BLB image 6"></td>
+                    <td><img src="img/BLB/data/290/image.jpg" alt="BLB image 7"></td>
+                    <td><img src="img/BLB/data/291/image.jpg" alt="BLB image 8"></td>
+                    <td><img src="img/BLB/data/292/image.jpg" alt="BLB image 9"></td>
+                    <td><img src="img/BLB/data/293/image.jpg" alt="BLB image 10"></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</section>
+
+
+<section id="citation" class="bg-grey">
+    <div class="container" style="padding-left: 20px; padding-right: 20px;">
+        <div class="section-content">
+            <div class="title-warp">
+                <h2 class="section-title">Citation</h2>
+            </div>
+
+            <div class="paper-text">
+                <textarea class="form-control placeholder" readonly="" style="height: 155px; resize: none;">@inproceedings{Peng2022BokehMe,
+  title = {BokehMe: When Neural Rendering Meets Classical Rendering},
+  author = {Peng, Juewen and Cao, Zhiguo and Luo, Xianrui and Lu, Hao and Xian, Ke and Zhang, Jianming},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year = {2022}
+}</textarea>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<footer class="mastfoot mb-3 bg-grey py-4 border-top">
+    <div class="inner container" style="text-align: center;">
+        <p class="mb-0">This work was supported by Adobe. This website template was inspired by <a href="https://www.free-css.com/free-css-templates/page273/moon" target="_blank">Moon</a>.</p>
+    </div>
+</footer>
+    
+</div>
+    <!-- External JS -->
+    <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script> -->
+    <script src="js/ajax.js"></script>
+    <script src="vendor/bootstrap/popper.min.js"></script>
+    <script src="vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="vendor/select2/select2.min.js "></script>
+    <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
+    <script src="vendor/isotope/isotope.min.js"></script>
+    <script src="vendor/lightcase/lightcase.js"></script>
+    <script src="vendor/waypoints/waypoint.min.js"></script>
+    <script src="vendor/countTo/jquery.countTo.js"></script>
+
+    <!-- Main JS -->
+    <script src="js/myjs.js "></script>
+    <script src="js/app.min.js "></script>
+    <!-- <script src="//localhost:35729/livereload.js"></script> -->
+</body>
+</html>

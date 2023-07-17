@@ -2,7 +2,7 @@
 
 🎉🎉🎉 **Welcome to the NVDS GitHub repository!** 🎉🎉🎉  
 
-**This repository is the official PyTorch implementation of the ICCV2023 paper "Neural Video Depth Stabilizer" (NVDS).**
+**The repository is official PyTorch implementation of ICCV2023 paper "Neural Video Depth Stabilizer" (NVDS).**
 
 - Authors: [Yiran Wang](https://scholar.google.com.hk/citations?hl=zh-CN&user=p_RnaI8AAAAJ)<sup>1</sup>,
 [Min Shi](https://www.semanticscholar.org/author/Min-Shi/1516268415)<sup>1</sup>,

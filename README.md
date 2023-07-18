@@ -16,7 +16,7 @@ Authors: [Yiran Wang](https://scholar.google.com.hk/citations?hl=zh-CN&user=p_Rn
 
 Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</sup>Adobe Research, <sup>3</sup>Nanyang Technological University
 
-### [Project Page](https://raymondwang987.github.io/NVDS/) | [Arxiv]() | [Supp-Video](https://youtu.be/vRYJb-T4Sxw) | [Supp-PDF](https://github.com/RaymondWang987/NVDS/blob/main/PDF/SUPPV1.pdf) | Demo-Video | VDW Dataset (Coming Soon)
+### [Project Page](https://raymondwang987.github.io/NVDS/) | [Arxiv](https://arxiv.org/abs/2307.08695) | [Supp-Video](https://youtu.be/vRYJb-T4Sxw) | [Supp-PDF](https://github.com/RaymondWang987/NVDS/blob/main/PDF/SUPPV1.pdf) | Demo-Video | VDW Dataset (Coming Soon)
 
 ## 😎 Highlights
 **NVDS is the first plug-and-play stabilizer** that can remove flickers from any single-image depth model without extra effort. Besides, we also introduce a large-scale dataset, **Video Depth
@@ -24,7 +24,7 @@ in the Wild (VDW)**, which consists of 14,203 videos with over two million frame
 
 ## ⚡ Updates and Todo List
 + [2023.07.16] Our work is accepted by ICCV2023.
-+ [2023.07.18] The [Arxiv]() version of our NVDS paper is released.
++ [2023.07.18] The [Arxiv](https://arxiv.org/abs/2307.08695) version of our NVDS paper is released.
 + [TODO] We will build our project page with video demos and the official website of VDW dataset.
 + [TODO] We will gradually release NVDS model and VDW dataset for the community. Stay tuned!
 

@@ -28,7 +28,7 @@ Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). He
 + [2023.07.16] Our work is accepted by ICCV2023.
 + [2023.07.18] The [Arxiv](https://arxiv.org/abs/2307.08695) version of our NVDS paper is released.
 + [2023.07.18] Our [Project Page](https://raymondwang987.github.io/NVDS/) is built and released.
-+ [TODO] We will the official website of VDW dataset.
++ [TODO] We will construct the official website of VDW dataset.
 + [TODO] We will gradually release NVDS model and VDW dataset for the community. Stay tuned!
 
 ##  🌼 Abstract

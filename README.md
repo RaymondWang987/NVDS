@@ -4,7 +4,7 @@
 
 **The repository is official PyTorch implementation of ICCV2023 paper "Neural Video Depth Stabilizer" (NVDS).**
 
-- Authors: [Yiran Wang](https://scholar.google.com.hk/citations?hl=zh-CN&user=p_RnaI8AAAAJ)<sup>1</sup>,
+Authors: [Yiran Wang](https://scholar.google.com.hk/citations?hl=zh-CN&user=p_RnaI8AAAAJ)<sup>1</sup>,
 [Min Shi](https://www.semanticscholar.org/author/Min-Shi/1516268415)<sup>1</sup>,
 [Jiaqi Li](https://scholar.google.com/citations?hl=zh-CN&user=i-2ghuYAAAAJ)<sup>1</sup>,
 [Zihao Huang](https://orcid.org/0000-0002-8804-191X)<sup>1</sup>,
@@ -14,7 +14,7 @@
 [Guosheng Lin](https://guosheng.github.io/)<sup>3</sup>
 
 
-- Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</sup>Adobe Research, <sup>3</sup>Nanyang Technological University
+Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</sup>Adobe Research, <sup>3</sup>Nanyang Technological University
 
 ### [Project Page](https://raymondwang987.github.io/NVDS/) | [Arxiv]() | [Supp-Video](https://youtu.be/vRYJb-T4Sxw) | [Supp-PDF](https://github.com/RaymondWang987/NVDS/blob/main/PDF/SUPPV1.pdf) | Demo-Video | VDW Dataset (Coming Soon)
 

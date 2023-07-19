@@ -30,7 +30,7 @@ Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). He
 + [2023.07.18] Our [Project Page](https://raymondwang987.github.io/NVDS/) is built and released.
 + [TODO] Releasing NVDS demo inference code in about two weeks.
 + [TODO] More evaluation code and checkpoints will be updated in 4-6 weeks.
-+ [TODO] Training code might be released along with VDW dataset, as an example of using VDW to train models.
++ [TODO] Training code might be released along with VDW dataset, as an example of using it to train models.
 + [TODO] We will construct VDW official website and gradually release our data. Stay tuned!
 
 ##  🌼 Abstract

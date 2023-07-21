@@ -60,4 +60,4 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
 ## 🔥 Demo & Inference
 + Preparing Demo Videos.
   
-We put 8 demo input videos in `demo_videos` files. `bandage_1` and `market_6` are examples of [Sintel](http://sintel.is.tue.mpg.de/) dataset. `motocross-jump` is from [DAVIS](https://davischallenge.org/) dataset. Others are a few examples of our VDW test dataset. You can also prepare your own testing sequences like us.
+  We put 8 demo input videos in `demo_videos` files. `bandage_1` and `market_6` are examples of [Sintel](http://sintel.is.tue.mpg.de/) dataset. `motocross-jump` is from [DAVIS](https://davischallenge.org/) dataset. Others are a few examples of our VDW test dataset. You can also prepare your own testing sequences like us.

@@ -125,7 +125,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
 ## 🍭 Acknowledgement
 We utilize [GMFlow](https://github.com/haofeixu/gmflow) for: (1) Disparity Generation in VDW dataset; (2) Training with Temporal loss; (3) VDW Evaluations. Besides, the cross-attention module in our stabilization network is developed based on [VSS-CFFM](https://github.com/GuoleiSun/VSS-CFFM). The Mit backbone is proposed by [SegFormer](https://github.com/NVlabs/SegFormer). Thanks for their solid contributions and cheers to the community.
 
-## 🌹 Citation
+## 📧 Citation
 ```
 @article{wang2023neural,
   title={Neural Video Depth Stabilizer},

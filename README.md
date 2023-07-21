@@ -116,7 +116,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
 
 + Video Comparisons.
   
-  After getting the results, video comparisons can be generated and saved in `demo_outputs_videos/` by `pic2v.py`.
+  After getting the results, video comparisons can be generated and saved in `demo_outputs_videos/`:
   ```
   python pic2v.py --vnum 000423 --infer_w 896 --infer_h 384
   python pic2v.py --vnum market_6 --infer_w 896 --infer_h 384

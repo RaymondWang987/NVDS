@@ -39,6 +39,24 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
 <img src="PDF/fig1-pipeline.PNG" width="100%">
 </p>
 
+## 🔨 Installation
++ Basic environment.
+  
+  Our code is based on `python=3.8.13` and `pytorch==1.9.0`. You can refer to the `environment.yml` or `requirements.txt` for installation. 
+  ```
+  conda create -n NVDS python=3.8.13
+  conda activate NVDS
+  conda install pytorch==1.9.0 torchvision==0.10.0 cudatoolkit=11.1 -c pytorch -c conda-forge
+  pip install numpy imageio opencv-python scipy tensorboard timm scikit-image tqdm glob h5py
+  ```
++ Installation of GMflow.
+  
+  We utilize state-of-the-art optical flow model [GMFlow](https://arxiv.org/abs/2111.13680) in the temporal loss and the OPW metric. The temporal loss is used to enhance consistency while training. The OPW metric is evaluated in our demo (inference) code to showcase quantitative improvements. <br>Please refer to the [GMFlow Official Repo](https://github.com/haofeixu/gmflow) for the installation.
+
++ Installation of mmcv and mmseg.
+
+  Cross attention in our stabilization network contains functions based on `mmcv-full==1.3.0` and `mmseg==0.11.0`.  <br>Please refer to [MMSegmentation v0.13.0](https://github.com/open-mmlab/mmsegmentation/tree/v0.13.0) for the installation.
+
 
 
 

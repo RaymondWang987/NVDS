@@ -60,4 +60,14 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
 ## 🔥 Demo & Inference
 + Preparing Demo Videos.
   
-  We put 8 demo input videos in `demo_videos` files. `bandage_1` and `market_6` are examples of [Sintel](http://sintel.is.tue.mpg.de/) dataset. `motocross-jump` is from [DAVIS](https://davischallenge.org/) dataset. Others are a few examples of our VDW test dataset. You can also prepare your own testing sequences like us.
+  We put 8 demo input videos in `demo_videos` files, in which `bandage_1` and `market_6` are examples of [Sintel](http://sintel.is.tue.mpg.de/) dataset. `motocross-jump` is from [DAVIS](https://davischallenge.org/) dataset. Others are a few examples of our VDW test dataset. You can also prepare your own testing sequences like us.
+
++ Downloading checkpoints of depth precitors.
+
+  In our demo, we adopt [MiDaS](https://github.com/isl-org/MiDaS) and [DPT](https://github.com/isl-org/DPT) as different depth predictors. We use [midas_v21-f6b98070.pt](https://github.com/isl-org/MiDaS/releases/download/v2_1/midas_v21_384.pt) and [dpt_large-midas-2f21e586.pt](https://github.com/intel-isl/DPT/releases/download/1_0/dpt_large-midas-2f21e586.pt). Download those checkpoints and put them in `dpt/checkpoints/` folder. You may need to modify the MiDaS checkpoint name (midas_v21_384.pt) or our code (midas_v21-f6b98070.pt) since its name is adjusted by the [MiDaS repo](https://github.com/isl-org/MiDaS).
+
++ Preparing checkpoint of NVDS Stabilizer.
+  
+  [Download]() and put the `NVDS_Stabilizer.pth` in `NVDS_checkpoints/` folder.
+  
++ Running NVDS Inference Demo.

@@ -71,3 +71,30 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
   [Download]() and put the `NVDS_Stabilizer.pth` in `NVDS_checkpoints/` folder.
   
 + Running NVDS Inference Demo.
+
+  `infer_NVDS_dpt_bi.py` and `infer_NVDS_midas_bi.py` use DPT and Midas as depth predictors. Those scripts contain: (1) NVDS Bidirectional Inference; (2) OPW Metric Evaluations with GMFlow. The only difference between those two scripts is the depth predictor. For running the code, taking DPT as an example, the basic command is:
+  ```
+  CUDA_VISIBLE_DEVICES=0 python infer_NVDS_dpt_bi.py --base_dir /XXX/XXX --vnum XXX --infer_w XXX --infer_h XXX
+  ```
+  `--base_dir` represents the folder to save results. `--vnum` refer to the video numbers or names. `--infer_w` and `--infer_h` are the width and height for inference. We use `--infer_h 384` by default. The `--infer_w` is set to maintain the aspect ratio of original videos.
+
+  Specifically, for the videos of VDW test dataset (Video `000423` as an example):
+  ```
+  CUDA_VISIBLE_DEVICES=0 python infer_NVDS_dpt_bi.py --base_dir ./demo_outputs/dpt_init/000423/ --vnum 000423 --infer_w 896 --infer_h 384
+  CUDA_VISIBLE_DEVICES=0 python infer_NVDS_midas_bi.py --base_dir ./demo_outputs/midas_init/000423/ --vnum 000423 --infer_w 896 --infer_h 384
+  ```
+  For the videos of Sintel dataset (Video `market_6` as an example):
+  ```
+  CUDA_VISIBLE_DEVICES=0 python infer_NVDS_dpt_bi.py --base_dir ./demo_outputs/dpt_init/market_6/ --vnum market_6 --infer_w 896 --infer_h 384
+  CUDA_VISIBLE_DEVICES=0 python infer_NVDS_midas_bi.py --base_dir ./demo_outputs/midas_init/market_6/ --vnum market_6 --infer_w 896 --infer_h 384
+  ```
+  For the videos of DAVIS dataset (Video `motocross-jump` as an example):
+  ```
+  CUDA_VISIBLE_DEVICES=0 python infer_NVDS_dpt_bi.py --base_dir ./demo_outputs/dpt_init/motocross-jump/ --vnum motocross-jump --infer_w 672 --infer_h 384
+  CUDA_VISIBLE_DEVICES=0 python infer_NVDS_midas_bi.py --base_dir ./demo_outputs/midas_init/motocross-jump/ --vnum motocross-jump --infer_w 672 --infer_h 384
+  ```
+  Under the resolution of $896\times384$, the inference of DPT-Large and our stabilizer takes about 20G and 5G GPU memory (RTX-A6000). If the memory occupancy is too large for your server, you can (1) run DPT/Midas initial depth results and our NVDS separately; (2) reduce the inference resolution ($e.g.$, $384\times384$); (3) remove the OPW evaluations, in which the inference of GMFlow also brings some computational costs. After running the inference code, the result folder `--base_dir` will be organized as follows:
+  
+  
+
+

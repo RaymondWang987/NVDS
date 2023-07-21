@@ -22,7 +22,7 @@ Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</s
 **NVDS is the first plug-and-play stabilizer** that can remove flickers from any single-image depth model without extra effort. Besides, we also introduce a large-scale dataset, **Video Depth
 in the Wild (VDW)**, which consists of 14,203 videos with over two million frames, making it the largest natural-scene video depth dataset. Don't forget to star this repo if you find it interesting! 
 
-Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). Heavy works are needed for open-source. The VDW dataset can only be used for academic and research purposes. Once we are ready, we will release NVDS model and VDW dataset for the community. Stay tuned!
+Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). Heavy works are needed for open-source. The VDW dataset can only be used for academic and research purposes. We will gradually release our VDW dataset for the community. Stay tuned!
 
 ## ⚡ Updates and Todo List
 + [2023.07.16] Our work is accepted by ICCV2023.
@@ -31,7 +31,7 @@ Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). He
 + [2023.07.21] We present the [NVDS checkpoint](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS_checkpoints) and demo (inference) code.
 + [TODO] More evaluation code and checkpoints will be updated in 4-6 weeks.
 + [TODO] Training code might be released along with VDW dataset, as an example of using it to train models.
-+ [TODO] We will construct VDW official website and gradually release our data. Stay tuned!
++ [TODO] We are currently building VDW official website to release our data. Stay tuned!
 
 ##  🌼 Abstract
 Video depth estimation aims to infer temporally consistent depth. Some methods achieve temporal consistency by finetuning a single-image depth model during test time using geometry and re-projection constraints, which is inefficient and not robust. An alternative approach is to learn how to enforce temporal consistency from data, but this requires well-designed models and sufficient video depth data. To address these challenges, we propose a plug-and-play framework called Neural Video Depth Stabilizer (NVDS) that stabilizes inconsistent depth estimations and can be applied to different single-image depth models without extra effort. We also introduce a large-scale dataset, Video Depth in the Wild (VDW), which consists of 14,203 videos with over two million frames, making it the largest natural-scene video depth dataset to our knowledge. We evaluate our method on the VDW dataset as well as two public benchmarks and demonstrate significant improvements in consistency, accuracy, and efficiency compared to previous approaches. Our work serves as a solid baseline and provides a data foundation for learning-based video depth models. We will release our dataset and code for future research.

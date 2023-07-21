@@ -120,7 +120,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
   python pic2v.py --vnum market_6 --infer_w 896 --infer_h 384
   python pic2v.py --vnum motocross-jump --infer_w 672 --infer_h 384
   ```
-  We show 8 video comparisons in `demo_outputs_videos/`. The first row is RGB video, the second row is initial depth (DPT and MiDaS), and the third row is NVDS results with DPT and MiDaS as depth predictors. To ensure the correctness of your running results, you can compare the results you obtained with `demo_outputs_videos` and `demo_outputs`(png results). We also showcase in 8 png results by [LINK](https://drive.google.com/file/d/1MG13LpbRxnxGrofo1TI91ZNln9HVJmfq/view?usp=sharing). Besides, you are also encouraged to modify our code to stabilize your own depth predictors and discuss the results with us. We hope our work can serve as a solid baseline for future works in video depth estimation and other relevant tasks.   
+  We show 8 video comparisons in `demo_outputs_videos/`. The first row is RGB video, the second row is initial depth (DPT and MiDaS), and the third row is NVDS results with DPT and MiDaS as depth predictors. To ensure the correctness of your running results, you can compare the results you obtained with `demo_outputs_videos` and `demo_outputs`(png results). We show png results of the 8 videos by [LINK](https://drive.google.com/file/d/1MG13LpbRxnxGrofo1TI91ZNln9HVJmfq/view?usp=sharing). Besides, you are also encouraged to modify our code to stabilize your own depth predictors and discuss the results with us. We hope our work can serve as a solid baseline for future works in video depth estimation and other relevant tasks.   
   
 
 

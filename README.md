@@ -114,6 +114,8 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
     ```
   `result.txt` contains the OPW evaluations of initial depth (depth predictor, `initial/`), NVDS forward predictions (`1/`), backward predictions (`2/`), and final bidirectional results (`mix/`). `color` contains depth visualizations and `gray` contains depth results in uint16 format (0-65535).
 
++ Video Comparisons.
+  
   After getting the results, video comparisons can be generated and saved in `demo_outputs_videos/` by `pic2v.py`.
   ```
   python pic2v.py --vnum 000423 --infer_w 896 --infer_h 384

@@ -62,7 +62,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
   
   We put 8 demo input videos in `demo_videos` files, in which `bandage_1` and `market_6` are examples of [MPI Sintel dataset](http://sintel.is.tue.mpg.de/). `motocross-jump` is from [DAVIS dataset](https://davischallenge.org/). Others are a few examples of our VDW test dataset. You can also prepare your own testing sequences like us.
 
-+ Downloading checkpoints of depth precitors.
++ Downloading checkpoints of depth predictors.
 
   In our demo, we adopt [MiDaS](https://github.com/isl-org/MiDaS) and [DPT](https://github.com/isl-org/DPT) as different depth predictors. We use [midas_v21-f6b98070.pt](https://github.com/isl-org/MiDaS/releases/download/v2_1/midas_v21_384.pt) and [dpt_large-midas-2f21e586.pt](https://github.com/intel-isl/DPT/releases/download/1_0/dpt_large-midas-2f21e586.pt). Download those checkpoints and put them in `dpt/checkpoints/` folder. You may need to modify the MiDaS checkpoint name (midas_v21_384.pt) or our code (midas_v21-f6b98070.pt) since its name is adjusted by the [MiDaS repo](https://github.com/isl-org/MiDaS).
 
@@ -114,7 +114,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
     ```
   `result.txt` contains the OPW evaluations of initial depth (depth predictor, `initial/`), NVDS forward predictions (`1/`), backward predictions (`2/`), and final bidirectional results (`mix/`). `color` contains depth visualizations and 'gray' contains depth results in uint16 format (0-65535).
 
-  After getting the results, video comparisons can be generated and saved in `demo_outputs_videos/`. We showcase the 8 video comparisons in the folder. The first row is RGB video, the second row is initial depth (DPT and MiDaS), and the third row is NVDS results with DPT and MiDaS as depth predictors. To ensure the correctness of your running results, you can compare the results you obtained with `demo_outputs_videos` and `demo_outputs`(png results). We also showcase in 8 png results by [LINK](). Besides, you are also encouraged to modify our code to stabilize your own depth predictors and discuss the results with us. We hope our work can serve as a solid baseline for future works in video depth estimation and other relevant tasks.   
+  After getting the results, video comparisons can be generated and saved in `demo_outputs_videos/`. We showcase the 8 video comparisons in the folder. The first row is RGB video, the second row is initial depth (DPT and MiDaS), and the third row is NVDS results with DPT and MiDaS as depth predictors. To ensure the correctness of your running results, you can compare the results you obtained with `demo_outputs_videos` and `demo_outputs`(png results). We also showcase in 8 png results by [LINK](https://drive.google.com/file/d/1MG13LpbRxnxGrofo1TI91ZNln9HVJmfq/view?usp=sharing). Besides, you are also encouraged to modify our code to stabilize your own depth predictors and discuss the results with us. We hope our work can serve as a solid baseline for future works in video depth estimation and other relevant tasks.   
   
 
 

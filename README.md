@@ -57,6 +57,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
 
   Cross attention in our stabilization network contains functions based on `mmcv-full==1.3.0` and `mmseg==0.11.0`.  <br>Please refer to [MMSegmentation-v0.13.0](https://github.com/open-mmlab/mmsegmentation/tree/v0.13.0) for the installation.
 
-
-
-
+## 🔥 Demo & Inference
++ Preparing Demo Videos.
+  
+We put 8 demo input videos in `demo_videos` files. `bandage_1` and `market_6` are examples of [Sintel](http://sintel.is.tue.mpg.de/) dataset. `motocross-jump` is from [DAVIS](https://davischallenge.org/) dataset. Others are a few examples of our VDW test dataset. You can also prepare your own testing sequences like us.

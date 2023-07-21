@@ -68,7 +68,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
 
 + Preparing checkpoint of NVDS Stabilizer.
   
-  [Download]() and put the `NVDS_Stabilizer.pth` in `NVDS_checkpoints/` folder.
+  [Download](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS_checkpoints) and put the `NVDS_Stabilizer.pth` in `NVDS_checkpoints/` folder.
   
 + Running NVDS Inference Demo.
 

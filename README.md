@@ -78,17 +78,17 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
   ```
   `--base_dir` represents the folder to save results. `--vnum` refer to the video numbers or names. `--infer_w` and `--infer_h` are the width and height for inference. We use `--infer_h 384` by default. The `--infer_w` is set to maintain the aspect ratio of original videos.
 
-  Specifically, for the videos of VDW test dataset (Video `000423` as an example):
+  Specifically, for the videos of VDW test dataset (`000423` as an example):
   ```
   CUDA_VISIBLE_DEVICES=0 python infer_NVDS_dpt_bi.py --base_dir ./demo_outputs/dpt_init/000423/ --vnum 000423 --infer_w 896 --infer_h 384
   CUDA_VISIBLE_DEVICES=0 python infer_NVDS_midas_bi.py --base_dir ./demo_outputs/midas_init/000423/ --vnum 000423 --infer_w 896 --infer_h 384
   ```
-  For the videos of Sintel dataset (Video `market_6` as an example):
+  For the videos of Sintel dataset (`market_6` as an example):
   ```
   CUDA_VISIBLE_DEVICES=0 python infer_NVDS_dpt_bi.py --base_dir ./demo_outputs/dpt_init/market_6/ --vnum market_6 --infer_w 896 --infer_h 384
   CUDA_VISIBLE_DEVICES=0 python infer_NVDS_midas_bi.py --base_dir ./demo_outputs/midas_init/market_6/ --vnum market_6 --infer_w 896 --infer_h 384
   ``` 
-  For the videos of DAVIS dataset (Video `motocross-jump` as an example):
+  For the videos of DAVIS dataset (`motocross-jump` as an example):
   ```
   CUDA_VISIBLE_DEVICES=0 python infer_NVDS_dpt_bi.py --base_dir ./demo_outputs/dpt_init/motocross-jump/ --vnum motocross-jump --infer_w 672 --infer_h 384
   CUDA_VISIBLE_DEVICES=0 python infer_NVDS_midas_bi.py --base_dir ./demo_outputs/midas_init/motocross-jump/ --vnum motocross-jump --infer_w 672 --infer_h 384
@@ -114,7 +114,13 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
     ```
   `result.txt` contains the OPW evaluations of initial depth (depth predictor, `initial/`), NVDS forward predictions (`1/`), backward predictions (`2/`), and final bidirectional results (`mix/`). `color` contains depth visualizations and 'gray' contains depth results in uint16 format (0-65535).
 
-  After getting the results, video comparisons can be generated and saved in `demo_outputs_videos/`. We showcase the 8 video comparisons in the folder. The first row is RGB video, the second row is initial depth (DPT and MiDaS), and the third row is NVDS results with DPT and MiDaS as depth predictors. To ensure the correctness of your running results, you can compare the results you obtained with `demo_outputs_videos` and `demo_outputs`(png results). We also showcase in 8 png results by [LINK](https://drive.google.com/file/d/1MG13LpbRxnxGrofo1TI91ZNln9HVJmfq/view?usp=sharing). Besides, you are also encouraged to modify our code to stabilize your own depth predictors and discuss the results with us. We hope our work can serve as a solid baseline for future works in video depth estimation and other relevant tasks.   
+  After getting the results, video comparisons can be generated and saved in `demo_outputs_videos/` by `pic2v.py`.
+  ```
+  python pic2v.py --vnum 000423 --infer_w 896 --infer_h 384
+  python pic2v.py --vnum market_6 --infer_w 896 --infer_h 384
+  python pic2v.py motocross-jump --infer_w 672 --infer_h 384
+  ```
+  We showcase the 8 video comparisons in the folder. The first row is RGB video, the second row is initial depth (DPT and MiDaS), and the third row is NVDS results with DPT and MiDaS as depth predictors. To ensure the correctness of your running results, you can compare the results you obtained with `demo_outputs_videos` and `demo_outputs`(png results). We also showcase in 8 png results by [LINK](https://drive.google.com/file/d/1MG13LpbRxnxGrofo1TI91ZNln9HVJmfq/view?usp=sharing). Besides, you are also encouraged to modify our code to stabilize your own depth predictors and discuss the results with us. We hope our work can serve as a solid baseline for future works in video depth estimation and other relevant tasks.   
   
 
 

@@ -87,7 +87,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
   ```
   CUDA_VISIBLE_DEVICES=0 python infer_NVDS_dpt_bi.py --base_dir ./demo_outputs/dpt_init/market_6/ --vnum market_6 --infer_w 896 --infer_h 384
   CUDA_VISIBLE_DEVICES=0 python infer_NVDS_midas_bi.py --base_dir ./demo_outputs/midas_init/market_6/ --vnum market_6 --infer_w 896 --infer_h 384
-  ```
+  ``` 
   For the videos of DAVIS dataset (Video `motocross-jump` as an example):
   ```
   CUDA_VISIBLE_DEVICES=0 python infer_NVDS_dpt_bi.py --base_dir ./demo_outputs/dpt_init/motocross-jump/ --vnum motocross-jump --infer_w 672 --infer_h 384

@@ -42,7 +42,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
 ## 🔨 Installation
 + Basic environment.
   
-  Our code is based on `python=3.8.13` and `pytorch==1.9.0`. You can refer to the `requirements.txt` for installation. 
+  Our code is based on `python=3.8.13` and `pytorch==1.9.0`. Refer to the `requirements.txt` for installation. 
   ```
   conda create -n NVDS python=3.8.13
   conda activate NVDS

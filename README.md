@@ -123,7 +123,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
   We show 8 video comparisons in `demo_outputs_videos/`. The first row is RGB video, the second row is initial depth (DPT and MiDaS), and the third row is NVDS results with DPT and MiDaS as depth predictors. To ensure the correctness of your running results, you can compare the results you obtained with `demo_outputs_videos` and `demo_outputs`(png results). We show png results of the 8 videos by [LINK](https://drive.google.com/file/d/1MG13LpbRxnxGrofo1TI91ZNln9HVJmfq/view?usp=sharing). Besides, you are also encouraged to modify our code to stabilize your own depth predictors and discuss the results with us. We hope our work can serve as a solid baseline for future works in video depth estimation and other relevant tasks.
 
 ## 🍭 Acknowledgement
-We utilize [GMFlow](https://github.com/haofeixu/gmflow) for: (1) Disparity Generation in VDW dataset; (2) Training with Temporal loss; (3) VDW Evaluations. Besides, the cross-attention module in our stabilization network is developed based on [VSS-CFFM](https://github.com/GuoleiSun/VSS-CFFM). The [Mit Backbone] is proposed by [SegFormer](https://github.com/NVlabs/SegFormer). Thanks for their solid contributions and cheers to the community.
+We utilize [GMFlow](https://github.com/haofeixu/gmflow) for: (1) Disparity Generation in VDW dataset; (2) Training with Temporal loss; (3) VDW Evaluations. Besides, the cross-attention module in our stabilization network is developed based on [VSS-CFFM](https://github.com/GuoleiSun/VSS-CFFM). The Mit backbone is proposed by [SegFormer](https://github.com/NVlabs/SegFormer). Thanks for their solid contributions and cheers to the community.
 
 ## 🌹 Citation
 ```

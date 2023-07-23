@@ -24,6 +24,15 @@ in the Wild (VDW)**, which consists of 14,203 videos with over two million frame
 
 Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). Heavy works are needed for open-source. The VDW dataset can only be used for academic and research purposes. We will gradually release our VDW dataset for the community. Stay tuned!
 
+##  License and Releasing
++ VDW dataset.
+  
+  We plan to release VDW dataset under strict conditions. We are currently building the official website and preparing the license of VDW. VDW dataset cannot be used for any commercial purposes. For our video sequences, we will gradually release [IMDB](https://www.imdb.com/) numbers, starting time, end time, movie durations, resolutions, cropping areas, and some data processing tools to utilize the data. We will provide an official application template and mailbox. If you need our disparity annotations and valid masks for your research, apply to our mailbox. Your name, institution, purpose for using our data, and agreement to our license will be included in the application template. We will examine your application and send you feedback in 3-5 weekdays. Overall, we will follow the practices of the community (previous open-source datasets with movie data, e.g., Hollywood 3D, MovieNet, etc.) to legally release VDW dataset.
+
++ NVDS code and model.
+  
+  Following [MiDaS](https://github.com/isl-org/MiDaS) and [CVD](https://github.com/facebookresearch/consistent_depth), NVDS model follows the widely-used [MIT License](https://github.com/RaymondWang987/NVDS/blob/main/LICENSE). We will gradually release our code and model as scheduled.
+
 ## ⚡ Updates and Todo List
 + [2023.07.16] Our work is accepted by ICCV2023.
 + [2023.07.18] The [Arxiv](https://arxiv.org/abs/2307.08695) version of our NVDS paper is released.

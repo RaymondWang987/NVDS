@@ -29,7 +29,7 @@ Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). He
 + [2023.07.18] The [Arxiv](https://arxiv.org/abs/2307.08695) version of our NVDS paper is released.
 + [2023.07.18] Our [Project Page](https://raymondwang987.github.io/NVDS/) is built and released.
 + [2023.07.21] We present the [NVDS checkpoint](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS_checkpoints) and demo (inference) code.
-+ [TODO] More evaluation code and checkpoints (e.g., finetuning on NYUDV2) will be updated in 4-6 weeks.
++ [TODO] We will update evaluation and checkpoint of NYUDV2 finetuning in 2-3 weeks.
 + [TODO] We are currently building VDW official website to release our data. Stay tuned!
 
 ## 💦 License and Releasing

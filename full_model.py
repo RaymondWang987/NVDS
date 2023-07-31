@@ -21,12 +21,15 @@ from stabilization_network import *
 from collections import OrderedDict
 
 class NVDS(nn.Module):
-    def __init__(self):
+    def __init__(self,use_pretrain='False'):
         super().__init__()
         
         self.backbone = mit_b5()
         self.seq_len = 4
-        self.backbone.init_weights('/data/wangyiran/work2/mymodels/mit_pretrain/mit_b5.pth')
+        self.use_pretrain = use_pretrain
+
+        if self.use_pretrain is True:
+            self.backbone.init_weights('/xxx/mit_b5.pth')
         
         old_conv = self.backbone.patch_embed1.proj
         new_conv = nn.Conv2d(old_conv.in_channels + 1, old_conv.out_channels, kernel_size=old_conv.kernel_size, stride=old_conv.stride, padding=old_conv.padding)

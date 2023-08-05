@@ -29,13 +29,15 @@ Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). He
 + [2023.07.18] The [Arxiv](https://arxiv.org/abs/2307.08695) version of our NVDS paper is released.
 + [2023.07.18] Our [Project Page](https://raymondwang987.github.io/NVDS/) is built and released.
 + [2023.07.21] We present the [NVDS checkpoint](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS_checkpoints) and demo (inference) code.
-+ [TODO] We will update evaluation and checkpoint of NYUDV2 finetuning in 2-3 weeks.
-+ [TODO] We are currently building VDW official website to release our data. Stay tuned!
++ [2023.08.05] Update license of VDW dataset: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) 
++ [TODO] To update evaluation and checkpoint of NYUDV2 finetuning in 2-3 weeks.
++ [TODO] VDW website, application mailbox, test set (meta data, applications for processed data, and evaluation code) in 3-4 weeks.
++ [TODO] Gradually update our VDW training set. Stay tuned!
 
 ## 💦 License and Releasing
 + VDW dataset.
   
-  We plan to release VDW dataset under strict conditions. We are currently building the official website and preparing the license of VDW. VDW dataset cannot be used for any commercial purposes. For our video sequences, we will gradually release [IMDB](https://www.imdb.com/) numbers, starting time, end time, movie durations, resolutions, cropping areas, and some data processing tools to utilize the data. We will provide an official application template and mailbox. If you need our disparity annotations and valid masks for your research, apply to our mailbox. Your name, institution, purpose for using our data, and agreement to our license will be included in the application template. We will examine your application and send you feedback in 3-5 weekdays. Overall, we will follow the practices of the community (previous open-source datasets with movie data, e.g., Hollywood 3D, MovieNet, etc.) to legally release VDW dataset. 
+  We plan to release VDW dataset under strict conditions. VDW dataset is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode). It cannot be used for any commercial purposes. For our video sequences, we will gradually release [IMDB](https://www.imdb.com/) numbers, starting time, end time, movie durations, resolutions, cropping areas, and some data processing tools to utilize the data. We will provide an application template and mailbox. If you need our processed dataset for your research, apply to our mailbox. Your name, institution, purpose for using our data, and agreement to our license will be included in the application form. We will examine your application and send you feedback in 3-5 weekdays. Overall, we will follow the practices of the community (previous open-source datasets with movie data, e.g., Hollywood 3D, MovieNet, etc.) to legally release VDW dataset. 
 
 + NVDS code and model.
   

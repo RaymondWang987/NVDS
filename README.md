@@ -16,7 +16,7 @@ Authors: [Yiran Wang](https://scholar.google.com.hk/citations?hl=zh-CN&user=p_Rn
 
 Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</sup>Adobe Research, <sup>3</sup>Nanyang Technological University
 
-### [Project Page](https://raymondwang987.github.io/NVDS/) | [Arxiv](https://arxiv.org/abs/2307.08695) | [Video](https://youtu.be/SNV9F-60xrE) | [视频](https://www.bilibili.com/video/BV1KW4y1d7F8/) | [Supp](https://github.com/RaymondWang987/NVDS/blob/main/PDF/SUPPV1.pdf) | VDW Dataset (Coming Soon)
+### [Project Page](https://raymondwang987.github.io/NVDS/) | [Arxiv](https://arxiv.org/abs/2307.08695) | [Video](https://youtu.be/SNV9F-60xrE) | [视频](https://www.bilibili.com/video/BV1KW4y1d7F8/) | [Supp](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf) | VDW Dataset (Coming Soon)
 
 ## 😎 Highlights
 **NVDS is the first plug-and-play stabilizer** that can remove flickers from any single-image depth model without extra effort. Besides, we also introduce a large-scale dataset, **Video Depth
@@ -29,7 +29,8 @@ Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). He
 + [2023.07.18] The [Arxiv](https://arxiv.org/abs/2307.08695) version of our NVDS paper is released.
 + [2023.07.18] Our [Project Page](https://raymondwang987.github.io/NVDS/) is built and released.
 + [2023.07.21] We present the [NVDS checkpoint](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS_checkpoints) and demo (inference) code.
-+ [2023.08.05] Update license of VDW dataset: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) 
++ [2023.08.05] Update license of VDW dataset: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
++ [2023.08.10] Update the camera ready version of NVDS [paper](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_camera.pdf) and [supplementary](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf).
 + [TODO] To update evaluation and checkpoint of NYUDV2 finetuning in 2-3 weeks.
 + [TODO] To release VDW official website, application mailbox, VDW test set (meta data, applications for processed data, and evaluation code) in 3-4 weeks.
 + [TODO] Gradually update our VDW training set. Stay tuned!

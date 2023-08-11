@@ -31,7 +31,7 @@ Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). He
 + [2023.07.21] We present the [NVDS checkpoint](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS_checkpoints) and demo (inference) code.
 + [2023.08.05] Update license of VDW dataset: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 + [2023.08.10] Update the camera ready version of NVDS [paper](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_camera.pdf) and [supplementary](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf).
-+ [TODO] To update evaluation and checkpoint of NYUDV2 finetuning in 2-3 weeks.
++ [2023.08.11] Release evaluation code and checkpoint of [NYUDV2-finetuned NVDS](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS-finetuned-NYUDV2).
 + [TODO] To release VDW official website, application mailbox, VDW test set (meta data, applications for processed data, and evaluation code) in 3-4 weeks.
 + [TODO] Gradually update our VDW training set. Stay tuned!
 
@@ -134,6 +134,59 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
   python pic2v.py --vnum motocross-jump --infer_w 672 --infer_h 384
   ```
   We show 8 video comparisons in `demo_outputs_videos/`. The first row is RGB video, the second row is initial depth (DPT and MiDaS), and the third row is NVDS results with DPT and MiDaS as depth predictors. To ensure the correctness of your running results, you can compare the results you obtained with `demo_outputs_videos` and `demo_outputs`(png results). We show png results of the 8 videos by [LINK](https://drive.google.com/file/d/1MG13LpbRxnxGrofo1TI91ZNln9HVJmfq/view?usp=sharing). Besides, you are also encouraged to modify our code to stabilize your own depth predictors and discuss the results with us. We hope our work can serve as a solid baseline for future works in video depth estimation and other relevant tasks.
+
+## 🍔 Evaluations on NYUDV2
++ Preparing 654 testing sequences.
+
+  Download the 654 testing sequences from [LINK](https://www.dropbox.com/sh/noirpejsu6c91bp/AABXw4c4nqhjQNgPpA6GZg6Sa?dl=0). Put the sequences in the `test_nyu_data` folder. Each test sequence is organized by:
+  ```
+  test_nyu_data/1/
+      ├── rgb/
+        └── 000000.png 000001.png 000002.png 000003.png
+      ├── gt/
+        └── 000003.png
+    ```
+  We follow the commonly-applied Eigen split with 654 images for testing. In our case, we locate each image `(000003.png)` in its video and use its previous three frames `(000000.png, 000001.png, and 000002.png)` as reference frames.
+
++ Preparing NVDS checkpoint finetuned on NYUDV2.
+
+  [Download](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS-finetuned-NYUDV2) and put the `NVDS_Stabilizer_NYUDV2_Finetuned.pth
+` in `NVDS_checkpoints/` folder.
+
++ Evaluations with Midas and DPT as different depth predictors.
+
+  Run `test_NYU_depth_metrics.py` with specified depth predictors (`--initial_type dpt` or `midas`).
+  ```
+  CUDA_VISIBLE_DEVICES=0 python test_NYU_depth_metrics.py --initial_type dpt
+  CUDA_VISIBLE_DEVICES=1 python test_NYU_depth_metrics.py --initial_type midas
+  ```
+  The `test_NYU_depth_metrics.py` contains three parts: (1) Inference of depth predictors, producing initial results of Midas or DPT; (2) Inference of NVDS based on the initial results; (3) metric evaluations of depth predictor and NVDS. All inference processes are conducted by the resolution of $384\times384$ as Midas and DPT. For simplicity, we only adopt NVDS forward prediction in this code. By running the code, you can reproduce the similar results as our paper:
+
+   
+  | Methods | $\delta_1$ | $Rel$ | Methods | $\delta_1$ | $Rel$ |
+  | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: |
+  | [Midas](https://github.com/isl-org/MiDaS) | 0.910 | 0.095 | [DPT](https://github.com/isl-org/DPT) | $0.928$ | $0.084$ |
+  | **NVDS (Midas)** | **0.941** | **0.076** | **NVDS (DPT)** | **0.950** | **0.072** |
+
+ 
+  After running the evaluation code, the `test_nyu_data` will be organized by:
+   ```
+  test_nyu_data/1/
+      ├── rgb/
+        └── 000000.png 000001.png 000002.png 000003.png
+      ├── gt/
+        └── 000003.png
+      ├── initial_midas/
+        └── 000000.png 000001.png 000002.png 000003.png
+      ├── initial_dpt/
+        └── 000000.png 000001.png 000002.png 000003.png
+      ├── NVDS_midas/
+        └── 000003.png
+      ├── NVDS_dpt/
+        └── 000003.png
+    ```
+   We evalute depth metrics of all methods only using the 654 images in Eigen split, i.e., `000003.png` of each sequence. `000000.png, 000001.png, and 000002.png` are produced by depth predictors as the input of the stabilization network.
+  
 
 ## 🍭 Acknowledgement
 We thank the authors for releasing [PyTorch](https://pytorch.org/), [MiDaS](https://github.com/intel-isl/MiDaS), [DPT](https://github.com/isl-org/DPT), [GMFlow](https://github.com/haofeixu/gmflow), [SegFormer](https://github.com/NVlabs/SegFormer), [VSS-CFFM](https://github.com/GuoleiSun/VSS-CFFM), [Mask2Former](https://github.com/facebookresearch/Mask2Former), [PySceneDetect](https://github.com/Breakthrough/PySceneDetect), and [FFmpeg](http://ffmpeg.org/). Thanks for their solid contributions and cheers to the community.

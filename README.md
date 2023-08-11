@@ -138,7 +138,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
 ## 🍔 Evaluations on NYUDV2
 + Preparing 654 testing sequences.
 
-  Download the 654 testing sequences from [LINK](https://www.dropbox.com/sh/noirpejsu6c91bp/AABXw4c4nqhjQNgPpA6GZg6Sa?dl=0). Put the sequences in the `test_nyu_data` folder. Each test sequence is organized by:
+  Download the 654 testing sequences from [LINK](https://www.dropbox.com/sh/noirpejsu6c91bp/AABXw4c4nqhjQNgPpA6GZg6Sa?dl=0). Put the sequences in the `./test_nyu_data` folder. The `./test_nyu_data` folder should only contain the 654 folders of all testing sequences. The folder of each sequence is organized by:
   ```
   test_nyu_data/1/
       ├── rgb/

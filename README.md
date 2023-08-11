@@ -104,7 +104,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
   CUDA_VISIBLE_DEVICES=0 python infer_NVDS_dpt_bi.py --base_dir ./demo_outputs/dpt_init/motocross-jump/ --vnum motocross-jump --infer_w 672 --infer_h 384
   CUDA_VISIBLE_DEVICES=0 python infer_NVDS_midas_bi.py --base_dir ./demo_outputs/midas_init/motocross-jump/ --vnum motocross-jump --infer_w 672 --infer_h 384
   ```
-  Under the resolution of $896\times384$, the inference of DPT-Large and our stabilizer takes about 20G and 5G GPU memory (RTX-A6000). If the memory occupancy is too large for your server, you can (1) run DPT/Midas initial depth results and our NVDS separately; (2) reduce the inference resolution ($e.g.$, $384\times384$); (3) if not needed, remove the OPW evaluations, in which the inference of GMFlow also brings some computational costs. (4) if not needed, remove the bidirectional (backward and mixing) inference. The forward inference process can also produce satisfactary results, while bidirectional inference can further improve consistency.
+  Under the resolution of $896\times384$, the inference of DPT-Large and our stabilizer takes about 20G and 5G GPU memory (RTX-A6000). If the memory occupancy is too large for your server, you can (1) run DPT/Midas initial depth results and our NVDS separately; (2) reduce the inference resolution ($e.g.$, $384\times384$); (3) if not needed, remove the OPW evaluations, in which the inference of GMFlow also brings some computational costs. (4) if not needed, remove the bidirectional (backward and mixing) inference. The forward inference process can also produce satisfactory results, while bidirectional inference can further improve consistency.
 
   After running the inference code, the result folder `--base_dir` will be organized as follows:
   ```
@@ -160,7 +160,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
   CUDA_VISIBLE_DEVICES=0 python test_NYU_depth_metrics.py --initial_type dpt
   CUDA_VISIBLE_DEVICES=1 python test_NYU_depth_metrics.py --initial_type midas
   ```
-  The `test_NYU_depth_metrics.py` contains three parts: (1) Inference of depth predictors, producing initial results of Midas or DPT; (2) Inference of NVDS based on the initial results; (3) metric evaluations of depth predictor and NVDS. All inference processes are conducted by the resolution of $384\times384$ as Midas and DPT. For simplicity, we only adopt NVDS forward prediction in this code. By running the code, you can reproduce the similar results as our paper:
+  The `test_NYU_depth_metrics.py` contains three parts: (1) Inference of depth predictors, producing initial results of Midas or DPT; (2) Inference of NVDS based on the initial results; (3) Metric evaluations of depth predictor and NVDS. All inference processes are conducted by the resolution of $384\times384$ as Midas and DPT. For simplicity, we only adopt NVDS forward prediction in this code. By running the code, you can reproduce similar results as our paper:
 
    
   | Methods | $\delta_1$ | $Rel$ | Methods | $\delta_1$ | $Rel$ |
@@ -185,7 +185,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
       ├── NVDS_dpt/
         └── 000003.png
     ```
-   We evalute depth metrics of all methods only using the 654 images in Eigen split, i.e., `000003.png` of each sequence. `000000.png, 000001.png, and 000002.png` are produced by depth predictors as the input of the stabilization network.
+   We evaluate depth metrics of all methods only using the 654 images in Eigen split, i.e., `000003.png` of each sequence. `000000.png, 000001.png, and 000002.png` are produced by depth predictors as the input of the stabilization network.
   
 
 ## 🍭 Acknowledgement

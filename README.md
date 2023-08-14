@@ -66,7 +66,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
 
 + Installation of mmcv and mmseg.
 
-  Cross attention in our stabilization network contains functions based on `mmcv-full==1.3.0` and `mmseg==0.11.0`.  <br>Please refer to [MMSegmentation-v0.11.0](https://github.com/open-mmlab/mmsegmentation/tree/v0.11.0) for the installation.
+  Cross attention in our stabilization network contains functions based on `mmcv-full==1.3.0` and `mmseg==0.11.0`.  <br>Please refer to [MMSegmentation-v0.11.0](https://github.com/open-mmlab/mmsegmentation/tree/v0.11.0) and their [official document](https://mmsegmentation.readthedocs.io/en/latest/get_started.html) for detailed installation instructions step by step.
 
 ## 🔥 Demo & Inference
 + Preparing Demo Videos.

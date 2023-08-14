@@ -766,7 +766,7 @@ if __name__ == '__main__':
         if min_fwd<dpt_index and min_bwd<dpt_index:
             outputs = (fwpred+bwpred)/2
         else:
-            if min_fwd<min_fwd:
+            if min_fwd<min_bwd:
                 outputs = fwpred
             else:
                 outputs = bwpred

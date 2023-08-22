@@ -87,7 +87,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
   ```
   CUDA_VISIBLE_DEVICES=0 python infer_NVDS_dpt_bi.py --base_dir /XXX/XXX --vnum XXX --infer_w XXX --infer_h XXX
   ```
-  `--base_dir` represents the folder to save results. `--vnum` refer to the video numbers or names. `--infer_w` and `--infer_h` are the width and height for inference. We use `--infer_h 384` by default. The `--infer_w` is set to maintain the aspect ratio of original videos.
+  `--base_dir` represents the folder to save results. `--vnum` refer to the video numbers or names. `--infer_w` and `--infer_h` are the width and height for inference. We use `--infer_h 384` by default. The `--infer_w` is set to maintain the aspect ratio of original videos. Besides, the `--infer_w` and `--infer_h` should be set to integer multiples of `32` for alignment of resolutions in the up-sampling and down-sampling processes.
 
   Specifically, for the videos of VDW test dataset (`000423` as an example):
   ```

@@ -240,7 +240,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
   | [Midas](https://github.com/isl-org/MiDaS) | 0.651 | 0.288 | 0.676 | [DPT](https://github.com/isl-org/DPT) | 0.730 | 0.215 | 0.470 |
   | NVDS-Forward (Midas) | 0.700 | 0.240 | 0.207 |  NVDS-Forward (DPT) | 0.741 | 0.208 | 0.165 |
   | NVDS-Backward (Midas) | 0.699 | 0.240 | 0.218 |  NVDS-Backward (DPT) | 0.741 | 0.208 | 0.174 |
-  | **NVDS-Final (Midas)** | **0.700** | **0.240** | **0.180** |  **NVDS-Forward (DPT)** | **0.742** | **0.208** | **0.147** |
+  | **NVDS-Final (Midas)** | **0.700** | **0.240** | **0.180** |  **NVDS-Final (DPT)** | **0.742** | **0.208** | **0.147** |
   
 
    

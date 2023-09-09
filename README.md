@@ -32,13 +32,14 @@ Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). He
 + [2023.08.05] Update license of VDW dataset: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 + [2023.08.10] Update the camera ready version of NVDS [paper](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_camera.pdf) and [supplementary](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf).
 + [2023.08.11] Release evaluation code and checkpoint of [NYUDV2-finetuned NVDS](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS-finetuned-NYUDV2).
-+ [TODO] To release VDW official website, application mailbox, VDW test set (meta data, applications for processed data, and evaluation code) in 3-4 weeks.
-+ [TODO] Gradually update our VDW training set. Stay tuned!
++ [2023.09.09] [VDW official website](https://raymondwang987.github.io/VDW/) and [application mailbox](vdw.dataset@gmail.com) go online. Refer to the website for usage and applications.
++ [2023.09.09] Evaluation code on VDW test set is released.
++ [TODO] We will gradually update our VDW training set. Stay tuned!
 
 ## 💦 License and Releasing
 + VDW dataset.
   
-  We plan to release VDW dataset under strict conditions. VDW dataset is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode). It cannot be used for any commercial purposes. For our video sequences, we will gradually release [IMDB](https://www.imdb.com/) numbers, starting time, end time, movie durations, resolutions, cropping areas, and some data processing tools to utilize the data. We will provide an application template and mailbox. If you need our processed dataset for your research, apply to our mailbox. Your name, institution, purpose for using our data, and agreement to our license will be included in the application form. We will examine your application and send you feedback in 3-5 weekdays. Overall, we will follow the practices of the community (previous open-source datasets with movie data, e.g., Hollywood 3D, MovieNet, etc.) to legally release VDW dataset. 
+  We plan to release VDW dataset under strict conditions. VDW dataset is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode). It cannot be used for any commercial purposes. For our video sequences, we will gradually release [IMDB](https://www.imdb.com/) numbers, starting time, end time, movie durations, resolutions, cropping areas, and some data processing tools to utilize the data. We will provide an application template and mailbox. If you need our processed dataset for your research, apply to our mailbox. Your name, institution, purpose for using our data, and agreement to our license will be included in the application form. We will examine your application and send you feedback in 3-5 weekdays. Overall, we will follow the practices of the community (previous open-source datasets with movie data, e.g., Hollywood 3D, MovieNet, etc.) to legally release VDW dataset. **Please refer to our [VDW official website](https://raymondwang987.github.io/VDW/) for data usage, download, and applications.**
 
 + NVDS code and model.
   
@@ -189,6 +190,69 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
     ```
    We evaluate depth metrics of all methods only using the 654 images in Eigen split, i.e., `000003.png` of each sequence. `000000.png, 000001.png, and 000002.png` are produced by depth predictors as the input of the stabilization network.
   
+## 🎯 Evaluations on VDW Test Set
++ Applying for and downloading the VDW test set.
+
+  Please refer to our [VDW official website](https://raymondwang987.github.io/VDW/) for data usage, download, and applications. Put the VDW test set in a certain file path. Here we take `/xxx/vdw_test` as an example. The VDW test set contains 90 videos with 12,622 frames. For each video (e.g., `/xxx/vdw_test/000008/`), the test set is organized as follows. The `left` or `right` files contain the RGB video frames of left and right views, while gt files for disparity annotations and mask files for valid masks.
+  ```
+  /xxx/vdw_test/000008/
+      ├── left/
+        └── frame_000000.png frame_000001.png frame_000002.png ...
+      ├── left_gt/
+        └── frame_000000.png frame_000001.png frame_000002.png ...
+      ├── left_mask/
+        └── frame_000000.png frame_000001.png frame_000002.png ...
+      ├── right/
+        └── frame_000000.png frame_000001.png frame_000002.png ...
+      ├── right_gt/
+        └── frame_000000.png frame_000001.png frame_000002.png ...
+      ├── right_mask/
+        └── frame_000000.png frame_000001.png frame_000002.png ...
+    ```
+
++ Inference and evaluations for each testing video.
+
+    For each testing video, the evaluations contain two steps: **(1) inference; and (2) depth metrics evaluations**. We provide the `write_sh.py` to generate evaluation scripts (for Midas and DPT). You should modify some details in `write_sh.py` (e.g.,  gpu number, VDW test set path, directory for saving NVDS results with Midas/DPT) in order to generate the `test_VDW_NVDS_Midas.sh` and `test_VDW_NVDS_DPT.sh`. We provide the two examplar scripts with `/xxx/` for some directories.
+
+    To be specific, **(1) the inference step** is the same as the previous `Demo & Inference` part with  `infer_NVDS_dpt_bi.py` and `infer_NVDS_midas_bi.py`. In this step, the temporal metric `OPW` is automatically evaluated and saved in the `result.txt`. **(2) Depth metrics evaluations** utilize the `vdw_test_metric.py` to calculate $\delta_1$ and $Rel$ for each video. Taking `./vdw_test/000008/` as an example, `--gt_dir` specify the path for `vdw_test`, `--result_dir` specify your directory for saving results, and `--vnum` represents the video number. 
+   ```
+   python vdw_test_metric.py --gt_dir /xxx/vdw_test/ --result_dir /xxx/NVDS_VDW_Test/Midas/ --vnum 000008
+   python vdw_test_metric.py --gt_dir /xxx/vdw_test/ --result_dir /xxx/NVDS_VDW_Test/DPT/ --vnum 000008
+   ```
+
+   After generating `test_VDW_NVDS_Midas.sh` and `test_VDW_NVDS_DPT.sh`, you can run inference and evaluations for all the videos by:
+   ```
+  bash test_VDW_NVDS_Midas.sh
+  bash test_VDW_NVDS_DPT.sh
+   ```
++ Average metrics calculations for all 90 videos.
+  
+   When the scripts is finished for all videos, `NVDS_VDW_Test` file will contain the results of 90 testing videos with Midas/DPT as depth predictors (`/xxx//NVDS_VDW_Test/Midas/` and `/xxx/NVDS_VDW_Test/DPT/`). For each video, there will be an `accuracy.txt` to store the depth metrics. The last step is to calculate the average tomporal and depth metrics for all the 90 videos. You can simlpy run the `cal_mean_vdw_metric.py` for the final results.
+   ```
+   python cal_mean_vdw_metric --test_dir /xxx/NVDS_VDW_Test/Midas/
+   python cal_mean_vdw_metric --test_dir /xxx/NVDS_VDW_Test/DPT/
+   ```
+
+   Finally, you can get the same results as our paper. This also serves as an example to conduct evaluations on the VDW test set.
+
+  | Methods | $\delta_1$ | $Rel$ | $OPW$  | Methods | $\delta_1$ | $Rel$ | $OPW$  |
+  | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: | :--------: |
+  | [Midas](https://github.com/isl-org/MiDaS) | 0.651 | 0.288 | 0.676 | [DPT](https://github.com/isl-org/DPT) | 0.730 | 0.215 | 0.470 |
+  | NVDS-Forward (Midas) | 0.700 | 0.240 | 0.207 |  NVDS-Forward (DPT) | 0.741 | 0.208 | 0.165 |
+  | NVDS-Backward (Midas) | 0.699 | 0.240 | 0.218 |  NVDS-Backward (DPT) | 0.741 | 0.208 | 0.174 |
+  | **NVDS-Final (Midas)** | **0.700** | **0.240** | **0.180** |  **NVDS-Forward (DPT)** | **0.742** | **0.208** | **0.147** |
+  
+
+   
+
+     
+    
+   
+  
+
+  
+
+
 
 ## 🍭 Acknowledgement
 We thank the authors for releasing [PyTorch](https://pytorch.org/), [MiDaS](https://github.com/intel-isl/MiDaS), [DPT](https://github.com/isl-org/DPT), [GMFlow](https://github.com/haofeixu/gmflow), [SegFormer](https://github.com/NVlabs/SegFormer), [VSS-CFFM](https://github.com/GuoleiSun/VSS-CFFM), [Mask2Former](https://github.com/facebookresearch/Mask2Former), [PySceneDetect](https://github.com/Breakthrough/PySceneDetect), and [FFmpeg](http://ffmpeg.org/). Thanks for their solid contributions and cheers to the community.

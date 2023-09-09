@@ -227,7 +227,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
    ```
 + Average metrics calculations for all 90 videos.
   
-   When the scripts is finished for all videos, `NVDS_VDW_Test` folder will contain the results of 90 test videos with Midas/DPT as depth predictors (`/xxx//NVDS_VDW_Test/Midas/` and `/xxx/NVDS_VDW_Test/DPT/`). For each video, there will be an `accuracy.txt` to store the depth metrics. The last step is to calculate the average tomporal and depth metrics for all the 90 videos. You can simlpy run the `cal_mean_vdw_metric.py` for the final results.
+   When the scripts are finished for all videos, `NVDS_VDW_Test` folder will contain the results of 90 test videos with Midas/DPT as depth predictors (`/xxx/NVDS_VDW_Test/Midas/` and `/xxx/NVDS_VDW_Test/DPT/`). For each video, there will be an `accuracy.txt` to store the depth metrics. The last step is to calculate the average temporal and depth metrics for all the 90 videos. You can simply run the `cal_mean_vdw_metric.py` for the final results.
    ```
    python cal_mean_vdw_metric --test_dir /xxx/NVDS_VDW_Test/Midas/
    python cal_mean_vdw_metric --test_dir /xxx/NVDS_VDW_Test/DPT/

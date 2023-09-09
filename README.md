@@ -193,7 +193,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
 ## 🎯 Evaluations on VDW Test Set
 + Applying for the VDW test set.
 
-  Please refer to our [VDW official website](https://raymondwang987.github.io/VDW/) for data usage, download, and applications. If your application is approved by us, you can download and put the VDW test set in a certain folder. Here we take `/xxx/vdw_test` as an example. The VDW test set contains 90 videos with 12,622 frames. For each video (e.g., `/xxx/vdw_test/000008/`), the test set is organized as follows. The `left` or `right` folders contain the RGB video frames of left and right views, while gt folders for disparity annotations and mask folders for valid masks.
+  Please refer to our [VDW official website](https://raymondwang987.github.io/VDW/) for data usage, download, and applications. If your application is approved by us, you can download and put the VDW test set in a certain folder. Here we take `/xxx/vdw_test` as an example. The VDW test set contains 90 videos with 12,622 frames. For each video (e.g., `/xxx/vdw_test/000008/`), the test set is organized as follows. The `left` or `right` folders contain the RGB video frames of left and right views, while gt folders are for disparity annotations and mask folders for valid masks.
   ```
   /xxx/vdw_test/000008/
       ├── left/

@@ -32,7 +32,7 @@ Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). He
 + [2023.08.05] Update license of VDW dataset: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
 + [2023.08.10] Update the camera ready version of NVDS [paper](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_camera.pdf) and [supplementary](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf).
 + [2023.08.11] Release evaluation code and checkpoint of [NYUDV2-finetuned NVDS](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS-finetuned-NYUDV2).
-+ [2023.09.09] [VDW official website](https://raymondwang987.github.io/VDW/) and [application mailbox](vdw.dataset@gmail.com) go online. Refer to the website for usage and applications.
++ [2023.09.09] [VDW official website](https://raymondwang987.github.io/VDW/) and application mailbox (vdw.dataset@gmail.com) go online. Refer to the website for usage and applications.
 + [2023.09.09] Evaluation code on VDW test set is released.
 + [TODO] We will gradually update our VDW training set. Stay tuned!
 

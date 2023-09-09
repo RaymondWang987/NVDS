@@ -191,9 +191,9 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
    We evaluate depth metrics of all methods only using the 654 images in Eigen split, i.e., `000003.png` of each sequence. `000000.png, 000001.png, and 000002.png` are produced by depth predictors as the input of the stabilization network.
   
 ## 🎯 Evaluations on VDW Test Set
-+ Applying for and downloading the VDW test set.
++ Applying for the VDW test set.
 
-  Please refer to our [VDW official website](https://raymondwang987.github.io/VDW/) for data usage, download, and applications. Put the VDW test set in a certain file path. Here we take `/xxx/vdw_test` as an example. The VDW test set contains 90 videos with 12,622 frames. For each video (e.g., `/xxx/vdw_test/000008/`), the test set is organized as follows. The `left` or `right` files contain the RGB video frames of left and right views, while gt files for disparity annotations and mask files for valid masks.
+  Please refer to our [VDW official website](https://raymondwang987.github.io/VDW/) for data usage, download, and applications. If your application is approved by us, you can download and put the VDW test set in a certain folder. Here we take `/xxx/vdw_test` as an example. The VDW test set contains 90 videos with 12,622 frames. For each video (e.g., `/xxx/vdw_test/000008/`), the test set is organized as follows. The `left` or `right` folders contain the RGB video frames of left and right views, while gt folders for disparity annotations and mask folders for valid masks.
   ```
   /xxx/vdw_test/000008/
       ├── left/
@@ -210,9 +210,9 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
         └── frame_000000.png frame_000001.png frame_000002.png ...
     ```
 
-+ Inference and evaluations for each testing video.
++ Inference and evaluations for each test video.
 
-    For each testing video, the evaluations contain two steps: **(1) inference; and (2) depth metrics evaluations**. We provide the `write_sh.py` to generate evaluation scripts (for Midas and DPT). You should modify some details in `write_sh.py` (e.g.,  gpu number, VDW test set path, directory for saving NVDS results with Midas/DPT) in order to generate the `test_VDW_NVDS_Midas.sh` and `test_VDW_NVDS_DPT.sh`. We provide the two examplar scripts with `/xxx/` for some directories.
+    For each test video, the evaluations contain two steps: **(1) inference; and (2) depth metrics evaluations**. We provide the `write_sh.py` to generate evaluation scripts (for Midas and DPT). You should modify some details in `write_sh.py` (e.g.,  gpu number, VDW test set path, directory for saving NVDS results with Midas/DPT) in order to generate the `test_VDW_NVDS_Midas.sh` and `test_VDW_NVDS_DPT.sh`. We provide the two examplar scripts with `/xxx/` for those directories.
 
     To be specific, **(1) the inference step** is the same as the previous `Demo & Inference` part with  `infer_NVDS_dpt_bi.py` and `infer_NVDS_midas_bi.py`. In this step, the temporal metric `OPW` is automatically evaluated and saved in the `result.txt`. **(2) Depth metrics evaluations** utilize the `vdw_test_metric.py` to calculate $\delta_1$ and $Rel$ for each video. Taking `./vdw_test/000008/` as an example, `--gt_dir` specify the path for `vdw_test`, `--result_dir` specify your directory for saving results, and `--vnum` represents the video number. 
    ```
@@ -227,7 +227,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
    ```
 + Average metrics calculations for all 90 videos.
   
-   When the scripts is finished for all videos, `NVDS_VDW_Test` file will contain the results of 90 testing videos with Midas/DPT as depth predictors (`/xxx//NVDS_VDW_Test/Midas/` and `/xxx/NVDS_VDW_Test/DPT/`). For each video, there will be an `accuracy.txt` to store the depth metrics. The last step is to calculate the average tomporal and depth metrics for all the 90 videos. You can simlpy run the `cal_mean_vdw_metric.py` for the final results.
+   When the scripts is finished for all videos, `NVDS_VDW_Test` folder will contain the results of 90 test videos with Midas/DPT as depth predictors (`/xxx//NVDS_VDW_Test/Midas/` and `/xxx/NVDS_VDW_Test/DPT/`). For each video, there will be an `accuracy.txt` to store the depth metrics. The last step is to calculate the average tomporal and depth metrics for all the 90 videos. You can simlpy run the `cal_mean_vdw_metric.py` for the final results.
    ```
    python cal_mean_vdw_metric --test_dir /xxx/NVDS_VDW_Test/Midas/
    python cal_mean_vdw_metric --test_dir /xxx/NVDS_VDW_Test/DPT/

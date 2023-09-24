@@ -25,7 +25,7 @@ in the Wild (VDW)**, which consists of 14,203 videos with over two million frame
 Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). Heavy works are needed for open-source. The VDW dataset can only be used for academic and research purposes. We will gradually release our VDW dataset for the community. Stay tuned!
 
 ## ⚡ Updates and Todo List
-+ [TODO] Light-weight **NVDS-Tiny** model and depth predictors for real-time applications.
++ [TODO] Light-weight **NVDS-Tiny** model and depth predictors for **real-time** applications.
 + [TODO] NVDS Inference demo with **more advanced depth predictors** (e.g., dpt_beit_large_384 from [MiDaS-V3.1](https://github.com/isl-org/MiDaS)).
 + [TODO] Gradually updating our VDW training set.
 + [2023.09.17] Upload [NVDS Poster](https://github.com/RaymondWang987/NVDS/blob/main/PDF/NVDS_Poster_ICCV23.pdf) for [ICCV2023](https://iccv2023.thecvf.com/).

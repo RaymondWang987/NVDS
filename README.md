@@ -25,19 +25,21 @@ in the Wild (VDW)**, which consists of 14,203 videos with over two million frame
 Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). Heavy works are needed for open-source. The VDW dataset can only be used for academic and research purposes. We will gradually release our VDW dataset for the community. Stay tuned!
 
 ## ⚡ Updates and Todo List
-+ [2023.07.16] Our work is accepted by ICCV2023.
-+ [2023.07.18] The [Arxiv](https://arxiv.org/abs/2307.08695) version of our NVDS paper is released.
-+ [2023.07.18] Our [Project Page](https://raymondwang987.github.io/NVDS/) is built and released.
-+ [2023.07.21] We present the [NVDS checkpoint](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS_checkpoints) and demo (inference) code.
-+ [2023.08.05] Update license of VDW dataset: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
-+ [2023.08.10] Update the camera ready version of NVDS [paper](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_camera.pdf) and [supplementary](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf).
-+ [2023.08.11] Release evaluation code and checkpoint of [NYUDV2-finetuned NVDS](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS-finetuned-NYUDV2).
-+ [2023.09.09] [VDW official website](https://raymondwang987.github.io/VDW/) and application mailbox (vdw.dataset@gmail.com) go online. Refer to the website for usage and applications.
-+ [2023.09.09] Evaluation code on VDW test set is released.
-+ [2023.09.17] Upload [NVDS Poster](https://github.com/RaymondWang987/NVDS/blob/main/PDF/NVDS_Poster_ICCV23.pdf) for [ICCV2023](https://iccv2023.thecvf.com/).
-+ [TODO] NVDS Inference demo with **more advanced depth predictors** (e.g., dpt_beit_large_384 from [MiDaS-V3.1](https://github.com/isl-org/MiDaS)).
 + [TODO] Light-weight **NVDS-Tiny** model and depth predictors for real-time applications.
++ [TODO] NVDS Inference demo with **more advanced depth predictors** (e.g., dpt_beit_large_384 from [MiDaS-V3.1](https://github.com/isl-org/MiDaS)).
 + [TODO] Gradually updating our VDW training set.
++ [2023.09.17] Upload [NVDS Poster](https://github.com/RaymondWang987/NVDS/blob/main/PDF/NVDS_Poster_ICCV23.pdf) for [ICCV2023](https://iccv2023.thecvf.com/).
++ [2023.09.09] Evaluation code on VDW test set is released.
++ [2023.09.09] [VDW official website](https://raymondwang987.github.io/VDW/) and application mailbox (vdw.dataset@gmail.com) go online. Refer to the website for usage and applications.
++ [2023.08.11] Release evaluation code and checkpoint of [NYUDV2-finetuned NVDS](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS-finetuned-NYUDV2).
++ [2023.08.10] Update the camera ready version of NVDS [paper](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_camera.pdf) and [supplementary](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf).
++ [2023.08.05] Update license of VDW dataset: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
++ [2023.07.21] We present the [NVDS checkpoint](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS_checkpoints) and demo (inference) code.
++ [2023.07.18] Our [Project Page](https://raymondwang987.github.io/NVDS/) is built and released.
++ [2023.07.18] The [Arxiv](https://arxiv.org/abs/2307.08695) version of our NVDS paper is released.
++ [2023.07.16] Our work is accepted by ICCV2023.
+
+
 
 ## 💦 License and Releasing
 + VDW dataset.

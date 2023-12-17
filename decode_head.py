@@ -2,11 +2,12 @@ from abc import ABCMeta, abstractmethod
 
 import torch
 import torch.nn as nn
-from mmcv.cnn import normal_init
-from mmcv.runner import auto_fp16, force_fp32
 
-from mmseg.core import build_pixel_sampler
-from mmseg.ops import resize
+# from mmcv.cnn import normal_init
+# from mmcv.runner import auto_fp16, force_fp32
+
+# from mmseg.core import build_pixel_sampler
+# from mmseg.ops import resize
 
 
 class BaseDecodeHead(nn.Module, metaclass=ABCMeta):
@@ -160,7 +161,7 @@ class BaseDecodeHead(nn.Module, metaclass=ABCMeta):
 
         return inputs
 
-    @auto_fp16()
+    # @auto_fp16()
     @abstractmethod
     def forward(self, inputs):
         """Placeholder of forward function."""
@@ -364,7 +365,7 @@ class BaseDecodeHead_clips(nn.Module, metaclass=ABCMeta):
 
         return inputs
 
-    @auto_fp16()
+    # @auto_fp16()
     @abstractmethod
     def forward(self, inputs):
         """Placeholder of forward function."""
@@ -567,7 +568,7 @@ class BaseDecodeHead_clips_flow(nn.Module, metaclass=ABCMeta):
 
         return inputs
 
-    @auto_fp16()
+    # @auto_fp16()
     @abstractmethod
     def forward(self, inputs):
         """Placeholder of forward function."""

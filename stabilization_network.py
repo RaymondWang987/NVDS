@@ -1,19 +1,20 @@
 import numpy as np
 import torch.nn as nn
 import torch
-from mmcv.cnn import ConvModule, DepthwiseSeparableConvModule
+# from mmcv.cnn import ConvModule, DepthwiseSeparableConvModule
 from collections import OrderedDict
-from mmseg.ops import resize
-from builder import HEADS
+# from mmseg.ops import resize
+from torch.nn.functional import interpolate as resize
+# from builder import HEADS
 from decode_head import BaseDecodeHead, BaseDecodeHead_clips, BaseDecodeHead_clips_flow
-from mmseg.models.utils import *
+# from mmseg.models.utils import *
 import attr
 from IPython import embed
 from stabilization_attention import BasicLayer3d3
 import cv2
 from networks import *
 import warnings
-from mmcv.utils import Registry, build_from_cfg
+# from mmcv.utils import Registry, build_from_cfg
 from torch import nn
 
 
@@ -35,7 +36,7 @@ class MLP(nn.Module):
 
 
 class Stabilization_Network_Cross_Attention(BaseDecodeHead_clips_flow):
-    
+
     def __init__(self, feature_strides, **kwargs):
         super(Stabilization_Network_Cross_Attention, self).__init__(input_transform='multiple_select', **kwargs)
         self.training = False
@@ -55,7 +56,7 @@ class Stabilization_Network_Cross_Attention(BaseDecodeHead_clips_flow):
 
         self.linear_fuse = nn.Sequential(nn.Conv2d(embedding_dim*4, embedding_dim, kernel_size=(1, 1), stride=(1, 1), bias=False),\
                                          nn.ReLU(inplace=True))
-        
+
 
         depths = decoder_params['depths']
         # self.decoder_swin=BasicLayer_focal(
@@ -80,27 +81,27 @@ class Stabilization_Network_Cross_Attention(BaseDecodeHead_clips_flow):
                num_heads=8,
                window_size=7,
                mlp_ratio=4.,
-               qkv_bias=True, 
+               qkv_bias=True,
                qk_scale=None,
-               drop=0., 
+               drop=0.,
                attn_drop=0.,
                drop_path=0.,
-               norm_layer=nn.LayerNorm, 
+               norm_layer=nn.LayerNorm,
                pool_method='fc',
                downsample=None,
-               focal_level=2, 
-               focal_window=5, 
-               expand_size=3, 
-               expand_layer="all",                           
+               focal_level=2,
+               focal_window=5,
+               expand_size=3,
+               expand_layer="all",
                use_conv_embed=False,
-               use_shift=False, 
-               use_pre_norm=False, 
-               use_checkpoint=False, 
-               use_layerscale=False, 
+               use_shift=False,
+               use_pre_norm=False,
+               use_checkpoint=False,
+               use_layerscale=False,
                layerscale_value=1e-4,
                focal_l_clips=[7,4,2],
                focal_kernel_clips=[7,5,3])
-        
+
         self.ffm2 = FFM(inchannels= 256, midchannels= 256, outchannels = 128)
         self.ffm1 = FFM(inchannels= 128, midchannels= 128, outchannels = 64)
         self.ffm0 = FFM(inchannels= 64, midchannels= 64, outchannels = 32,upfactor=1)
@@ -109,18 +110,18 @@ class Stabilization_Network_Cross_Attention(BaseDecodeHead_clips_flow):
     def forward(self, inputs,edge_feat,edge_feat1, num_clips=None, imgs=None):#,infermode=1):
         if self.training:
             assert self.num_clips==num_clips
-        
-        
-        
+
+
+
         x = self._transform_inputs(inputs)  # len=4, 1/4,1/8,1/16,1/32
         c1, c2, c3, c4 = x
-        
+
 
 
         ############## MLP decoder on C1-C4 ###########
         n, _, h, w = c4.shape
         batch_size = n // num_clips
-        
+
 
         _c4 = self.linear_c4(c4).permute(0,2,1).reshape(n, -1, c4.shape[2], c4.shape[3])
         _c4 = resize(_c4, size=c1.size()[2:],mode='bilinear',align_corners=False)
@@ -133,15 +134,15 @@ class Stabilization_Network_Cross_Attention(BaseDecodeHead_clips_flow):
 
         _c1 = self.linear_c1(c1).permute(0,2,1).reshape(n, -1, c1.shape[2], c1.shape[3])
         _c = self.linear_fuse(torch.cat([_c4, _c3, _c2, _c1], dim=1))
-        
-        
+
+
         _, _, h, w=_c.shape
         _c_further=_c.reshape(batch_size, num_clips, -1, h, w)  #h2w2
-       
+
         _c2=self.decoder_focal(_c_further)
         assert _c_further.shape==_c2.shape
-        
-        
+
+
         # skip and head
         outframe = self.ffm2(_c_further[:,-1,:,:,:],_c2[:,-1,:,:,:])
         outframe = self.ffm1(edge_feat1,outframe)
@@ -149,4 +150,3 @@ class Stabilization_Network_Cross_Attention(BaseDecodeHead_clips_flow):
         outframe = self.AO(outframe)
 
         return outframe
-

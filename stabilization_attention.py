@@ -231,11 +231,11 @@ class WindowAttention3d3(nn.Module):
         qkv_bias (bool, optional):  If True, add a learnable bias to query, key, value. Default: True
         qk_scale (float | None, optional): Override default qk scale of head_dim ** -0.5 if set
         attn_drop (float, optional): Dropout ratio of attention weight. Default: 0.0
-        proj_drop (float, optional): Dropout ratio of output. Default: 0.0 
+        proj_drop (float, optional): Dropout ratio of output. Default: 0.0
         pool_method (str): window pooling method. Default: none
     """
 
-    def __init__(self, dim, expand_size, window_size, focal_window, focal_level, num_heads, 
+    def __init__(self, dim, expand_size, window_size, focal_window, focal_level, num_heads,
                     qkv_bias=True, qk_scale=None, attn_drop=0., proj_drop=0., pool_method="none", focal_l_clips=[7,1,2], focal_kernel_clips=[7,5,3]):
 
         super().__init__()
@@ -292,7 +292,7 @@ class WindowAttention3d3(nn.Module):
         if self.expand_size > 0 and focal_level > 0:
             # define a parameter table of position bias between window and its fine-grained surroundings
             self.window_size_of_key = self.window_size[0] * self.window_size[1] if self.expand_size == 0 else \
-                (4 * self.window_size[0] * self.window_size[1] - 4 * (self.window_size[0] -  self.expand_size) * (self.window_size[0] -  self.expand_size))        
+                (4 * self.window_size[0] * self.window_size[1] - 4 * (self.window_size[0] -  self.expand_size) * (self.window_size[0] -  self.expand_size))
             self.relative_position_bias_table_to_neighbors = nn.Parameter(
                 torch.zeros(1, num_heads, self.window_size[0] * self.window_size[1], self.window_size_of_key))  # Wh*Ww, nH, nSurrounding
             trunc_normal_(self.relative_position_bias_table_to_neighbors, std=.02)
@@ -315,11 +315,11 @@ class WindowAttention3d3(nn.Module):
 
             # build relative position bias between local patch and pooled windows
             for k in range(focal_level-1):
-                stride = 2**k    
+                stride = 2**k
                 kernel_size = 2*(self.focal_window // 2) + 2**k + (2**k-1)
-                # define unfolding operations                
+                # define unfolding operations
                 self.unfolds += [nn.Unfold(
-                    kernel_size=(kernel_size, kernel_size), 
+                    kernel_size=(kernel_size, kernel_size),
                     stride=stride, padding=kernel_size // 2)
                 ]
 
@@ -327,7 +327,7 @@ class WindowAttention3d3(nn.Module):
                 relative_position_bias_table_to_windows = nn.Parameter(
                     torch.zeros(
                         self.num_heads,
-                        (self.window_size[0] + self.focal_window + 2**k - 2) * (self.window_size[1] + self.focal_window + 2**k - 2), 
+                        (self.window_size[0] + self.focal_window + 2**k - 2) * (self.window_size[1] + self.focal_window + 2**k - 2),
                         )
                 )
                 trunc_normal_(relative_position_bias_table_to_windows, std=.02)
@@ -356,25 +356,25 @@ class WindowAttention3d3(nn.Module):
                     # stride=math.ceil(self.window_size/focal_l_clips[k])
                     # padding=(kernel_size-stride)/2
                 else:
-                    stride = focal_l_clips[k] 
-                    # kernel_size   
+                    stride = focal_l_clips[k]
+                    # kernel_size
                     # kernel_size = 2*(focal_kernel_clips[k]// 2) + 2**focal_l_clips[k] + (2**focal_l_clips[k]-1)
-                    kernel_size = focal_kernel_clips[k]     ## kernel_size must be jishu 
+                    kernel_size = focal_kernel_clips[k]     ## kernel_size must be jishu
                     assert kernel_size%2==1
                     padding=kernel_size // 2
                     # kernel_size_true=focal_kernel_clips[k]+2**focal_l_clips[k]-1
                     kernel_size_true=kernel_size
                 # stride=math.ceil(self.window_size/focal_l_clips[k])
-                
+
                 self.unfolds_clips += [nn.Unfold(
-                    kernel_size=(kernel_size, kernel_size), 
+                    kernel_size=(kernel_size, kernel_size),
                     stride=stride,
                     padding=padding)
                 ]
                 relative_position_bias_table_to_windows = nn.Parameter(
                     torch.zeros(
                         self.num_heads,
-                        (self.window_size[0] + kernel_size_true - 1) * (self.window_size[0] + kernel_size_true - 1), 
+                        (self.window_size[0] + kernel_size_true - 1) * (self.window_size[0] + kernel_size_true - 1),
                         )
                 )
                 trunc_normal_(relative_position_bias_table_to_windows, std=.02)
@@ -392,7 +392,7 @@ class WindowAttention3d3(nn.Module):
         self.attn_drop = nn.Dropout(attn_drop)
         self.proj = nn.Linear(dim, dim)
         self.proj_drop = nn.Dropout(proj_drop)
-        
+
         self.softmax = nn.Softmax(dim=-1)
         self.focal_l_clips=focal_l_clips
         self.focal_kernel_clips=focal_kernel_clips
@@ -403,7 +403,7 @@ class WindowAttention3d3(nn.Module):
             x_all (list[Tensors]): input features at different granularity
             mask_all (list[Tensors/None]): masks for input features at different granularity
         """
-        x = x_all[0][0] # 
+        x = x_all[0][0] #
 
         B0, nH, nW, C = x.shape
         # assert B==batch_size*num_clips
@@ -417,7 +417,7 @@ class WindowAttention3d3(nn.Module):
         (q_windows, k_windows, v_windows) = map(
             lambda t: window_partition(t, self.window_size[0]).view(
             -1, self.window_size[0] * self.window_size[0], self.num_heads, C // self.num_heads
-            ).transpose(1, 2), 
+            ).transpose(1, 2),
             (q, k, v)
         )
 
@@ -439,19 +439,19 @@ class WindowAttention3d3(nn.Module):
             )
             (k_br, v_br) = map(
                 lambda t: torch.roll(t, shifts=(self.expand_size, self.expand_size), dims=(1, 2)), (k, v)
-            )        
-            
+            )
+
             (k_tl_windows, k_tr_windows, k_bl_windows, k_br_windows) = map(
-                lambda t: window_partition(t, self.window_size[0]).view(-1, self.window_size[0] * self.window_size[0], self.num_heads, C // self.num_heads), 
+                lambda t: window_partition(t, self.window_size[0]).view(-1, self.window_size[0] * self.window_size[0], self.num_heads, C // self.num_heads),
                 (k_tl, k_tr, k_bl, k_br)
-            )            
+            )
             (v_tl_windows, v_tr_windows, v_bl_windows, v_br_windows) = map(
-                lambda t: window_partition(t, self.window_size[0]).view(-1, self.window_size[0] * self.window_size[0], self.num_heads, C // self.num_heads), 
+                lambda t: window_partition(t, self.window_size[0]).view(-1, self.window_size[0] * self.window_size[0], self.num_heads, C // self.num_heads),
                 (v_tl, v_tr, v_bl, v_br)
             )
             k_rolled = torch.cat((k_tl_windows, k_tr_windows, k_bl_windows, k_br_windows), 1).transpose(1, 2)
             v_rolled = torch.cat((v_tl_windows, v_tr_windows, v_bl_windows, v_br_windows), 1).transpose(1, 2)
-            
+
             # mask out tokens in current window
             # print("self.valid_ind_rolled.shape: ", self.valid_ind_rolled.shape)    # [132]
             # print("k_rolled.shape: ", k_rolled.shape)    # [1296, 8, 196, 32]
@@ -460,7 +460,7 @@ class WindowAttention3d3(nn.Module):
             k_rolled = torch.cat((k_windows, k_rolled), 2)
             v_rolled = torch.cat((v_windows, v_rolled), 2)
         else:
-            k_rolled = k_windows; v_rolled = v_windows; 
+            k_rolled = k_windows; v_rolled = v_windows;
 
         # print("k_rolled.shape: ", k_rolled.shape)  # [1296, 8, 181, 32]
 
@@ -470,7 +470,7 @@ class WindowAttention3d3(nn.Module):
             for k in range(self.focal_level-1):
                 stride = 2**k
                 x_window_pooled = x_all[0][k+1]  # B0, nWh, nWw, C
-                nWh, nWw = x_window_pooled.shape[1:3] 
+                nWh, nWw = x_window_pooled.shape[1:3]
 
                 # generate mask for pooled windows
                 # print("x_window_pooled.shape: ", x_window_pooled.shape)
@@ -488,11 +488,11 @@ class WindowAttention3d3(nn.Module):
                 # print("unfolded_mask.shape: ", unfolded_mask.shape, unfolded_mask.unique())
                 x_window_masks = unfolded_mask.flatten(1).unsqueeze(0)
                 # print((x_window_masks == 0).sum(), (x_window_masks > 0).sum(), x_window_masks.unique())
-                x_window_masks = x_window_masks.masked_fill(x_window_masks == 0, float(-100.0)).masked_fill(x_window_masks > 0, float(0.0))  
-                # print(x_window_masks.shape)          
+                x_window_masks = x_window_masks.masked_fill(x_window_masks == 0, float(-100.0)).masked_fill(x_window_masks > 0, float(0.0))
+                # print(x_window_masks.shape)
                 mask_all[0][k+1] = x_window_masks
 
-                # generate k and v for pooled windows                
+                # generate k and v for pooled windows
                 qkv_pooled = self.qkv(x_window_pooled).reshape(B0, nWh, nWw, 3, C).permute(3, 0, 4, 1, 2).contiguous()
                 k_pooled_k, v_pooled_k = qkv_pooled[1], qkv_pooled[2]  # B0, C, nWh, nWw
 
@@ -500,14 +500,14 @@ class WindowAttention3d3(nn.Module):
                 (k_pooled_k, v_pooled_k) = map(
                     lambda t: self.unfolds[k](t).view(
                     B0, C, self.unfolds[k].kernel_size[0], self.unfolds[k].kernel_size[1], -1).permute(0, 4, 2, 3, 1).contiguous().\
-                    view(-1, self.unfolds[k].kernel_size[0]*self.unfolds[k].kernel_size[1], self.num_heads, C // self.num_heads).transpose(1, 2), 
+                    view(-1, self.unfolds[k].kernel_size[0]*self.unfolds[k].kernel_size[1], self.num_heads, C // self.num_heads).transpose(1, 2),
                     (k_pooled_k, v_pooled_k)  # (B0 x (nH*nW)) x nHeads x (unfold_wsize x unfold_wsize) x head_dim
                 )
 
                 # print("k_pooled_k.shape: ", k_pooled_k.shape)
                 # print("valid_ind_unfold_k.shape: ", valid_ind_unfold_k.shape)
 
-                if k > 0:                    
+                if k > 0:
                     (k_pooled_k, v_pooled_k) = map(
                         lambda t: t[:, :, valid_ind_unfold_k], (k_pooled_k, v_pooled_k)
                     )
@@ -531,7 +531,7 @@ class WindowAttention3d3(nn.Module):
                 #     stride=1
                     # padding=0
                 x_window_pooled = x_all[k+1]
-                nWh, nWw = x_window_pooled.shape[1:3] 
+                nWh, nWw = x_window_pooled.shape[1:3]
                 mask = x_window_pooled.new(nWh, nWw).fill_(1)
 
                 # import pdb; pdb.set_trace()
@@ -548,11 +548,11 @@ class WindowAttention3d3(nn.Module):
                 # print("unfolded_mask.shape: ", unfolded_mask.shape, unfolded_mask.unique())
                 x_window_masks = unfolded_mask.flatten(1).unsqueeze(0)
                 # print((x_window_masks == 0).sum(), (x_window_masks > 0).sum(), x_window_masks.unique())
-                x_window_masks = x_window_masks.masked_fill(x_window_masks == 0, float(-100.0)).masked_fill(x_window_masks > 0, float(0.0))  
-                # print(x_window_masks.shape)          
+                x_window_masks = x_window_masks.masked_fill(x_window_masks == 0, float(-100.0)).masked_fill(x_window_masks > 0, float(0.0))
+                # print(x_window_masks.shape)
                 mask_all[k+1] = x_window_masks
 
-                # generate k and v for pooled windows                
+                # generate k and v for pooled windows
                 qkv_pooled = self.qkv(x_window_pooled).reshape(B0, nWh, nWw, 3, C).permute(3, 0, 4, 1, 2).contiguous()
                 k_pooled_k, v_pooled_k = qkv_pooled[1], qkv_pooled[2]  # B0, C, nWh, nWw
 
@@ -560,13 +560,13 @@ class WindowAttention3d3(nn.Module):
                     (k_pooled_k, v_pooled_k) = map(
                         lambda t: self.unfolds_clips[k](t).view(
                         B0, C, self.unfolds_clips[k].kernel_size[0], self.unfolds_clips[k].kernel_size[1], -1).permute(0, 4, 2, 3, 1).contiguous().\
-                        view(-1, self.unfolds_clips[k].kernel_size[0]*self.unfolds_clips[k].kernel_size[1], self.num_heads, C // self.num_heads).transpose(1, 2), 
+                        view(-1, self.unfolds_clips[k].kernel_size[0]*self.unfolds_clips[k].kernel_size[1], self.num_heads, C // self.num_heads).transpose(1, 2),
                         (k_pooled_k, v_pooled_k)  # (B0 x (nH*nW)) x nHeads x (unfold_wsize x unfold_wsize) x head_dim
                     )
                 else:
 
                     (k_pooled_k, v_pooled_k) = map(
-                        lambda t: self.unfolds_clips[k](t), 
+                        lambda t: self.unfolds_clips[k](t),
                         (k_pooled_k, v_pooled_k)  # (B0 x (nH*nW)) x nHeads x (unfold_wsize x unfold_wsize) x head_dim
                     )
                     LLL=k_pooled_k.size(2)
@@ -579,7 +579,7 @@ class WindowAttention3d3(nn.Module):
 
                 # print("k_pooled_k.shape: ", k_pooled_k.shape)
                 # print("valid_ind_unfold_k.shape: ", valid_ind_unfold_k.shape)
-                # if (not focal_l_big_flag) and self.focal_l_clips[k]:                    
+                # if (not focal_l_big_flag) and self.focal_l_clips[k]:
                 #     (k_pooled_k, v_pooled_k) = map(
                 #         lambda t: t[:, :, valid_ind_unfold_k], (k_pooled_k, v_pooled_k)
                 #     )
@@ -594,7 +594,7 @@ class WindowAttention3d3(nn.Module):
                 # (k_pooled_k, v_pooled_k) = map(
                 #     lambda t: self.unfolds[k](t).view(
                 #     B0, C, self.unfolds[k].kernel_size[0], self.unfolds[k].kernel_size[1], -1).permute(0, 4, 2, 3, 1).contiguous().\
-                #     view(-1, self.unfolds[k].kernel_size[0]*self.unfolds[k].kernel_size[1], self.num_heads, C // self.num_heads).transpose(1, 2), 
+                #     view(-1, self.unfolds[k].kernel_size[0]*self.unfolds[k].kernel_size[1], self.num_heads, C // self.num_heads).transpose(1, 2),
                 #     (k_pooled_k, v_pooled_k)  # (B0 x (nH*nW)) x nHeads x (unfold_wsize x unfold_wsize) x head_dim
                 # )
                 # k_pooled += [k_pooled_k]
@@ -612,17 +612,17 @@ class WindowAttention3d3(nn.Module):
         # print(q_windows.shape, k_all.shape, v_all.shape)
         # exit()
         # k_all_dim0, k_all_dim1, k_all_dim2, k_all_dim3=k_all.shape
-        # k_all=k_all.contiguous().view(batch_size, num_clips, (nH//self.window_size[0])*(nW//self.window_size[1]), 
+        # k_all=k_all.contiguous().view(batch_size, num_clips, (nH//self.window_size[0])*(nW//self.window_size[1]),
         #     k_all_dim1, k_all_dim2, k_all_dim3).permute(0,2,3,4,1,5).contiguous().view(-1, k_all_dim1, k_all_dim2*num_clips, k_all_dim3)
-        # v_all=v_all.contiguous().view(batch_size, num_clips, (nH//self.window_size[0])*(nW//self.window_size[1]), 
+        # v_all=v_all.contiguous().view(batch_size, num_clips, (nH//self.window_size[0])*(nW//self.window_size[1]),
         #     k_all_dim1, k_all_dim2, k_all_dim3).permute(0,2,3,4,1,5).contiguous().view(-1, k_all_dim1, k_all_dim2*num_clips, k_all_dim3)
 
         # print(q_windows.shape, k_all.shape, v_all.shape, k_rolled.shape)
         # exit()
         attn = (q_windows @ k_all.transpose(-2, -1))  # B0*nW, nHead, window_size*window_size, focal_window_size*focal_window_size
 
-        window_area = self.window_size[0] * self.window_size[1]   
-        # window_area_clips= num_clips*self.window_size[0] * self.window_size[1]       
+        window_area = self.window_size[0] * self.window_size[1]
+        # window_area_clips= num_clips*self.window_size[0] * self.window_size[1]
         window_area_rolled = k_rolled.shape[2]
 
         # add relative position bias for tokens inside window
@@ -647,7 +647,7 @@ class WindowAttention3d3(nn.Module):
             attn[:, :, :window_area, window_area:window_area_rolled] = attn[:, :, :window_area, window_area:window_area_rolled] + self.relative_position_bias_table_to_neighbors
 
         if self.pool_method != "none" and self.focal_level > 1:
-            # add relative position bias for different windows in an image        
+            # add relative position bias for different windows in an image
             offset = window_area_rolled
             # print(offset)
             for k in range(self.focal_level-1):
@@ -663,8 +663,8 @@ class WindowAttention3d3(nn.Module):
                     attn[:, :, :window_area, offset:(offset + (self.focal_window+2**k-1)**2)] = \
                         attn[:, :, :window_area, offset:(offset + (self.focal_window+2**k-1)**2)] + \
                             mask_all[0][k+1][:, :, None, None, :].repeat(attn.shape[0] // mask_all[0][k+1].shape[1], 1, 1, 1, 1).view(-1, 1, 1, mask_all[0][k+1].shape[-1])
-                    
-                offset += (self.focal_window+2**k-1)**2  
+
+                offset += (self.focal_window+2**k-1)**2
             # print(offset)
             for k in range(len(self.focal_l_clips)):
                 focal_l_big_flag=False
@@ -677,12 +677,12 @@ class WindowAttention3d3(nn.Module):
                     # stride=math.ceil(self.window_size/focal_l_clips[k])
                     # padding=(kernel_size-stride)/2
                 else:
-                    stride = self.focal_l_clips[k] 
-                    # kernel_size   
+                    stride = self.focal_l_clips[k]
+                    # kernel_size
                     # kernel_size = 2*(self.focal_kernel_clips[k]// 2) + 2**self.focal_l_clips[k] + (2**self.focal_l_clips[k]-1)
                     kernel_size = self.focal_kernel_clips[k]
                     padding=kernel_size // 2
-                    # kernel_size_true=self.focal_kernel_clips[k]+2**self.focal_l_clips[k]-1   
+                    # kernel_size_true=self.focal_kernel_clips[k]+2**self.focal_l_clips[k]-1
                     kernel_size_true=kernel_size
                 relative_position_index_k = getattr(self, 'relative_position_index_clips_{}'.format(k))
                 relative_position_bias_to_windows = getattr(self,'relative_position_bias_table_to_windows_clips_{}'.format(k))[:, relative_position_index_k.view(-1)].view(
@@ -693,8 +693,8 @@ class WindowAttention3d3(nn.Module):
                 if mask_all[k+1] is not None:
                     attn[:, :, :window_area, offset:(offset + (kernel_size_true)**2)] = \
                         attn[:, :, :window_area, offset:(offset + (kernel_size_true)**2)] + \
-                            mask_all[k+1][:, :, None, None, :].repeat(attn.shape[0] // mask_all[k+1].shape[1], 1, 1, 1, 1).view(-1, 1, 1, mask_all[k+1].shape[-1]) 
-                offset += (kernel_size_true)**2    
+                            mask_all[k+1][:, :, None, None, :].repeat(attn.shape[0] // mask_all[k+1].shape[1], 1, 1, 1, 1).view(-1, 1, 1, mask_all[k+1].shape[-1])
+                offset += (kernel_size_true)**2
                 # print(offset)
                 # relative_position_index_k = getattr(self, 'relative_position_index_{}'.format(k))
                 # # relative_position_bias_to_windows = self.relative_position_bias_table_to_windows[k][:, relative_position_index_k.view(-1)].view(
@@ -721,9 +721,9 @@ class WindowAttention3d3(nn.Module):
                 #         attn[:, :, :window_area, offset:(offset + num_clips*(self.focal_window+2**k-1)**2)] + \
                 #             mask_all[k+1][:, :, None, None, :,None].repeat(attn.shape[0] // mask_all[k+1].shape[1], 1, 1, 1, 1, num_clips).view(-1, 1, 1, mask_all[k+1].shape[-1]*num_clips)
                 #     # print()
-                    
+
                 # offset += (self.focal_window+2**k-1)**2
-        
+
         # print("mask_all[0]: ", mask_all[0])
         # exit()
         if mask_all[0][0] is not None:
@@ -733,9 +733,9 @@ class WindowAttention3d3(nn.Module):
             attn[:, :, :, :, :window_area] = attn[:, :, :, :, :window_area] + mask_all[0][None, :, None, :, :]
             attn = attn.view(-1, self.num_heads, window_area, N)
             attn = self.softmax(attn)
-        else:          
+        else:
             attn = self.softmax(attn)
-        
+
         attn = self.attn_drop(attn)
 
         x = (attn @ v_all).transpose(1, 2).reshape(attn.shape[0], window_area, C)
@@ -755,18 +755,18 @@ class WindowAttention3d3(nn.Module):
         # qkv = self.qkv(x)
         flops += N * self.dim * 3 * self.dim
         # attn = (q @ k.transpose(-2, -1))
-        flops += self.num_heads * N * (self.dim // self.num_heads) * N        
+        flops += self.num_heads * N * (self.dim // self.num_heads) * N
         if self.pool_method != "none" and self.focal_level > 1:
-            flops += self.num_heads * N * (self.dim // self.num_heads) * (unfold_size * unfold_size)          
+            flops += self.num_heads * N * (self.dim // self.num_heads) * (unfold_size * unfold_size)
         if self.expand_size > 0 and self.focal_level > 0:
-            flops += self.num_heads * N * (self.dim // self.num_heads) * ((window_size + 2*self.expand_size)**2-window_size**2)          
+            flops += self.num_heads * N * (self.dim // self.num_heads) * ((window_size + 2*self.expand_size)**2-window_size**2)
 
         #  x = (attn @ v)
         flops += self.num_heads * N * N * (self.dim // self.num_heads)
         if self.pool_method != "none" and self.focal_level > 1:
-            flops += self.num_heads * N * (self.dim // self.num_heads) * (unfold_size * unfold_size)          
+            flops += self.num_heads * N * (self.dim // self.num_heads) * (unfold_size * unfold_size)
         if self.expand_size > 0 and self.focal_level > 0:
-            flops += self.num_heads * N * (self.dim // self.num_heads) * ((window_size + 2*self.expand_size)**2-window_size**2)          
+            flops += self.num_heads * N * (self.dim // self.num_heads) * ((window_size + 2*self.expand_size)**2-window_size**2)
 
         # x = self.proj(x)
         flops += N * self.dim * self.dim
@@ -790,9 +790,9 @@ class CffmTransformerBlock3d3(nn.Module):
         attn_drop (float, optional): Attention dropout rate. Default: 0.0
         drop_path (float, optional): Stochastic depth rate. Default: 0.0
         act_layer (nn.Module, optional): Activation layer. Default: nn.GELU
-        norm_layer (nn.Module, optional): Normalization layer.  Default: nn.LayerNorm 
+        norm_layer (nn.Module, optional): Normalization layer.  Default: nn.LayerNorm
         pool_method (str): window pooling method. Default: none, options: [none|fc|conv]
-        focal_level (int): number of focal levels. Default: 1. 
+        focal_level (int): number of focal levels. Default: 1.
         focal_window (int): region size of focal attention. Default: 1
         use_layerscale (bool): whether use layer scale for training stability. Default: False
         layerscale_value (float): scaling value for layer scale. Default: 1e-4
@@ -800,7 +800,7 @@ class CffmTransformerBlock3d3(nn.Module):
 
     def __init__(self, dim, input_resolution, num_heads, window_size=7, expand_size=0, shift_size=0,
                  mlp_ratio=4., qkv_bias=True, qk_scale=None, drop=0., attn_drop=0., drop_path=0.,
-                 act_layer=nn.GELU, norm_layer=nn.LayerNorm, pool_method="none", 
+                 act_layer=nn.GELU, norm_layer=nn.LayerNorm, pool_method="none",
                  focal_level=1, focal_window=1, use_layerscale=False, layerscale_value=1e-4, focal_l_clips=[7,2,4], focal_kernel_clips=[7,5,3]):
         super().__init__()
         self.dim = dim
@@ -854,7 +854,7 @@ class CffmTransformerBlock3d3(nn.Module):
         self.norm1 = norm_layer(dim)
 
         self.attn = WindowAttention3d3(
-            dim, expand_size=self.expand_size, window_size=to_2tuple(self.window_size), 
+            dim, expand_size=self.expand_size, window_size=to_2tuple(self.window_size),
             focal_window=focal_window, focal_level=focal_level, num_heads=num_heads,
             qkv_bias=qkv_bias, qk_scale=qk_scale, attn_drop=attn_drop, proj_drop=drop, pool_method=pool_method, focal_l_clips=focal_l_clips, focal_kernel_clips=focal_kernel_clips)
 
@@ -863,7 +863,7 @@ class CffmTransformerBlock3d3(nn.Module):
         mlp_hidden_dim = int(dim * mlp_ratio)
         self.mlp = Mlp(in_features=dim, hidden_features=mlp_hidden_dim, act_layer=act_layer, drop=drop)
 
-        print("******self.shift_size: ", self.shift_size)
+        # print("******self.shift_size: ", self.shift_size)
 
         if self.shift_size > 0:
             # calculate attention mask for SW-MSA
@@ -886,7 +886,7 @@ class CffmTransformerBlock3d3(nn.Module):
             attn_mask = mask_windows.unsqueeze(1) - mask_windows.unsqueeze(2)
             attn_mask = attn_mask.masked_fill(attn_mask != 0, float(-100.0)).masked_fill(attn_mask == 0, float(0.0))
         else:
-            print("here mask none")
+            # print("here mask none")
             attn_mask = None
         self.register_buffer("attn_mask", attn_mask)
 
@@ -902,7 +902,7 @@ class CffmTransformerBlock3d3(nn.Module):
         # assert L == H * W, "input feature has wrong size"
         x=x.reshape(B0*D0,H0,W0,C).reshape(B0*D0,H0*W0,C)
 
-        
+
         x = self.norm1(x)
         x = x.reshape(B0*D0, H0, W0, C)
         # print("here")
@@ -914,25 +914,25 @@ class CffmTransformerBlock3d3(nn.Module):
         pad_b = (self.window_size - H0 % self.window_size) % self.window_size
         if pad_r > 0 or pad_b > 0:
             x = F.pad(x, (0, 0, pad_l, pad_r, pad_t, pad_b))
-        
+
         B, H, W, C = x.shape     ## B=B0*D0
 
         if self.shift_size > 0:
             shifted_x = torch.roll(x, shifts=(-self.shift_size, -self.shift_size), dims=(1, 2))
         else:
             shifted_x = x
-        
+
         # print("shifted_x.shape: ", shifted_x.shape)
         shifted_x=shifted_x.view(B0,D0,H,W,C)
         x_windows_all = [shifted_x[:,-1]]
         x_windows_all_clips=[]
         x_window_masks_all = [self.attn_mask]
         x_window_masks_all_clips=[]
-        
-        if self.focal_level > 1 and self.pool_method != "none": 
+
+        if self.focal_level > 1 and self.pool_method != "none":
             # if we add coarser granularity and the pool method is not none
             # pooling_index=0
-            for k in range(self.focal_level-1):     
+            for k in range(self.focal_level-1):
                 window_size_glo = math.floor(self.window_size_glo / (2 ** k))
                 pooled_h = math.ceil(H / self.window_size) * (2 ** k)
                 pooled_w = math.ceil(W / self.window_size) * (2 ** k)
@@ -949,7 +949,7 @@ class CffmTransformerBlock3d3(nn.Module):
                     pad_t = (H_pool - H) // 2
                     pad_b = H_pool - H - pad_t
                     x_level_k = F.pad(x_level_k, (0,0,0,0,pad_t,pad_b))
-                
+
                 if W > W_pool:
                     trim_l = (W - W_pool) // 2
                     trim_r = W - W_pool - trim_l
@@ -959,18 +959,18 @@ class CffmTransformerBlock3d3(nn.Module):
                     pad_r = W_pool - W - pad_l
                     x_level_k = F.pad(x_level_k, (0,0,pad_l,pad_r))
 
-                x_windows_noreshape = window_partition_noreshape(x_level_k.contiguous(), window_size_glo) # B0, nw, nw, window_size, window_size, C    
+                x_windows_noreshape = window_partition_noreshape(x_level_k.contiguous(), window_size_glo) # B0, nw, nw, window_size, window_size, C
                 nWh, nWw = x_windows_noreshape.shape[1:3]
                 if self.pool_method == "mean":
                     x_windows_pooled = x_windows_noreshape.mean([3, 4]) # B0, nWh, nWw, C
                 elif self.pool_method == "max":
-                    x_windows_pooled = x_windows_noreshape.max(-2)[0].max(-2)[0].view(B0, nWh, nWw, C) # B0, nWh, nWw, C                    
+                    x_windows_pooled = x_windows_noreshape.max(-2)[0].max(-2)[0].view(B0, nWh, nWw, C) # B0, nWh, nWw, C
                 elif self.pool_method == "fc":
                     x_windows_noreshape = x_windows_noreshape.view(B0, nWh, nWw, window_size_glo*window_size_glo, C).transpose(3, 4) # B0, nWh, nWw, C, wsize**2
-                    x_windows_pooled = self.pool_layers[k](x_windows_noreshape).flatten(-2) # B0, nWh, nWw, C                      
+                    x_windows_pooled = self.pool_layers[k](x_windows_noreshape).flatten(-2) # B0, nWh, nWw, C
                 elif self.pool_method == "conv":
                     x_windows_noreshape = x_windows_noreshape.view(-1, window_size_glo, window_size_glo, C).permute(0, 3, 1, 2).contiguous() # B0 * nw * nw, C, wsize, wsize
-                    x_windows_pooled = self.pool_layers[k](x_windows_noreshape).view(B0, nWh, nWw, C) # B0, nWh, nWw, C           
+                    x_windows_pooled = self.pool_layers[k](x_windows_noreshape).view(B0, nWh, nWw, C) # B0, nWh, nWw, C
 
                 x_windows_all += [x_windows_pooled]
                 # print(x_windows_pooled.shape)
@@ -979,7 +979,7 @@ class CffmTransformerBlock3d3(nn.Module):
 
             x_windows_all_clips += [x_windows_all]
             x_window_masks_all_clips += [x_window_masks_all]
-            for k in range(len(self.focal_l_clips)):     
+            for k in range(len(self.focal_l_clips)):
                 # window_size_glo = math.floor(self.window_size_glo / (2 ** k))
                 # pooled_h = math.ceil(H / self.window_size) * (2 ** k)
                 # pooled_w = math.ceil(W / self.window_size) * (2 ** k)
@@ -1007,7 +1007,7 @@ class CffmTransformerBlock3d3(nn.Module):
                 #     pad_t = (H_pool - H) // 2
                 #     pad_b = H_pool - H - pad_t
                 #     x_level_k = F.pad(x_level_k, (0,0,0,0,pad_t,pad_b))
-                
+
                 # if W > W_pool:
                 #     trim_l = (W - W_pool) // 2
                 #     trim_r = W - W_pool - trim_l
@@ -1020,29 +1020,29 @@ class CffmTransformerBlock3d3(nn.Module):
                     x_level_k=F.interpolate(x_level_k.permute(0,3,1,2), size=(H_pool, W_pool), mode='bilinear').permute(0,2,3,1)
 
                 # print(x_level_k.shape)
-                x_windows_noreshape = window_partition_noreshape(x_level_k.contiguous(), window_size_glo) # B0, nw, nw, window_size, window_size, C    
+                x_windows_noreshape = window_partition_noreshape(x_level_k.contiguous(), window_size_glo) # B0, nw, nw, window_size, window_size, C
                 nWh, nWw = x_windows_noreshape.shape[1:3]
                 if self.pool_method == "mean":
                     x_windows_pooled = x_windows_noreshape.mean([3, 4]) # B0, nWh, nWw, C
                 elif self.pool_method == "max":
-                    x_windows_pooled = x_windows_noreshape.max(-2)[0].max(-2)[0].view(B0, nWh, nWw, C) # B0, nWh, nWw, C                    
+                    x_windows_pooled = x_windows_noreshape.max(-2)[0].max(-2)[0].view(B0, nWh, nWw, C) # B0, nWh, nWw, C
                 elif self.pool_method == "fc":
                     x_windows_noreshape = x_windows_noreshape.view(B0, nWh, nWw, window_size_glo*window_size_glo, C).transpose(3, 4) # B0, nWh, nWw, C, wsize**2
-                    x_windows_pooled = self.pool_layers_clips[k](x_windows_noreshape).flatten(-2) # B0, nWh, nWw, C                      
+                    x_windows_pooled = self.pool_layers_clips[k](x_windows_noreshape).flatten(-2) # B0, nWh, nWw, C
                 elif self.pool_method == "conv":
                     x_windows_noreshape = x_windows_noreshape.view(-1, window_size_glo, window_size_glo, C).permute(0, 3, 1, 2).contiguous() # B0 * nw * nw, C, wsize, wsize
-                    x_windows_pooled = self.pool_layers_clips[k](x_windows_noreshape).view(B0, nWh, nWw, C) # B0, nWh, nWw, C           
+                    x_windows_pooled = self.pool_layers_clips[k](x_windows_noreshape).view(B0, nWh, nWw, C) # B0, nWh, nWw, C
 
                 x_windows_all_clips += [x_windows_pooled]
                 # print(x_windows_pooled.shape)
                 x_window_masks_all_clips += [None]
                 # pooling_index=pooling_index+1
         # exit()
-        
+
         attn_windows = self.attn(x_windows_all_clips, mask_all=x_window_masks_all_clips, batch_size=B0, num_clips=D0)  # nW*B0, window_size*window_size, C
 
         attn_windows = attn_windows[:, :self.window_size ** 2]
-        
+
         # merge windows
         attn_windows = attn_windows.view(-1, self.window_size, self.window_size, C)
         shifted_x = window_reverse(attn_windows, self.window_size, H, W)  # B H(padded) W(padded) C
@@ -1081,7 +1081,7 @@ class CffmTransformerBlock3d3(nn.Module):
         H, W = self.input_resolution
         # norm1
         flops += self.dim * H * W
-        
+
         # W-MSA/SW-MSA
         nW = H * W / self.window_size / self.window_size
         flops += nW * self.attn.flops(self.window_size * self.window_size, self.window_size, self.focal_window)
@@ -1091,11 +1091,11 @@ class CffmTransformerBlock3d3(nn.Module):
                 window_size_glo = math.floor(self.window_size_glo / (2 ** k))
                 nW_glo = nW * (2**k)
                 # (sub)-window pooling
-                flops += nW_glo * self.dim * window_size_glo * window_size_glo         
+                flops += nW_glo * self.dim * window_size_glo * window_size_glo
                 # qkv for global levels
-                # NOTE: in our implementation, we pass the pooled window embedding to qkv embedding layer, 
+                # NOTE: in our implementation, we pass the pooled window embedding to qkv embedding layer,
                 # but theoritically, we only need to compute k and v.
-                flops += nW_glo * self.dim * 3 * self.dim       
+                flops += nW_glo * self.dim * 3 * self.dim
 
         # mlp
         flops += 2 * H * W * self.dim * self.dim * self.mlp_ratio
@@ -1113,7 +1113,7 @@ class BasicLayer3d3(nn.Module):
         depth (int): Number of blocks.
         num_heads (int): Number of attention heads.
         window_size (int): Local window size.
-        expand_size (int): expand size for focal level 1. 
+        expand_size (int): expand size for focal level 1.
         expand_layer (str): expand layer. Default: all
         mlp_ratio (float): Ratio of mlp hidden dim to embedding dim. Default: 4.0.
         qkv_bias (bool, optional): If True, add a learnable bias to query, key, value. Default: True
@@ -1121,23 +1121,23 @@ class BasicLayer3d3(nn.Module):
         drop (float, optional): Dropout rate. Default: 0.0
         attn_drop (float, optional): Attention dropout rate. Default: 0.0
         drop_path (float | tuple[float], optional): Stochastic depth rate. Default: 0.0
-        norm_layer (nn.Module, optional): Normalization layer. Default: nn.LayerNorm 
-        pool_method (str): Window pooling method. Default: none. 
+        norm_layer (nn.Module, optional): Normalization layer. Default: nn.LayerNorm
+        pool_method (str): Window pooling method. Default: none.
         focal_level (int): Number of focal levels. Default: 1.
-        focal_window (int): region size at each focal level. Default: 1. 
-        use_conv_embed (bool): whether use overlapped convolutional patch embedding layer. Default: False 
-        use_shift (bool): Whether use window shift as in Swin Transformer. Default: False 
+        focal_window (int): region size at each focal level. Default: 1.
+        use_conv_embed (bool): whether use overlapped convolutional patch embedding layer. Default: False
+        use_shift (bool): Whether use window shift as in Swin Transformer. Default: False
         use_pre_norm (bool): Whether use pre-norm before patch embedding projection for stability. Default: False
         downsample (nn.Module | None, optional): Downsample layer at the end of the layer. Default: None
-        use_checkpoint (bool): Whether to use checkpointing to save memory. Default: False. 
+        use_checkpoint (bool): Whether to use checkpointing to save memory. Default: False.
         use_layerscale (bool): Whether use layer scale for stability. Default: False.
         layerscale_value (float): Layerscale value. Default: 1e-4.
     """
 
     def __init__(self, dim, input_resolution, depth, num_heads, window_size, expand_size, expand_layer="all",
                  mlp_ratio=4., qkv_bias=True, qk_scale=None, drop=0., attn_drop=0.,
-                 drop_path=0., norm_layer=nn.LayerNorm, pool_method="none", 
-                 focal_level=1, focal_window=1, use_conv_embed=False, use_shift=False, use_pre_norm=False, 
+                 drop_path=0., norm_layer=nn.LayerNorm, pool_method="none",
+                 focal_level=1, focal_window=1, use_conv_embed=False, use_shift=False, use_pre_norm=False,
                  downsample=None, use_checkpoint=False, use_layerscale=False, layerscale_value=1e-4, focal_l_clips=[16,8,2], focal_kernel_clips=[7,5,3]):
 
         super().__init__()
@@ -1152,23 +1152,23 @@ class BasicLayer3d3(nn.Module):
             expand_factor = 1
         elif expand_layer == "all":
             expand_factor = -1
-        
+
         # build blocks
         self.blocks = nn.ModuleList([
             CffmTransformerBlock3d3(dim=dim, input_resolution=input_resolution,
                                  num_heads=num_heads, window_size=window_size,
                                  shift_size=(0 if (i % 2 == 0) else window_size // 2) if use_shift else 0,
-                                 expand_size=0 if (i % 2 == expand_factor) else expand_size, 
+                                 expand_size=0 if (i % 2 == expand_factor) else expand_size,
                                  mlp_ratio=mlp_ratio,
                                  qkv_bias=qkv_bias, qk_scale=qk_scale,
-                                 drop=drop, 
+                                 drop=drop,
                                  attn_drop=attn_drop,
                                  drop_path=drop_path[i] if isinstance(drop_path, list) else drop_path,
                                  norm_layer=norm_layer,
-                                 pool_method=pool_method, 
-                                 focal_level=focal_level, 
-                                 focal_window=focal_window, 
-                                 use_layerscale=use_layerscale, 
+                                 pool_method=pool_method,
+                                 focal_level=focal_level,
+                                 focal_window=focal_window,
+                                 use_layerscale=use_layerscale,
                                  layerscale_value=layerscale_value,
                                  focal_l_clips=focal_l_clips,
                                  focal_kernel_clips=focal_kernel_clips)
@@ -1177,8 +1177,8 @@ class BasicLayer3d3(nn.Module):
         # patch merging layer
         if downsample is not None:
             self.downsample = downsample(
-                img_size=input_resolution, patch_size=2, in_chans=dim, embed_dim=2*dim, 
-                use_conv_embed=use_conv_embed, norm_layer=norm_layer, use_pre_norm=use_pre_norm, 
+                img_size=input_resolution, patch_size=2, in_chans=dim, embed_dim=2*dim,
+                use_conv_embed=use_conv_embed, norm_layer=norm_layer, use_pre_norm=use_pre_norm,
                 is_stem=False
             )
         else:
@@ -1209,4 +1209,3 @@ class BasicLayer3d3(nn.Module):
         if self.downsample is not None:
             flops += self.downsample.flops()
         return flops
-

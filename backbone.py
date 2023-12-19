@@ -11,9 +11,9 @@ from functools import partial
 from timm.models.layers import DropPath, to_2tuple, trunc_normal_
 from timm.models.registry import register_model
 from timm.models.vision_transformer import _cfg
-from mmseg.models.builder import BACKBONES
-from mmseg.utils import get_root_logger
-from mmcv.runner import load_checkpoint
+# from mmseg.models.builder import BACKBONES
+# from mmseg.utils import get_root_logger
+# from mmcv.runner import load_checkpoint
 import math
 
 
@@ -471,4 +471,3 @@ class mit_b5(MixVisionTransformer):
             patch_size=4, embed_dims=[64, 128, 320, 512], num_heads=[1, 2, 5, 8], mlp_ratios=[4, 4, 4, 4],
             qkv_bias=True, norm_layer=partial(nn.LayerNorm, eps=1e-6), depths=[3, 6, 40, 3], sr_ratios=[8, 4, 2, 1],
             drop_rate=0.0, drop_path_rate=0.1)
-            

@@ -25,8 +25,8 @@ in the Wild (VDW)**, which consists of 14,203 videos with over two million frame
 Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). Heavy works are needed for open-source. The VDW dataset can only be used for academic and research purposes. We will gradually release our VDW dataset for the community. Stay tuned!
 
 ## ⚡ Updates and Todo List
-+ [TODO] The paper and code of our journal extensions to **NVDS+** will be released after the review process, e.g., the **NVDS-Small** model for **real-time** applications.
-+ [2024.01.22] We release the [supplementary video](https://www.youtube.com/watch?v=L-yeR_aki20) for the journal extension of our framework from **NVDS to NVDS+**.
++ [TODO] The paper and code of our journal extensions to **NVDS+** will be released after the reviewing process, e.g., the **NVDS-Small** for **real-time** applications.
++ [2024.01.22] We release the [supplementary video](https://www.youtube.com/watch?v=L-yeR_aki20) for the journal extension from **NVDS to NVDS+**.
 + [2024.01.22] We have completed the upload of VDW training set and provided all previous applicants with download links.
 + [2023.09.17] Upload [NVDS Poster](https://github.com/RaymondWang987/NVDS/blob/main/PDF/NVDS_Poster_ICCV23.pdf) for [ICCV2023](https://iccv2023.thecvf.com/).
 + [2023.09.09] Evaluation code on VDW test set is released.

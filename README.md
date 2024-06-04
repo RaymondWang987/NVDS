@@ -16,21 +16,22 @@ Authors: [Yiran Wang](https://scholar.google.com.hk/citations?hl=zh-CN&user=p_Rn
 
 Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</sup>Adobe Research, <sup>3</sup>Nanyang Technological University
 
-### [Project Page](https://raymondwang987.github.io/NVDS/) | [Arxiv](https://arxiv.org/abs/2307.08695) | [Video](https://youtu.be/SNV9F-60xrE) | [视频](https://www.bilibili.com/video/BV1KW4y1d7F8/) | [Poster](https://github.com/RaymondWang987/NVDS/blob/main/PDF/NVDS_Poster_ICCV23.pdf) | [Supp](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf) | [VDW Dataset](https://raymondwang987.github.io/VDW/)
+### [Project Page](https://raymondwang987.github.io/NVDS/) | [Arxiv](https://arxiv.org/abs/2307.08695) | [Video](https://youtu.be/SNV9F-60xrE) | [视频](https://www.bilibili.com/video/BV1KW4y1d7F8/) | [Poster](https://github.com/RaymondWang987/NVDS/blob/main/PDF/NVDS_Poster_ICCV23.pdf) | [Supp](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf) | [VDW Dataset](https://raymondwang987.github.io/VDW/) | [VDW Toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits)
 
 ## 😎 Highlights
 **NVDS is the first plug-and-play stabilizer** that can remove flickers from any single-image depth model without extra effort. Besides, we also introduce a large-scale dataset, **Video Depth
 in the Wild (VDW)**, which consists of 14,203 videos with over two million frames, making it the largest natural-scene video depth dataset. Don't forget to star this repo if you find it interesting! 
 
-Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). Heavy works are needed for open-source. We have completed the upload process and provided all previous qualified applicants with download links. We welcome all researchers in the community to use our dataset for academic and educational purposes.
+To compensate for the data shortage and boost the performance of learning-based video depth models, we elaborate a large-scale natural-scene dataset, Video Depth in the Wild (VDW). To the best of our knowledge, our VDW dataset is currently the largest video depth dataset with the most diverse video scenes.
 
 ## ⚡ Updates and Todo List
 + [TODO] The paper and code of our journal extensions to **NVDS+** will be released after the reviewing process, e.g., the **NVDS-Small** for **real-time** applications.
++ [2024.06.03] The **[VDW official toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits)** to reproduce VDW and generate your own data.
 + [2024.01.22] We release the [supplementary video](https://www.youtube.com/watch?v=L-yeR_aki20) for the journal extension from **NVDS to NVDS+**.
-+ [2024.01.22] We have completed the upload of VDW training set and provided all previous applicants with download links.
++ [2024.01.22] The metadata and evaluation code of the VDW test set.
 + [2023.09.17] Upload [NVDS Poster](https://github.com/RaymondWang987/NVDS/blob/main/PDF/NVDS_Poster_ICCV23.pdf) for [ICCV2023](https://iccv2023.thecvf.com/).
 + [2023.09.09] Evaluation code on VDW test set is released.
-+ [2023.09.09] [VDW official website](https://raymondwang987.github.io/VDW/) and application mailbox (vdw.dataset@gmail.com) go online. Refer to the website for usage and applications.
++ [2023.09.09] [VDW official website](https://raymondwang987.github.io/VDW/) and mailbox (vdw.dataset@gmail.com) go online. Refer to the website for data usage.
 + [2023.08.11] Release evaluation code and checkpoint of [NYUDV2-finetuned NVDS](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS-finetuned-NYUDV2).
 + [2023.08.10] Update the camera ready version of NVDS [paper](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_camera.pdf) and [supplementary](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf).
 + [2023.08.05] Update license of VDW dataset: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).
@@ -43,8 +44,8 @@ Our VDW dataset is quite large (2.23 million frames, over 8TB on hard drive). He
 
 ## 💦 License and Releasing
 + VDW dataset.
-  
-  We plan to release VDW dataset under strict conditions. VDW dataset is licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode). It cannot be used for any commercial purposes. For our video sequences, we will gradually release [IMDB](https://www.imdb.com/) numbers, starting time, end time, movie durations, resolutions, cropping areas, and some data processing tools to utilize the data. We will provide an application template and mailbox. If you need our processed dataset for your research, apply to our mailbox. Your name, institution, purpose for using our data, and agreement to our license will be included in the application form. We will examine your application and send you feedback in 3-5 weekdays. Overall, we will follow the practices of the community (previous open-source datasets with movie data, e.g., Hollywood 3D, MovieNet, etc.) to legally release VDW dataset. **Please refer to our [VDW official website](https://raymondwang987.github.io/VDW/) for data usage, download, and applications.**
+
+  We have released the VDW dataset under strict conditions. We must ensure that the releasing won’t violate any copyright requirements. To this end, we will not release any video frames or the derived data in public. Instead, we provide meta data and detailed toolkits, which can be used to reproduce VDW or generate your own data. The meta data contains [IMDB](https://www.imdb.com/) numbers, starting time, end time, movie durations, resolutions, and cropping areas. All the meta data and toolkits are licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode), which can only be used for academic and research purposes. **Please refer to our [VDW official website](https://raymondwang987.github.io/VDW/) and [VDW Toolkits] for data usage.**
 
 + NVDS code and model.
   
@@ -198,7 +199,7 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
 ## 🎯 Evaluations on VDW Test Set
 + Applying for the VDW test set.
 
-  Please refer to our [VDW official website](https://raymondwang987.github.io/VDW/) for data usage, download, and applications. If your application is approved by us, you can download and put the VDW test set in a certain folder. Here we take `/xxx/vdw_test` as an example. The VDW test set contains 90 videos with 12,622 frames. For each video (e.g., `/xxx/vdw_test/000008/`), the test set is organized as follows. The `left` or `right` folders contain the RGB video frames of left and right views, while gt folders are for disparity annotations and mask folders for valid masks.
+  Here we take `/xxx/vdw_test` as an example. The VDW test set contains 90 videos with 12,622 frames. For each video (e.g., `/xxx/vdw_test/000008/`), the test set is organized as follows. The `left` or `right` folders contain the RGB video frames of left and right views, while gt folders are for disparity annotations and mask folders for valid masks.
   ```
   /xxx/vdw_test/000008/
       ├── left/
@@ -264,11 +265,13 @@ We thank the authors for releasing [PyTorch](https://pytorch.org/), [MiDaS](http
 
 ## 📧 Citation
 ```
-@article{wang2023neural,
-  title={Neural Video Depth Stabilizer},
-  author={Wang, Yiran and Shi, Min and Li, Jiaqi and Huang, Zihao and Cao, Zhiguo and Zhang, Jianming and Xian, Ke and Lin, Guosheng},
-  journal={arXiv preprint arXiv:2307.08695},
-  year={2023}
+@InProceedings{Wang_2023_ICCV,
+    author    = {Wang, Yiran and Shi, Min and Li, Jiaqi and Huang, Zihao and Cao, Zhiguo and Zhang, Jianming and Xian, Ke and Lin, Guosheng},
+    title     = {Neural Video Depth Stabilizer},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {9466-9476}
 }
 ```
   

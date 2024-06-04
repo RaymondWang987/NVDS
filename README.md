@@ -22,6 +22,15 @@ Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</s
 **NVDS is the first plug-and-play stabilizer** that can remove flickers from any single-image depth model without extra effort. Besides, we also introduce a large-scale dataset, **Video Depth
 in the Wild (VDW)**, which consists of 14,203 videos with over two million frames, making it the largest natural-scene video depth dataset. Don't forget to star this repo if you find it interesting! 
 
+## 💦 License and Releasing Policy
++ VDW dataset.
+
+  We have released the VDW dataset under strict conditions. We must ensure that the releasing won’t violate any copyright requirements. **To this end, we will not release any video frames or the derived data in public.** Instead, we provide meta data and detailed toolkits, which can be used to reproduce VDW or generate your own data. The meta data contains [IMDB](https://www.imdb.com/) numbers, starting time, end time, movie durations, resolutions, and cropping areas. All the meta data and toolkits are licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode), which can only be used for academic and research purposes. Please refer to our [VDW official website](https://raymondwang987.github.io/VDW/) and [VDW Toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits) for data usage.
+
++ NVDS code and model.
+  
+  Following [MiDaS](https://github.com/isl-org/MiDaS) and [CVD](https://github.com/facebookresearch/consistent_depth), NVDS model adopts the widely-used [MIT License](https://github.com/RaymondWang987/NVDS/blob/main/LICENSE). We will gradually release our code and model as scheduled.
+
 ## ⚡ Updates and Todo List
 + [TODO] The paper and code of our journal extensions to **NVDS+** will be released after the reviewing process.
 + [2024.06.03] The [VDW official toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits) to reproduce VDW and generate your own data.
@@ -37,17 +46,6 @@ in the Wild (VDW)**, which consists of 14,203 videos with over two million frame
 + [2023.07.18] Our [Project Page](https://raymondwang987.github.io/NVDS/) is built and released.
 + [2023.07.18] The [Arxiv](https://arxiv.org/abs/2307.08695) version of our NVDS paper is released.
 + [2023.07.16] Our work is accepted by ICCV2023.
-
-
-
-## 💦 License and Releasing
-+ VDW dataset.
-
-  We have released the VDW dataset under strict conditions. We must ensure that the releasing won’t violate any copyright requirements. **To this end, we will not release any video frames or the derived data in public.** Instead, we provide meta data and detailed toolkits, which can be used to reproduce VDW or generate your own data. The meta data contains [IMDB](https://www.imdb.com/) numbers, starting time, end time, movie durations, resolutions, and cropping areas. All the meta data and toolkits are licensed under [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode), which can only be used for academic and research purposes. Please refer to our [VDW official website](https://raymondwang987.github.io/VDW/) and [VDW Toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits) for data usage.
-
-+ NVDS code and model.
-  
-  Following [MiDaS](https://github.com/isl-org/MiDaS) and [CVD](https://github.com/facebookresearch/consistent_depth), NVDS model adopts the widely-used [MIT License](https://github.com/RaymondWang987/NVDS/blob/main/LICENSE). We will gradually release our code and model as scheduled.
 
 ##  🌼 Abstract
 Video depth estimation aims to infer temporally consistent depth. Some methods achieve temporal consistency by finetuning a single-image depth model during test time using geometry and re-projection constraints, which is inefficient and not robust. An alternative approach is to learn how to enforce temporal consistency from data, but this requires well-designed models and sufficient video depth data. To address these challenges, we propose a plug-and-play framework called Neural Video Depth Stabilizer (NVDS) that stabilizes inconsistent depth estimations and can be applied to different single-image depth models without extra effort. We also introduce a large-scale dataset, Video Depth in the Wild (VDW), which consists of 14,203 videos with over two million frames, making it the largest natural-scene video depth dataset to our knowledge. We evaluate our method on the VDW dataset as well as two public benchmarks and demonstrate significant improvements in consistency, accuracy, and efficiency compared to previous approaches. Our work serves as a solid baseline and provides a data foundation for learning-based video depth models. We will release our dataset and code for future research.

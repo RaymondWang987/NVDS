@@ -23,13 +23,13 @@ Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</s
 in the Wild (VDW)**, which consists of 14,203 videos with over two million frames, making it the largest natural-scene video depth dataset. Don't forget to star this repo if you find it interesting! 
 
 ## ⚡ Updates and Todo List
-+ [TODO] The paper and code of our journal extensions to **NVDS+** will be released after the reviewing process, e.g., the **NVDS-Small** for **real-time** applications.
-+ [2024.06.03] The **[VDW official toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits)** to reproduce VDW and generate your own data.
++ [TODO] The paper and code of our journal extensions to **NVDS+** will be released after the reviewing process.
++ [2024.06.03] The [VDW official toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits) to reproduce VDW and generate your own data.
 + [2024.01.22] We release the [supplementary video](https://www.youtube.com/watch?v=L-yeR_aki20) for the journal extension from **NVDS to NVDS+**.
 + [2024.01.22] The metadata and evaluation code of the VDW test set.
 + [2023.09.17] Upload [NVDS Poster](https://github.com/RaymondWang987/NVDS/blob/main/PDF/NVDS_Poster_ICCV23.pdf) for [ICCV2023](https://iccv2023.thecvf.com/).
 + [2023.09.09] Evaluation code on VDW test set is released.
-+ [2023.09.09] [VDW official website](https://raymondwang987.github.io/VDW/) and mailbox (vdw.dataset@gmail.com) go online. Refer to the website for data usage.
++ [2023.09.09] [VDW website](https://raymondwang987.github.io/VDW/) and mailbox (vdw.dataset@gmail.com) go online.
 + [2023.08.11] Release evaluation code and checkpoint of [NYUDV2-finetuned NVDS](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS-finetuned-NYUDV2).
 + [2023.08.10] Update the camera ready version of NVDS [paper](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_camera.pdf) and [supplementary](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf).
 + [2023.08.05] Update license of VDW dataset: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).

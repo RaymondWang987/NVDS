@@ -38,7 +38,7 @@ in the Wild (VDW)**, which consists of 14,203 videos with over two million frame
 + [2024.01.22] The metadata and evaluation code of the VDW test set.
 + [2023.09.17] Upload [NVDS Poster](https://github.com/RaymondWang987/NVDS/blob/main/PDF/NVDS_Poster_ICCV23.pdf) for [ICCV2023](https://iccv2023.thecvf.com/).
 + [2023.09.09] Evaluation code on VDW test set is released.
-+ [2023.09.09] [VDW website](https://raymondwang987.github.io/VDW/) and mailbox (vdw.dataset@gmail.com) go online.
++ [2023.09.09] [VDW official website](https://raymondwang987.github.io/VDW/) goes online.
 + [2023.08.11] Release evaluation code and checkpoint of [NYUDV2-finetuned NVDS](https://github.com/RaymondWang987/NVDS/releases/tag/NVDS-finetuned-NYUDV2).
 + [2023.08.10] Update the camera ready version of NVDS [paper](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_camera.pdf) and [supplementary](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf).
 + [2023.08.05] Update license of VDW dataset: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode).

@@ -29,7 +29,7 @@ in the Wild (VDW)**, which consists of 14,203 videos with over two million frame
 
 + NVDS code and model.
   
-  Following [MiDaS](https://github.com/isl-org/MiDaS) and [CVD](https://github.com/facebookresearch/consistent_depth), NVDS model adopts the widely-used [MIT License](https://github.com/RaymondWang987/NVDS/blob/main/LICENSE). We will gradually release our code and model as scheduled.
+  Following [MiDaS](https://github.com/isl-org/MiDaS) and [CVD](https://github.com/facebookresearch/consistent_depth), NVDS model adopts the widely-used [MIT License](https://github.com/RaymondWang987/NVDS/blob/main/LICENSE).
 
 ## ⚡ Updates and Todo List
 + [TODO] The paper and code of our journal extensions to **NVDS+** will be released after the reviewing process.

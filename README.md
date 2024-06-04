@@ -22,8 +22,6 @@ Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</s
 **NVDS is the first plug-and-play stabilizer** that can remove flickers from any single-image depth model without extra effort. Besides, we also introduce a large-scale dataset, **Video Depth
 in the Wild (VDW)**, which consists of 14,203 videos with over two million frames, making it the largest natural-scene video depth dataset. Don't forget to star this repo if you find it interesting! 
 
-To compensate for the data shortage and boost the performance of learning-based video depth models, we elaborate a large-scale natural-scene dataset, Video Depth in the Wild (VDW). To the best of our knowledge, our VDW dataset is currently the largest video depth dataset with the most diverse video scenes.
-
 ## ⚡ Updates and Todo List
 + [TODO] The paper and code of our journal extensions to **NVDS+** will be released after the reviewing process, e.g., the **NVDS-Small** for **real-time** applications.
 + [2024.06.03] The **[VDW official toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits)** to reproduce VDW and generate your own data.

@@ -246,8 +246,8 @@ Video depth estimation aims to infer temporally consistent depth. Some methods a
   
 
    
-
-     
+## 🍻 Star History
+[![Star History Chart](https://api.star-history.com/svg?repos=RaymondWang987/NVDS&type=Date)](https://star-history.com/#RaymondWang987/NVDS&Date)
     
    
   

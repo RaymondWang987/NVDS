@@ -168,6 +168,11 @@ def get_args_parser():
         default= '384',
         type=int
     )
+    parser.add_argument(
+        "--clip_step",
+        type= int,
+        default= 1
+    )
     
     parser.add_argument("--no_cuda", action="store_true")
     parser.add_argument("--local_rank", type=int, default=0)
@@ -359,7 +364,7 @@ if __name__ == '__main__':
     dpt.eval()
     
     seq_len = 4
-    clip_step = 1
+    clip_step = args.clip_step
     video_dir = './demo_videos/' +args.vnum+'/'
     infer_size = (int(args.infer_w),int(args.infer_h))
     temloss = flow_warping_loss_align_test(int(args.infer_h),int(args.infer_w))
@@ -546,7 +551,7 @@ if __name__ == '__main__':
                         ref_seq = torch.cat([ref_seq,rgbd],dim=0)
                 ref_seq = ref_seq.unsqueeze(0)
 
-            elif i>=3 and i<=8:
+            elif i>=3 and i<=(seq_len*clip_step-1):
             #elif i>=3 and i<=14:
         
                 print(frame)
@@ -592,7 +597,7 @@ if __name__ == '__main__':
                     
                 ref_seq = ref_seq.unsqueeze(0)
             
-            elif i>=9:
+            elif i>=seq_len*clip_step:
             #elif i>=15:
         
                 print(frame)

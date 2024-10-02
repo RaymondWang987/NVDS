@@ -1,4 +1,4 @@
-# Neural Video Depth Stabilizer (ICCV2023) 🚀🚀🚀
+# NVDS (ICCV 2023) & NVDS+ (TPAMI 2024) 🚀🚀🚀
 
 🎉🎉🎉 **Welcome to the NVDS GitHub repository!** 🎉🎉🎉  
 

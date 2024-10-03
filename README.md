@@ -2,21 +2,39 @@
 
 🎉🎉🎉 **Welcome to the NVDS GitHub repository!** 🎉🎉🎉  
 
-**The repository is official PyTorch implementation of ICCV2023 paper "Neural Video Depth Stabilizer" (NVDS).**
+**The repository is official PyTorch implementation of ICCV 2023 paper "Neural Video Depth Stabilizer" (NVDS)**
 
-Authors: [Yiran Wang](https://scholar.google.com.hk/citations?hl=zh-CN&user=p_RnaI8AAAAJ)<sup>1</sup>,
+Authors: [Yiran Wang](https://raymondwang987.github.io)<sup>1</sup>,
 [Min Shi](https://www.semanticscholar.org/author/Min-Shi/1516268415)<sup>1</sup>,
 [Jiaqi Li](https://scholar.google.com/citations?hl=zh-CN&user=i-2ghuYAAAAJ)<sup>1</sup>,
 [Zihao Huang](https://orcid.org/0000-0002-8804-191X)<sup>1</sup>,
 [Zhiguo Cao](http://english.aia.hust.edu.cn/info/1085/1528.htm)<sup>1</sup>,
 [Jianming Zhang](https://jimmie33.github.io/)<sup>2</sup>,
-[Ke Xian](https://sites.google.com/site/kexian1991/)<sup>3*</sup>, 
+[Ke Xian](https://kexianhust.github.io)<sup>3*</sup>, 
 [Guosheng Lin](https://guosheng.github.io/)<sup>3</sup>
 
 
 Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</sup>Adobe Research, <sup>3</sup>Nanyang Technological University
 
 ### [Project Page](https://raymondwang987.github.io/NVDS/) | [Arxiv](https://arxiv.org/abs/2307.08695) | [Video](https://youtu.be/SNV9F-60xrE) | [视频](https://www.bilibili.com/video/BV1KW4y1d7F8/) | [Poster](https://github.com/RaymondWang987/NVDS/blob/main/PDF/NVDS_Poster_ICCV23.pdf) | [Supp](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf) | [VDW Dataset](https://raymondwang987.github.io/VDW/) | [VDW Toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits)
+
+**and TPAMI 2024 paper "NVDS+: Towards Efficient and Versatile Neural Stabilizer for Video Depth Estimation" (NVDS+)**
+
+Authors: [Yiran Wang](https://raymondwang987.github.io)<sup>1</sup>,
+[Min Shi](https://www.semanticscholar.org/author/Min-Shi/1516268415)<sup>1</sup>,
+[Jiaqi Li](https://scholar.google.com/citations?hl=zh-CN&user=i-2ghuYAAAAJ)<sup>1</sup>,
+[Chaoyi Hong](https://scholar.google.com.hk/citations?hl=zh-CN&user=N9YzPMcAAAAJ)<sup>1</sup>,
+[Zihao Huang](https://orcid.org/0000-0002-8804-191X)<sup>1</sup>,
+[Juewen Peng](https://juewenpeng.github.io)<sup>1</sup>,
+[Zhiguo Cao](http://english.aia.hust.edu.cn/info/1085/1528.htm)<sup>1</sup>,
+[Jianming Zhang](https://jimmie33.github.io/)<sup>2</sup>,
+[Ke Xian](https://kexianhust.github.io)<sup>3*</sup>, 
+[Guosheng Lin](https://guosheng.github.io/)<sup>3</sup>
+
+
+Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</sup>Adobe Research, <sup>3</sup>Nanyang Technological University
+
+### [Project Page](https://raymondwang987.github.io/NVDS/) | Arxiv (Coming Soon) | [Video](https://www.youtube.com/watch?v=L-yeR_aki20) | [Supp](https://github.com/RaymondWang987/NVDS/blob/main/PDF/Supp_NVDS_Plus.pdf) | [VDW Dataset](https://raymondwang987.github.io/VDW/) | [VDW Toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits)
 
 ## 😎 Highlights
 **NVDS is the first plug-and-play stabilizer** that can remove flickers from any single-image depth model without extra effort. Besides, we also introduce a large-scale dataset, **Video Depth

@@ -14,8 +14,6 @@ Authors: [Yiran Wang](https://raymondwang987.github.io)<sup>1</sup>,
 [Guosheng Lin](https://guosheng.github.io/)<sup>3</sup>
 
 
-Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</sup>Adobe Research, <sup>3</sup>Nanyang Technological University
-
 ### [Project Page](https://raymondwang987.github.io/NVDS/) | [Arxiv](https://arxiv.org/abs/2307.08695) | [Video](https://youtu.be/SNV9F-60xrE) | [视频](https://www.bilibili.com/video/BV1KW4y1d7F8/) | [Poster](https://github.com/RaymondWang987/NVDS/blob/main/PDF/NVDS_Poster_ICCV23.pdf) | [Supp](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf) | [VDW Dataset](https://raymondwang987.github.io/VDW/) | [VDW Toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits)
 
 **TPAMI 2024 "NVDS+: Towards Efficient and Versatile Neural Stabilizer for Video Depth Estimation" (NVDS+)**

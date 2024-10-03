@@ -10,7 +10,7 @@ Authors: [Yiran Wang](https://raymondwang987.github.io)<sup>1</sup>,
 [Zihao Huang](https://orcid.org/0000-0002-8804-191X)<sup>1</sup>,
 [Zhiguo Cao](http://english.aia.hust.edu.cn/info/1085/1528.htm)<sup>1</sup>,
 [Jianming Zhang](https://jimmie33.github.io/)<sup>2</sup>,
-[Ke Xian](https://kexianhust.github.io)<sup>3*</sup>, 
+[Ke Xian](https://kexianhust.github.io)<sup>3</sup>, 
 [Guosheng Lin](https://guosheng.github.io/)<sup>3</sup>
 
 
@@ -26,7 +26,7 @@ Authors: [Yiran Wang](https://raymondwang987.github.io)<sup>1</sup>,
 [Juewen Peng](https://juewenpeng.github.io)<sup>3</sup>,
 [Zhiguo Cao](http://english.aia.hust.edu.cn/info/1085/1528.htm)<sup>1</sup>,
 [Jianming Zhang](https://jimmie33.github.io/)<sup>2</sup>,
-[Ke Xian](https://kexianhust.github.io)<sup>3*</sup>, 
+[Ke Xian](https://kexianhust.github.io)<sup>1</sup>, 
 [Guosheng Lin](https://guosheng.github.io/)<sup>3</sup>
 
 

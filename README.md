@@ -14,7 +14,7 @@ Authors: [Yiran Wang](https://raymondwang987.github.io)<sup>1</sup>,
 [Guosheng Lin](https://guosheng.github.io/)<sup>3</sup>
 
 
-### [Project Page](https://raymondwang987.github.io/NVDS/) | [Arxiv](https://arxiv.org/abs/2307.08695) | [Video](https://youtu.be/SNV9F-60xrE) | [视频](https://www.bilibili.com/video/BV1KW4y1d7F8/) | [Poster](https://github.com/RaymondWang987/NVDS/blob/main/PDF/NVDS_Poster_ICCV23.pdf) | [Supp](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf) | [VDW Dataset](https://raymondwang987.github.io/VDW/) | [VDW Toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits)
+### [Project Page](https://raymondwang987.github.io/NVDS/) | [Arxiv](https://arxiv.org/pdf/2307.08695v2) | [Video](https://youtu.be/SNV9F-60xrE) | [视频](https://www.bilibili.com/video/BV1KW4y1d7F8/) | [Poster](https://github.com/RaymondWang987/NVDS/blob/main/PDF/NVDS_Poster_ICCV23.pdf) | [Supp](https://github.com/RaymondWang987/NVDS/blob/main/PDF/camera_ready/NVDS_supp.pdf) | [VDW Dataset](https://raymondwang987.github.io/VDW/) | [VDW Toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits)
 
 **TPAMI 2024 "NVDS+: Towards Efficient and Versatile Neural Stabilizer for Video Depth Estimation" (NVDS+)**
 
@@ -32,7 +32,7 @@ Authors: [Yiran Wang](https://raymondwang987.github.io)<sup>1</sup>,
 
 Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</sup>Adobe Research, <sup>3</sup>Nanyang Technological University
 
-### Paper | Arxiv (Coming Soon) | [Video](https://www.youtube.com/watch?v=L-yeR_aki20) | [Supp](https://github.com/RaymondWang987/NVDS/blob/main/PDF/Supp_NVDS_Plus.pdf) 
+### [Arxiv](https://arxiv.org/pdf/2307.08695) | [Video](https://www.youtube.com/watch?v=L-yeR_aki20) | | [视频](https://www.bilibili.com/video/BV1WhxdenEga/?vd_source=806e94b96ef6755e55a2da337c69df47) | [Supp](https://github.com/RaymondWang987/NVDS/blob/main/PDF/Supp_NVDS_Plus.pdf) 
 
 ## 😎 Highlights
 **NVDS is the first plug-and-play stabilizer** that can remove flickers from any single-image depth model without extra effort. Besides, we also introduce a large-scale dataset, **Video Depth
@@ -48,7 +48,7 @@ in the Wild (VDW)**, which consists of 14,203 videos with over two million frame
   Following [MiDaS](https://github.com/isl-org/MiDaS) and [CVD](https://github.com/facebookresearch/consistent_depth), NVDS model adopts the widely-used [MIT License](https://github.com/RaymondWang987/NVDS/blob/main/LICENSE).
 
 ## ⚡ Updates and Todo List
-+ [TODO] The paper and code of **NVDS+** will be gradually released.
++ [2024.10.04] The TPAMI 2024 paper of our NVDS+ is presented in [Arxiv](https://arxiv.org/pdf/2307.08695).
 + [2024.10.02] The extension **NVDS+：Towards Efficient and Versatile Neural Stabilizer for Video Depth Estimation** is accepted by TPAMI 2024!.
 + [2024.06.03] The [VDW official toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits) to reproduce VDW and generate your own data.
 + [2024.01.22] We release the [supplementary video](https://www.youtube.com/watch?v=L-yeR_aki20) for the journal extension from **NVDS to NVDS+**.

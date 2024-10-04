@@ -32,7 +32,7 @@ Authors: [Yiran Wang](https://raymondwang987.github.io)<sup>1</sup>,
 
 Institutes: <sup>1</sup>Huazhong University of Science and Technology, <sup>2</sup>Adobe Research, <sup>3</sup>Nanyang Technological University
 
-### [Arxiv](https://arxiv.org/pdf/2307.08695) | [Video](https://www.youtube.com/watch?v=L-yeR_aki20) | | [视频](https://www.bilibili.com/video/BV1WhxdenEga/?vd_source=806e94b96ef6755e55a2da337c69df47) | [Supp](https://github.com/RaymondWang987/NVDS/blob/main/PDF/Supp_NVDS_Plus.pdf) 
+### [Arxiv](https://arxiv.org/pdf/2307.08695) | [Video](https://www.youtube.com/watch?v=L-yeR_aki20) | [视频](https://www.bilibili.com/video/BV1WhxdenEga/?vd_source=806e94b96ef6755e55a2da337c69df47) | [Supp](https://github.com/RaymondWang987/NVDS/blob/main/PDF/Supp_NVDS_Plus.pdf) 
 
 ## 😎 Highlights
 **NVDS is the first plug-and-play stabilizer** that can remove flickers from any single-image depth model without extra effort. Besides, we also introduce a large-scale dataset, **Video Depth

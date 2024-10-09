@@ -48,7 +48,7 @@ in the Wild (VDW)**, which consists of 14,203 videos with over two million frame
   Following [MiDaS](https://github.com/isl-org/MiDaS) and [CVD](https://github.com/facebookresearch/consistent_depth), NVDS model adopts the widely-used [MIT License](https://github.com/RaymondWang987/NVDS/blob/main/LICENSE).
 
 ## ⚡ Updates and Todo List
-+ [2024.10.04] The TPAMI 2024 paper of our NVDS+ is presented in [Arxiv](https://arxiv.org/pdf/2307.08695).
++ [2024.10.04] The TPAMI 2024 paper of our NVDS+ is presented in [Arxiv](https://arxiv.org/pdf/2307.08695) and [IEEE](https://ieeexplore.ieee.org/document/10707178).
 + [2024.10.02] The extension **NVDS+：Towards Efficient and Versatile Neural Stabilizer for Video Depth Estimation** is accepted by TPAMI 2024!.
 + [2024.06.03] The [VDW official toolkits](https://github.com/RaymondWang987/VDW_Dataset_Toolkits) to reproduce VDW and generate your own data.
 + [2024.01.22] We release the [supplementary video](https://www.youtube.com/watch?v=L-yeR_aki20) for the journal extension from **NVDS to NVDS+**.

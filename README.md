@@ -278,14 +278,21 @@ We thank the authors for releasing [PyTorch](https://pytorch.org/), [MiDaS](http
 
 ## 📧 Citation
 ```
-@InProceedings{Wang_2023_ICCV,
+@InProceedings{NVDS,
     author    = {Wang, Yiran and Shi, Min and Li, Jiaqi and Huang, Zihao and Cao, Zhiguo and Zhang, Jianming and Xian, Ke and Lin, Guosheng},
     title     = {Neural Video Depth Stabilizer},
     booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
     month     = {October},
     year      = {2023},
-    pages     = {9466-9476}
-}
+    pages     = {9466-9476}}
+
+@ARTICLE{NVDSPLUS,
+  author={Wang, Yiran and Shi, Min and Li, Jiaqi and Hong, Chaoyi and Huang, Zihao and Peng, Juewen and Cao, Zhiguo and Zhang, Jianming and Xian, Ke and Lin, Guosheng},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={NVDS$^{\mathbf{+}}$: Towards Efficient and Versatile Neural Stabilizer for Video Depth Estimation}, 
+  year={2024},
+  pages={1-18},
+  doi={10.1109/TPAMI.2024.3476387}}
 ```
   
 
